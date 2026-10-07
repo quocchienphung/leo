@@ -1,0 +1,4 @@
+/* Ported from source scope data-v-72708019 (ParallaxWrapper). */
+.parallaxComponent {
+  will-change: transform;
+}

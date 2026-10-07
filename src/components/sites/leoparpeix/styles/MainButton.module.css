@@ -1,0 +1,44 @@
+/* Ported from source scope data-v-3d08a041 (MainButton). */
+.mainButton {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  color: inherit;
+  transition: color 0.4s ease;
+  pointer-events: auto;
+  cursor: pointer;
+  gap: 0.5rem;
+  padding: 1.0714285714rem;
+  margin: -1.0714285714rem;
+}
+
+.mainButton:before {
+  content: "";
+  position: absolute;
+  left: 1.0714285714rem;
+  bottom: 0.8571428571rem;
+  width: calc(100% - 2.1428571429rem);
+  height: 0.0714285714rem;
+  background: currentColor;
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.75s 0s cubic-bezier(0.16, 1, 0.1, 1);
+  will-change: transform;
+}
+
+@media screen and (min-width: 1025px) {
+  .mainButton:hover:before {
+    transform-origin: left;
+    transition: transform 0.75s 0s cubic-bezier(0.16, 1, 0.1, 1);
+    transform: scaleX(1);
+  }
+}
+
+.mainButton--noUnderlineHover {
+  cursor: default;
+}
+
+.mainButton--noUnderlineHover:before {
+  content: none;
+}

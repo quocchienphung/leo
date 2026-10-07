@@ -1,0 +1,1598 @@
+{
+  "assets": [
+    {
+      "id": "cdb6b51e381280d0",
+      "kind": "font",
+      "name": "monumentgrotesk-regular.woff2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "link"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 97,
+          "property": "href"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/fonts/monumentgrotesk-regular.woff2"
+    },
+    {
+      "id": "920126db19cde91d",
+      "kind": "font",
+      "name": "avantt-variable.ttf",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "link"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 99,
+          "property": "href"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/fonts/avantt-variable.ttf"
+    },
+    {
+      "id": "f118196bc406ff4d",
+      "kind": "script",
+      "name": "index-B1uQITYR.js",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "script"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 101,
+          "property": "src"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/index-B1uQITYR.js"
+    },
+    {
+      "id": "d14cf4b84f6f6635",
+      "kind": "stylesheet",
+      "name": "index-Df3Q1d9l.css",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "link"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 103,
+          "property": "href"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/index-Df3Q1d9l.css"
+    },
+    {
+      "id": "959876ebf106b648",
+      "kind": "script",
+      "name": "script.js",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "script"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 105,
+          "property": "src"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/_vercel/insights/script.js"
+    },
+    {
+      "id": "664b54fe68a5cc59",
+      "kind": "script",
+      "name": "basis_transcoder.js",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/basis/basis_transcoder.js"
+    },
+    {
+      "id": "c892842a0582ffdd",
+      "kind": "other",
+      "name": "basis_transcoder.wasm",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/basis/basis_transcoder.wasm"
+    },
+    {
+      "id": "b53ee773698fa49d",
+      "kind": "video",
+      "name": "showreel.mp4",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "video"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 3,
+          "property": "src"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/showreel-compressed/desktop/showreel.mp4"
+    },
+    {
+      "id": "a9282688c2c601ea",
+      "kind": "other",
+      "name": "view",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/_vercel/insights/view"
+    },
+    {
+      "id": "2959132e9942d06f",
+      "kind": "other",
+      "name": "flower.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/flower-ktx/1024/flower.ktx2"
+    },
+    {
+      "id": "44e2112415dfe37f",
+      "kind": "other",
+      "name": "bee.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/bee-ktx/1024/bee.ktx2"
+    },
+    {
+      "id": "1fedcacb704b4ff5",
+      "kind": "other",
+      "name": "noise.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/noise-ktx/512/noise.ktx2"
+    },
+    {
+      "id": "2f7cc026c1b5c65e",
+      "kind": "other",
+      "name": "TexFleur.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexFleur.ktx2"
+    },
+    {
+      "id": "c1c3aa87399037cf",
+      "kind": "other",
+      "name": "TexProps.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexProps.ktx2"
+    },
+    {
+      "id": "2ccd3b3afea5e3f1",
+      "kind": "other",
+      "name": "TexMobilier.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexMobilier.ktx2"
+    },
+    {
+      "id": "6b0f92243ff79f84",
+      "kind": "other",
+      "name": "TexDecor.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexDecor.ktx2"
+    },
+    {
+      "id": "d116ac011d70ff9a",
+      "kind": "other",
+      "name": "TexTableaux.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexTableaux.ktx2"
+    },
+    {
+      "id": "9df4b65a4a538aa2",
+      "kind": "other",
+      "name": "TexBibli.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexBibli.ktx2"
+    },
+    {
+      "id": "b0d3f9374e1b35e7",
+      "kind": "other",
+      "name": "TexFloor.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexFloor.ktx2"
+    },
+    {
+      "id": "08d48e5d52005d74",
+      "kind": "other",
+      "name": "TexWalls.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexWalls.ktx2"
+    },
+    {
+      "id": "64f224da109e8171",
+      "kind": "image",
+      "name": "cloud1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud1.png"
+    },
+    {
+      "id": "af0472b951285a66",
+      "kind": "image",
+      "name": "cloud2.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud2.png"
+    },
+    {
+      "id": "2d489129f6dda8f8",
+      "kind": "image",
+      "name": "cloud3.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud3.png"
+    },
+    {
+      "id": "543412d022d973b5",
+      "kind": "image",
+      "name": "cloud4.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud4.png"
+    },
+    {
+      "id": "a8a1dc73eab0c065",
+      "kind": "image",
+      "name": "cloud5.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud5.png"
+    },
+    {
+      "id": "d301d85bd411d319",
+      "kind": "image",
+      "name": "cloud6.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud6.png"
+    },
+    {
+      "id": "8b15cbd63438e1ca",
+      "kind": "other",
+      "name": "bee_v4.glb",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/models/global/bee/bee_v4.glb"
+    },
+    {
+      "id": "26fb40d62bd2277a",
+      "kind": "other",
+      "name": "flower_v2.glb",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/models/global/flower/flower_v2.glb"
+    },
+    {
+      "id": "f5e5e328d51f859c",
+      "kind": "other",
+      "name": "orange.glb",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/models/global/fruits/orange.glb"
+    },
+    {
+      "id": "f827b1173b184b09",
+      "kind": "other",
+      "name": "raisin.glb",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/models/global/fruits/raisin.glb"
+    },
+    {
+      "id": "09c2beeab4be6272",
+      "kind": "other",
+      "name": "scene_v9.glb",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/models/home/scene_v9.glb"
+    },
+    {
+      "id": "f14e1444a74c4cef",
+      "kind": "script",
+      "name": "draco_wasm_wrapper.js",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/models/draco/draco_wasm_wrapper.js"
+    },
+    {
+      "id": "44364874a2f96a11",
+      "kind": "other",
+      "name": "draco_decoder.wasm",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://www.leoparpeix.com/assets/models/draco/draco_decoder.wasm"
+    },
+    {
+      "id": "87ee3fb3f2d0432f",
+      "kind": "other",
+      "name": "ambient.aac",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "xmlhttprequest"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/ambient.aac"
+    },
+    {
+      "id": "744ecf7f22fced60",
+      "kind": "other",
+      "name": "fruit1.aac",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "xmlhttprequest"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/fruit1.aac"
+    },
+    {
+      "id": "39f99d3078e970d2",
+      "kind": "other",
+      "name": "fruit2.aac",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "xmlhttprequest"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/fruit2.aac"
+    },
+    {
+      "id": "880cab3af792c42e",
+      "kind": "other",
+      "name": "pageTransition.aac",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "xmlhttprequest"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/pageTransition.aac"
+    },
+    {
+      "id": "390fabec4cfa5802",
+      "kind": "image",
+      "name": "showreel-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 448,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 449,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/showreel-base/showreel-poster.webp"
+    },
+    {
+      "id": "07ac381024b284a2",
+      "kind": "image",
+      "name": "7-PortfolioGab-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 866,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 867,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/7-PortfolioGab-poster.webp"
+    },
+    {
+      "id": "8d0d9be7216c47d9",
+      "kind": "image",
+      "name": "8-Unity-2025-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 903,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 904,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/8-Unity-2025-poster.webp"
+    },
+    {
+      "id": "c848de9a30484736",
+      "kind": "image",
+      "name": "9-Pangaia-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 940,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 941,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/9-Pangaia-poster.webp"
+    },
+    {
+      "id": "64714b5bfc694068",
+      "kind": "image",
+      "name": "11-Merrel-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1011,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1012,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/11-Merrel-poster.webp"
+    },
+    {
+      "id": "cb7bd2cdeb5658f3",
+      "kind": "image",
+      "name": "13-Tougo-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1082,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1083,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/13-Tougo-poster.webp"
+    },
+    {
+      "id": "185f4fdb98f9cfe9",
+      "kind": "image",
+      "name": "14-DrakeHotel-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1119,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1120,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/14-DrakeHotel-poster.webp"
+    },
+    {
+      "id": "00a7e286cda442f5",
+      "kind": "image",
+      "name": "15-Vooban-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1156,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1157,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/15-Vooban-poster.webp"
+    },
+    {
+      "id": "41cf7bc9997e4340",
+      "kind": "image",
+      "name": "17-Unity-2024-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1227,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1228,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/17-Unity-2024-poster.webp"
+    },
+    {
+      "id": "0a968c4e24d7819a",
+      "kind": "image",
+      "name": "18-TheHayAdams-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1264,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1265,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/18-TheHayAdams-poster.webp"
+    },
+    {
+      "id": "ab302d7fa9f238dc",
+      "kind": "image",
+      "name": "19-PrisonBoss-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1301,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1302,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/19-PrisonBoss-poster.webp"
+    },
+    {
+      "id": "0cb0de834d893e3e",
+      "kind": "image",
+      "name": "20-Palosanto-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1338,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1339,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/20-Palosanto-poster.webp"
+    },
+    {
+      "id": "87536ed887e4d264",
+      "kind": "image",
+      "name": "21-Longines-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1375,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1376,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/21-Longines-poster.webp"
+    },
+    {
+      "id": "137b637b9bc4875c",
+      "kind": "image",
+      "name": "23-ImmersiveGarden-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1444,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1445,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/23-ImmersiveGarden-poster.webp"
+    },
+    {
+      "id": "46fa405b367ccb9a",
+      "kind": "image",
+      "name": "24-LonginesDolceVita-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1481,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1482,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/24-LonginesDolceVita-poster.webp"
+    },
+    {
+      "id": "86310a135875d38a",
+      "kind": "image",
+      "name": "25-Omega-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1518,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1519,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/25-Omega-poster.webp"
+    },
+    {
+      "id": "a1a2e4bb000225a1",
+      "kind": "image",
+      "name": "26-Aleph-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1553,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1554,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/26-Aleph-poster.webp"
+    },
+    {
+      "id": "d42a3a9da59b447d",
+      "kind": "image",
+      "name": "28-TourDeFrance-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1624,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1625,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/28-TourDeFrance-poster.webp"
+    },
+    {
+      "id": "1cd4337b4cd09d81",
+      "kind": "image",
+      "name": "29-Manza-poster.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "css"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 1661,
+          "property": "src"
+        },
+        {
+          "kind": "computedStyle",
+          "nodeId": 1662,
+          "property": "background-image"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/29-Manza-poster.webp"
+    },
+    {
+      "id": "8a10ce31718123b4",
+      "kind": "video",
+      "name": "showreel.mp4",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "video"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 446,
+          "property": "src"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/medias/home/showreel-compressed/preview/showreel.mp4"
+    },
+    {
+      "id": "2d50be87c21d10a8",
+      "kind": "other",
+      "name": "TexBook.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexBook.ktx2"
+    },
+    {
+      "id": "70e60d095030a720",
+      "kind": "other",
+      "name": "TexFleur.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexFleur.ktx2"
+    },
+    {
+      "id": "f5db479c64d704a0",
+      "kind": "other",
+      "name": "TexRock.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexRock.ktx2"
+    },
+    {
+      "id": "908e560392de78bd",
+      "kind": "other",
+      "name": "TexGround.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexGround.ktx2"
+    },
+    {
+      "id": "2ef994c0a84bc513",
+      "kind": "other",
+      "name": "TexProps.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexProps.ktx2"
+    },
+    {
+      "id": "964c7c922e0b037d",
+      "kind": "other",
+      "name": "TexDecor.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexDecor.ktx2"
+    },
+    {
+      "id": "9255656ff02d4a43",
+      "kind": "other",
+      "name": "TexMobilier.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexMobilier.ktx2"
+    },
+    {
+      "id": "28e75eaa8e5f9dc3",
+      "kind": "other",
+      "name": "TexArbresFront.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexArbresFront.ktx2"
+    },
+    {
+      "id": "cb345032185816b2",
+      "kind": "other",
+      "name": "TexArbresBack.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexArbresBack.ktx2"
+    },
+    {
+      "id": "9257ebffeda7da59",
+      "kind": "other",
+      "name": "waterDeformation.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/global/waterDeformation-ktx/1024/waterDeformation.ktx2"
+    },
+    {
+      "id": "fd58e8ddb565352c",
+      "kind": "other",
+      "name": "roughness.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-ktx/512/roughness.ktx2"
+    },
+    {
+      "id": "4f49bc3bf206cf1f",
+      "kind": "other",
+      "name": "ao.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-ktx/512/ao.ktx2"
+    },
+    {
+      "id": "c8db40aa4d7d57fb",
+      "kind": "other",
+      "name": "diffuse.ktx2",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-ktx/512/diffuse.ktx2"
+    },
+    {
+      "id": "e09fac35bb9f53fe",
+      "kind": "image",
+      "name": "leaves.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/leaves-webp/256/leaves.webp"
+    },
+    {
+      "id": "8bcd5ef4d20e3651",
+      "kind": "image",
+      "name": "normal.webp",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-webp/512/normal.webp"
+    },
+    {
+      "id": "8024ef70d72af4f6",
+      "kind": "image",
+      "name": "texMontagne.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/textures/about/scene/texMontagne.png"
+    },
+    {
+      "id": "6448764b9d69a8ba",
+      "kind": "other",
+      "name": "scene_v15.glb",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://cdn.leoparpeix.com/assets/models/about/scene_v15.glb"
+    }
+  ],
+  "id": "5ef59ad5-4d19-41bb-9ce6-01e328e62787",
+  "inlineSvgs": [
+    {
+      "id": "a0aac509f19cbab7",
+      "markup": "<svg class=\"progress__circle\" width=\"8\" height=\"8\" viewBox=\"0 0 8 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle class=\"circle--inactive\" opacity=\"0.2\" cx=\"4\" cy=\"4\" r=\"3.25\" stroke=\"black\" stroke-width=\"1\"></circle><g transform=\"rotate(-90 4 4)\"><circle class=\"circle--animated\" cx=\"4\" cy=\"4\" r=\"3.25\" stroke=\"black\" stroke-width=\"1\"></circle></g></svg>",
+      "name": "svg-1"
+    },
+    {
+      "id": "d8bd5f791deeba75",
+      "markup": "<svg class=\"navLabButton__arrow navLabButton__arrow--default\" width=\"8\" height=\"8\" viewBox=\"0 0 8 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" data-v-68201abb=\"\"><path d=\"M7.47503 5.00038H6.47514V1.65681L0.70711 7.42484L2.76905e-06 6.71774L5.71762 1.00011H2.47488V0.000221195H7.47434L7.47503 5.00038Z\" fill=\"currentColor\" data-v-68201abb=\"\"></path></svg>",
+      "name": "svg-2"
+    },
+    {
+      "id": "c9d08bc384eabbb5",
+      "markup": "<svg class=\"navLabButton__arrow navLabButton__arrow--hover\" width=\"8\" height=\"8\" viewBox=\"0 0 8 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" data-v-68201abb=\"\"><path d=\"M7.47503 5.00038H6.47514V1.65681L0.70711 7.42484L2.76905e-06 6.71774L5.71762 1.00011H2.47488V0.000221195H7.47434L7.47503 5.00038Z\" fill=\"currentColor\" data-v-68201abb=\"\"></path></svg>",
+      "name": "svg-3"
+    },
+    {
+      "id": "900a60a3bc758025",
+      "markup": "<svg data-v-13eb05a0=\"\" class=\"menuButton__default\" width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path data-v-13eb05a0=\"\" class=\"default__line default__line--1\" d=\"M1 1H11\" stroke-width=\"2\" stroke-linecap=\"round\"></path><path data-v-13eb05a0=\"\" class=\"default__line default__line--2\" d=\"M1 7H11\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg>",
+      "name": "svg-4"
+    },
+    {
+      "id": "a445039ea103145c",
+      "markup": "<svg data-v-13eb05a0=\"\" class=\"menuButton__cross\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path data-v-13eb05a0=\"\" class=\"cross__line cross__line--1\" d=\"M23.5391 16.4729L16.468 23.544\" stroke-width=\"2\" stroke-linecap=\"round\"></path><path data-v-13eb05a0=\"\" class=\"cross__line cross__line--2\" d=\"M23.5322 23.5439L16.4612 16.4729\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg>",
+      "name": "svg-5"
+    },
+    {
+      "id": "ee04f087b139dd06",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-6"
+    },
+    {
+      "id": "fc61dee1f0aa94f1",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-7"
+    },
+    {
+      "id": "3291319f6a5c4ac0",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-8"
+    },
+    {
+      "id": "994666fe19ce971e",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-9"
+    },
+    {
+      "id": "b25908664e436562",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-10"
+    },
+    {
+      "id": "9e2a7927ec4f7814",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-11"
+    },
+    {
+      "id": "def0cec59e616ce2",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-12"
+    },
+    {
+      "id": "54b0baefb3259377",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-13"
+    },
+    {
+      "id": "38a2c174c5de4196",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-14"
+    },
+    {
+      "id": "d2d640f4e3261fc1",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-15"
+    },
+    {
+      "id": "2054d0ec7551cb28",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-16"
+    },
+    {
+      "id": "1778cf532c089bd0",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-17"
+    },
+    {
+      "id": "01e3a1f2f00c81df",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-18"
+    },
+    {
+      "id": "43f435c94bc30bc8",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-19"
+    },
+    {
+      "id": "e83fc20bac497ad9",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-20"
+    },
+    {
+      "id": "591a54d6c3846b5b",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-21"
+    },
+    {
+      "id": "b376477e4ff46b0f",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-22"
+    },
+    {
+      "id": "e11eb1c1edaca035",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-23"
+    },
+    {
+      "id": "55b214c8b32263c1",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-24"
+    },
+    {
+      "id": "d8b80a8c43b6bef5",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-25"
+    },
+    {
+      "id": "eae7dc19f5c7dba2",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-26"
+    },
+    {
+      "id": "01b67f2f3e95825f",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-27"
+    },
+    {
+      "id": "55ae323e771d9f66",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-28"
+    },
+    {
+      "id": "7b0943284b3474d9",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-29"
+    },
+    {
+      "id": "f175855170665cb5",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-30"
+    },
+    {
+      "id": "94e1307052905fc3",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-31"
+    },
+    {
+      "id": "e8a7a5bac82ef029",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-32"
+    },
+    {
+      "id": "12cb59a8eb030c24",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-33"
+    },
+    {
+      "id": "735ffc2a0bcf8074",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-34"
+    },
+    {
+      "id": "2c37cc501627aeb2",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-35"
+    },
+    {
+      "id": "8d9715c707bdbddd",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-36"
+    },
+    {
+      "id": "7db9b5e17cc5f5f1",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-37"
+    },
+    {
+      "id": "c89c177d31f27020",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-38"
+    },
+    {
+      "id": "e1e5e65402518009",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-39"
+    },
+    {
+      "id": "ecd58a136a617431",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-40"
+    },
+    {
+      "id": "c13379bb477bb394",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-41"
+    },
+    {
+      "id": "7717c7acf5bfad73",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-42"
+    },
+    {
+      "id": "10462d898c45dbde",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-43"
+    },
+    {
+      "id": "bb80bcf3eccb2f1b",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-44"
+    },
+    {
+      "id": "0ba789fe726aa9e9",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-45"
+    },
+    {
+      "id": "43c75a0548229d57",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-46"
+    },
+    {
+      "id": "c053bf7aee06f50f",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-47"
+    },
+    {
+      "id": "a76eca2cba56d307",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-48"
+    },
+    {
+      "id": "9ce86b889cc3f421",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-49"
+    },
+    {
+      "id": "3a403c413ca7a24b",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-50"
+    },
+    {
+      "id": "21d056c777e29b90",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-51"
+    },
+    {
+      "id": "37b136f73469deb4",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-52"
+    },
+    {
+      "id": "ab17ef6781024dc6",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-53"
+    },
+    {
+      "id": "f47ff453643595f5",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-54"
+    },
+    {
+      "id": "1279a48f78d5c8a4",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-55"
+    },
+    {
+      "id": "22d8067b869a45e8",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-56"
+    },
+    {
+      "id": "0ea2166ed06e8c7a",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-57"
+    },
+    {
+      "id": "93a1bc7be627abb5",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-58"
+    },
+    {
+      "id": "1508a9d0030ba276",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-59"
+    },
+    {
+      "id": "9fbcb8f105396ad0",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-60"
+    },
+    {
+      "id": "84df8bfac9c79218",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-61"
+    },
+    {
+      "id": "4ab67e3868249ee2",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-62"
+    },
+    {
+      "id": "91794bc233e86f96",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-63"
+    },
+    {
+      "id": "670009214f50a9fc",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-64"
+    },
+    {
+      "id": "683be905db502ca0",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-65"
+    },
+    {
+      "id": "35ad0013c2fe2e4b",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-66"
+    },
+    {
+      "id": "314c4564584a5c33",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-67"
+    },
+    {
+      "id": "0939be0785a7c37f",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-68"
+    },
+    {
+      "id": "8fddf786d8a6ba63",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-69"
+    },
+    {
+      "id": "f581df1cde215493",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-70"
+    },
+    {
+      "id": "e365eaaec9270f36",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-71"
+    },
+    {
+      "id": "42a56875038e38ef",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-72"
+    },
+    {
+      "id": "e4f3044ebb7538af",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-73"
+    },
+    {
+      "id": "3a55f7d814da4167",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-74"
+    },
+    {
+      "id": "af921f42f18d60f3",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-75"
+    },
+    {
+      "id": "4e553ffb94a8359a",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-76"
+    },
+    {
+      "id": "39bb9c8a21a8c5ed",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-77"
+    },
+    {
+      "id": "ebb8b5dd70d6dd33",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-78"
+    },
+    {
+      "id": "92105f9226818c7d",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-79"
+    },
+    {
+      "id": "c62b2f239286f24a",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-80"
+    },
+    {
+      "id": "e820196cbfe215c0",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-81"
+    },
+    {
+      "id": "660a529baea24725",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-82"
+    },
+    {
+      "id": "b807ab27f48e08f5",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-83"
+    },
+    {
+      "id": "2d298fadcc8926b7",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-84"
+    },
+    {
+      "id": "b52cc00d6359b1b5",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-85"
+    },
+    {
+      "id": "a89144badef92ad8",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-86"
+    },
+    {
+      "id": "3a3a4f2a16e5f105",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-87"
+    },
+    {
+      "id": "e402b64fab3d6e10",
+      "markup": "<svg data-v-d1c93837=\"\" class=\"items__arrow\" width=\"7\" height=\"5\" viewBox=\"0 0 7 5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect data-v-d1c93837=\"\" x=\"3.96875\" y=\"4.02197\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(-135 3.96875 4.02197)\" fill=\"#022016\"></rect><rect data-v-d1c93837=\"\" x=\"7\" y=\"0.991699\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(135 7 0.991699)\" fill=\"#022016\"></rect></svg>",
+      "name": "svg-88"
+    },
+    {
+      "id": "17317a1c5241c6a6",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--default\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-89"
+    },
+    {
+      "id": "970f6197547e1e12",
+      "markup": "<svg class=\"arrows__arrow arrows__arrow--hover\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-fbcd8e8f=\"\"><rect class=\"arrow__rect\" x=\"6.66797\" y=\"0.819092\" width=\"4.28576\" height=\"1.09424\" transform=\"rotate(90 6.66797 0.819092)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"2.38184\" y=\"0.818359\" width=\"4.28576\" height=\"1.09424\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect><rect class=\"arrow__rect\" x=\"0.748047\" y=\"6.02832\" width=\"6.61779\" height=\"1.09424\" transform=\"rotate(-45 0.748047 6.02832)\" fill=\"#022016\" data-v-fbcd8e8f=\"\"></rect></svg>",
+      "name": "svg-90"
+    },
+    {
+      "id": "41034e1be67aee6f",
+      "markup": "<svg data-v-063391ad=\"\" class=\"svg-cross cross__icon\" width=\"11\" height=\"11\" viewBox=\"0 0 11 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect y=\"5\" width=\"11\" height=\"1\"></rect><rect x=\"5\" y=\"11\" width=\"11\" height=\"1\" transform=\"rotate(-90 5 11)\"></rect></svg>",
+      "name": "svg-91"
+    },
+    {
+      "id": "c4de9a49fffeb3ff",
+      "markup": "<svg data-v-f9636198=\"\" class=\"svg-cross close__icon\" width=\"11\" height=\"11\" viewBox=\"0 0 11 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect y=\"5\" width=\"11\" height=\"1\"></rect><rect x=\"5\" y=\"11\" width=\"11\" height=\"1\" transform=\"rotate(-90 5 11)\"></rect></svg>",
+      "name": "svg-92"
+    },
+    {
+      "id": "9f191828f488657a",
+      "markup": "<svg data-v-f9636198=\"\" class=\"compactPlayPause__icon compactPlayPause__icon--play\" viewBox=\"0 0 9 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path data-v-f9636198=\"\" d=\"M0 0L9 5.5L0 11V0Z\" fill=\"currentColor\"></path></svg>",
+      "name": "svg-93"
+    }
+  ],
+  "pageUrl": "https://www.leoparpeix.com/?ref=landing.love",
+  "summary": {
+    "byKind": {
+      "font": 2,
+      "image": 28,
+      "other": 37,
+      "script": 4,
+      "stylesheet": 1,
+      "video": 2
+    },
+    "inlineSvgCount": 93,
+    "totalCount": 74
+  }
+}

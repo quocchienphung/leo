@@ -1,0 +1,31 @@
+/* Ported from source scope data-v-a423018f (App). */
+.app {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.route-enter-from {
+  opacity: 0;
+}
+
+.route-enter-active {
+  transition: opacity 0s linear;
+}
+
+.route-leave-to {
+  opacity: 0;
+}
+
+.route-leave-active {
+  transition: opacity 0s linear;
+}
+
+.pageTransitionOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 10000;
+  pointer-events: auto;
+}

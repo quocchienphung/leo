@@ -1,0 +1,170 @@
+/* Ported from source scope data-v-17c2e66f (HomeHeroBlock). */
+.heroBlock {
+  color: #022016;
+  position: relative;
+}
+
+@media screen and (max-width: 1025px) {
+  .heroBlock {
+    padding-top: 65px;
+  }
+}
+
+.heroBlock__top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2.8571428571rem;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1025px) {
+  .heroBlock__top {
+    grid-row-gap: 18px;
+    position: relative;
+    top: unset;
+    margin-bottom: -22dvh;
+  }
+}
+
+.heroBlock__top .top__city {
+  grid-column: 1/6;
+  margin-left: 1.4285714286rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .heroBlock__top .top__city {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .heroBlock__top .top__city {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .heroBlock__top .top__city {
+    width: 191px;
+    grid-column: 1/9;
+    margin-left: 0;
+    justify-self: center;
+    text-align: center;
+  }
+}
+
+.heroBlock__top .top__star {
+  text-align: center;
+  grid-column: 6/8;
+  font-family: text;
+  font-size: 2.3611111111vw;
+}
+
+@media (min-width: 2880px) {
+  .heroBlock__top .top__star {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .heroBlock__top .top__star {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .heroBlock__top .top__star {
+    grid-column: 1/9;
+    justify-self: center;
+    line-height: 0.6;
+    width: 10px;
+    height: 10px;
+    font-size: 36px;
+  }
+}
+
+.heroBlock__top .top__infos {
+  grid-column: 10/13;
+  justify-self: end;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2857142857rem;
+  margin-right: 1.4285714286rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .heroBlock__top .top__infos {
+    grid-column: 1/9;
+    margin-right: 0;
+    justify-self: center;
+    text-align: center;
+    gap: 18px;
+  }
+}
+
+.heroBlock__top .top__infos .infos__text {
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .heroBlock__top .top__infos .infos__text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .heroBlock__top .top__infos .infos__text {
+    font-size: 14px;
+  }
+}
+
+.heroBlock__top .top__infos .infos__text .wrapper {
+  display: flex;
+  gap: 0.2857142857rem;
+  justify-content: end;
+}
+
+.heroBlock__top .top__infos .infos__agencies {
+  display: flex;
+}
+
+.heroBlock__top .top__infos .infos__agencies .agencies__text {
+  margin-right: 0.2857142857rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .heroBlock__top
+    .top__infos
+    .infos__agencies
+    .agencies__text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .heroBlock__top
+    .top__infos
+    .infos__agencies
+    .agencies__text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .heroBlock__top
+    .top__infos
+    .infos__agencies
+    .agencies__text {
+    margin-right: 4px;
+  }
+}

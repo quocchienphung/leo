@@ -1,0 +1,29 @@
+/* Ported from source scope data-v-bdd5ee4a (WebglBg). */
+.webglBg {
+  width: 100%;
+  height: 100%;
+}
+
+.webglBg--home {
+  background-color: #f7f7f7;
+}
+
+.webglBg--about {
+  background-color: #083d2a;
+}
+
+.webglBg--playground {
+  background-color: #f6e016;
+}
+
+.webglBg__content {
+  width: 100%;
+}
+
+.webglBg__content.isFooter {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  min-height: 100dvh;
+  flex-direction: column;
+}

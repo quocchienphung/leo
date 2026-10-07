@@ -1,0 +1,124 @@
+/* Ported from source scope data-v-9a2f8b06 (HeaderBlock). */
+.headerBlock {
+  width: 100%;
+  height: 200dvh;
+  color: #022016;
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1025px) {
+  .headerBlock {
+    height: 100dvh;
+  }
+}
+
+.headerBlock__content {
+  grid-column: 3/13;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  width: 15.4285714286rem;
+  margin-bottom: 50px;
+  position: absolute;
+  bottom: 100dvh;
+}
+
+.headerBlock__content:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 100%;
+  background: radial-gradient(ellipse at center, #ffffff80 10%, #fff0 70%);
+  width: 24.1666666667vw;
+}
+
+@media (min-width: 2880px) {
+  .headerBlock__content:before {
+    width: 696px;
+  }
+}
+
+@media (max-width: 1241px) {
+  .headerBlock__content:before {
+    width: 300px;
+  }
+}
+
+.headerBlock__content:before {
+  height: 24.1666666667vw;
+}
+
+@media (min-width: 2880px) {
+  .headerBlock__content:before {
+    height: 696px;
+  }
+}
+
+@media (max-width: 1241px) {
+  .headerBlock__content:before {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .headerBlock__content {
+    margin-left: 1.4285714286rem;
+    bottom: 0;
+  }
+}
+
+/* Playground: description top at ≈ 73 % of the height, "Scroll down" at ≈ 88 % (reference). */
+@media screen and (min-width: 1026px) {
+  .headerBlock--raised .headerBlock__content {
+    margin-bottom: max(50px, 11.7dvh);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .headerBlock__content {
+    grid-column: 1/9;
+  }
+}
+
+.headerBlock__content .content__description {
+  font-family: text;
+  line-height: 1.2;
+  font-size: 1.6666666667vw;
+}
+
+@media (min-width: 2880px) {
+  .headerBlock__content .content__description {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .headerBlock__content .content__description {
+    font-size: 24px;
+  }
+}
+
+.headerBlock__content .content__scrollIndication {
+  margin-top: 20px;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .headerBlock__content .content__scrollIndication {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .headerBlock__content .content__scrollIndication {
+    font-size: 14px;
+  }
+}

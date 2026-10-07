@@ -1,0 +1,223 @@
+/* Ported from source scope data-v-245019a5 (FlowersBlock). */
+.flowersBlock {
+  color: #eed6c8;
+  position: relative;
+}
+
+.flowersBlock__container {
+  grid-column: -1/1;
+  margin: 7.1428571429rem auto 10.7142857143rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__container {
+    grid-column: 1/10;
+    margin: 70px 0 120px;
+  }
+}
+
+.flowersBlock__line {
+  display: flex;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--1 {
+    flex-direction: column;
+  }
+}
+
+.flowersBlock__line--2 {
+  margin-bottom: 9.0277777778vw;
+}
+
+@media (min-width: 2880px) {
+  .flowersBlock__line--2 {
+    margin-bottom: 260px;
+  }
+}
+
+@media (max-width: 554px) {
+  .flowersBlock__line--2 {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--2 {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--3 {
+    flex-direction: column;
+  }
+}
+
+.flowersBlock__line--4 {
+  margin-left: 16.9285714286rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--4 {
+    margin-left: 0;
+  }
+  .flowersBlock__line--4 .line__title {
+    flex-shrink: 0;
+  }
+}
+
+.flowersBlock__line--5 {
+  display: flex;
+  gap: 1.875rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--5 {
+    gap: unset;
+    flex-direction: column;
+  }
+}
+
+.flowersBlock__line--7 {
+  margin-left: 21.7857142857rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--7 {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line--8 {
+    flex-direction: column;
+  }
+}
+
+.flowersBlock__line .line__wrapper {
+  display: flex;
+}
+
+.flowersBlock__line .line__paragraph {
+  font-family: text;
+  line-height: 1.2;
+  font-size: 1.25vw;
+}
+
+@media (min-width: 2880px) {
+  .flowersBlock__line .line__paragraph {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .flowersBlock__line .line__paragraph {
+    font-size: 18px;
+  }
+}
+
+.flowersBlock__line .line__paragraph--1 {
+  width: 13.7857142857rem;
+  margin: 0.3571428571rem 3.5714285714rem 0 0.3571428571rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line .line__paragraph--1 {
+    width: 260px;
+    margin: 0 0 30px;
+  }
+}
+
+.flowersBlock__line .line__paragraph--2 {
+  width: 16.7142857143rem;
+  text-indent: 3.7857142857rem;
+  margin-left: 12rem;
+  margin-top: 2.1428571429rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line .line__paragraph--2 {
+    width: 260px;
+    text-indent: 0;
+    margin-left: 0;
+  }
+}
+
+.flowersBlock__line .line__title {
+  font-family: title;
+  font-variation-settings: "wght" 622;
+  line-height: 0.9;
+  text-transform: uppercase;
+  font-size: 8.1944444444vw;
+}
+
+@media (min-width: 2880px) {
+  .flowersBlock__line .line__title {
+    font-size: 236px;
+  }
+}
+
+@media (max-width: 488px) {
+  .flowersBlock__line .line__title {
+    font-size: 40px;
+  }
+}
+
+.flowersBlock__line .line__flower {
+  position: relative;
+  width: 6.9444444444vw;
+}
+
+@media (min-width: 2880px) {
+  .flowersBlock__line .line__flower {
+    width: 200px;
+  }
+}
+
+@media (max-width: 533px) {
+  .flowersBlock__line .line__flower {
+    width: 37px;
+  }
+}
+
+.flowersBlock__line .line__flower {
+  height: 6.9444444444vw;
+}
+
+@media (min-width: 2880px) {
+  .flowersBlock__line .line__flower {
+    height: 200px;
+  }
+}
+
+@media (max-width: 533px) {
+  .flowersBlock__line .line__flower {
+    height: 37px;
+  }
+}
+
+.flowersBlock__line .line__flower {
+  margin: 0 0.7142857143rem;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+
+@media screen and (max-width: 1280px) {
+  .flowersBlock__line .line__flower {
+    margin: 0 2px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .flowersBlock__line .line__flower:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 8rem);
+    height: calc(100% + 8rem);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+}

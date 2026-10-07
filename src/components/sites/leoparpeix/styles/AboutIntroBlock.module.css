@@ -1,0 +1,147 @@
+/* Ported from source scope data-v-95d29d2a (AboutIntroBlock). */
+.introBlock {
+  color: #eed6c8;
+  width: 100%;
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock {
+    margin-top: -140px;
+  }
+}
+
+.introBlock__media {
+  grid-column: 1/13;
+  border-radius: 0.4285714286rem;
+  height: 53.75vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__media {
+    height: 1548px;
+  }
+}
+
+@media (max-width: 694px) {
+  .introBlock__media {
+    height: 373px;
+  }
+}
+
+.introBlock__infos {
+  grid-column: 1/13;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.1428571429rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__infos {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .introBlock__infos {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__infos {
+    margin-top: 20px;
+  }
+}
+
+.introBlock__infos .infos__left {
+  display: flex;
+  gap: 1.4285714286rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__infos .infos__left {
+    gap: 12px;
+  }
+}
+
+.introBlock__infos .infos__left .left__date {
+  opacity: 0.4;
+}
+
+.introBlock__texts {
+  grid-column: 1/13;
+  justify-self: center;
+  margin: 5.7142857143rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4285714286rem;
+  font-family: text;
+  line-height: 1.2;
+  font-size: 1.25vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__texts {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .introBlock__texts {
+    font-size: 18px;
+  }
+}
+
+.introBlock__texts {
+  width: 35.6944444444vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__texts {
+    width: 1028px;
+  }
+}
+
+@media (max-width: 728px) {
+  .introBlock__texts {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__texts {
+    margin: 91px 0 72px;
+  }
+}
+
+.introBlock__star {
+  grid-column: 1/13;
+  justify-self: center;
+  line-height: 0.6;
+  width: 10px;
+  height: 10px;
+  font-family: text;
+  font-size: 2.3611111111vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__star {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .introBlock__star {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__star {
+    font-size: 36px;
+  }
+}

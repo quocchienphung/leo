@@ -1,0 +1,186 @@
+import * as THREE from "three";
+import {
+  floorFragmentMain,
+  floorFragmentPars,
+  floorVertexMain,
+  floorVertexPars,
+  poolFragment,
+  poolVertex,
+} from "../../shaders/crystal";
+import { COLORS, limestone, marbleTexture } from "./materials";
+import { POOL, SUN_WORLD } from "./layout";
+
+const TILE = 1.8; // marble tile size (stage units)
+
+function roundedRect(left: number, right: number, back: number, front: number, r: number): THREE.Shape {
+  // Shape in (x, −z) so that, rotated −π/2 about X, it lies on the floor in stage coordinates.
+  const s = new THREE.Shape();
+  const x0 = left;
+  const x1 = right;
+  const y0 = -front;
+  const y1 = -back;
+  s.moveTo(x0 + r, y0);
+  s.lineTo(x1 - r, y0);
+  s.quadraticCurveTo(x1, y0, x1, y0 + r);
+  s.lineTo(x1, y1 - r);
+  s.quadraticCurveTo(x1, y1, x1 - r, y1);
+  s.lineTo(x0 + r, y1);
+  s.quadraticCurveTo(x0, y1, x0, y1 - r);
+  s.lineTo(x0, y0 + r);
+  s.quadraticCurveTo(x0, y0, x0 + r, y0);
+  return s;
+}
+
+/**
+ * Wet marble floor + shallow pool sharing one planar reflection of the scene (rendered before the
+ * main pass, mirror camera across y = 0 with an oblique near plane).
+ */
+export class MirrorFloor extends THREE.Group {
+  readonly target: THREE.WebGLRenderTarget;
+  private readonly textureMatrix = new THREE.Matrix4();
+  private readonly mirror = new THREE.PerspectiveCamera();
+  private readonly reflectors: THREE.Mesh[] = [];
+  private readonly materials: THREE.Material[] = [];
+  private readonly geometries: THREE.BufferGeometry[] = [];
+  private readonly textures: THREE.Texture[] = [];
+  private readonly poolUniforms: Record<string, THREE.IUniform>;
+  private readonly floorUniforms: Record<string, THREE.IUniform>;
+  private readonly resolution: number;
+  private frame = 0;
+
+  constructor(resolutionScale: number) {
+    super();
+    this.resolution = resolutionScale;
+    this.target = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter });
+
+    // Marble floor (lit, shadowed) with the reflection injected.
+    const map = marbleTexture();
+    map.repeat.set(60 / (TILE * 2), 60 / (TILE * 2));
+    this.textures.push(map);
+    const floorMat = new THREE.MeshStandardMaterial({ map, roughness: 0.1, metalness: 0, envMapIntensity: 0.35 });
+    const floorUniforms = {
+      tReflection: { value: this.target.texture },
+      uTextureMatrix: { value: this.textureMatrix },
+      uReflectivity: { value: 0.85 },
+      uFloorTime: { value: 0 },
+      uSunColor: { value: new THREE.Color(COLORS.sun) },
+    };
+    this.floorUniforms = floorUniforms;
+    floorMat.onBeforeCompile = (shader) => {
+      Object.assign(shader.uniforms, floorUniforms);
+      shader.vertexShader = shader.vertexShader
+        .replace("#include <common>", `#include <common>\n${floorVertexPars}`)
+        .replace("#include <fog_vertex>", `#include <fog_vertex>\n${floorVertexMain}`);
+      shader.fragmentShader = shader.fragmentShader
+        .replace("#include <common>", `#include <common>\n${floorFragmentPars}`)
+        .replace("#include <opaque_fragment>", `${floorFragmentMain}\n#include <opaque_fragment>`);
+    };
+    floorMat.customProgramCacheKey = () => "crystal-floor";
+    const floorGeo = new THREE.PlaneGeometry(60, 60);
+    floorGeo.rotateX(-Math.PI / 2);
+    const floor = new THREE.Mesh(floorGeo, floorMat);
+    floor.position.set(10, 0, -2);
+    floor.receiveShadow = true;
+    this.add(floor);
+    this.reflectors.push(floor);
+    this.materials.push(floorMat);
+    this.geometries.push(floorGeo);
+
+    // Pool water, just above the floor.
+    this.poolUniforms = {
+      tReflection: { value: this.target.texture },
+      uTextureMatrix: { value: this.textureMatrix },
+      uTime: { value: 0 },
+      uBottom: { value: new THREE.Color(0x9fb1b4) },
+      uSunDir: { value: SUN_WORLD.clone() },
+      uSunColor: { value: new THREE.Color(COLORS.sun) },
+    };
+    const poolMat = new THREE.ShaderMaterial({ vertexShader: poolVertex, fragmentShader: poolFragment, uniforms: this.poolUniforms });
+    const poolGeo = new THREE.ShapeGeometry(roundedRect(POOL.left, POOL.right, POOL.back, POOL.front, POOL.radius), 24);
+    poolGeo.rotateX(-Math.PI / 2);
+    const pool = new THREE.Mesh(poolGeo, poolMat);
+    pool.position.y = 0.006;
+    this.add(pool);
+    this.reflectors.push(pool);
+    this.materials.push(poolMat);
+    this.geometries.push(poolGeo);
+
+    // Fine stone lip around the pool (the reference shows only a thin bright line).
+    const outer = roundedRect(POOL.left - 0.05, POOL.right + 0.05, POOL.back - 0.05, POOL.front + 0.05, POOL.radius + 0.05);
+    outer.holes.push(roundedRect(POOL.left, POOL.right, POOL.back, POOL.front, POOL.radius));
+    const curbGeo = new THREE.ExtrudeGeometry(outer, { depth: 0.012, bevelEnabled: true, bevelSize: 0.006, bevelThickness: 0.006, bevelSegments: 2, curveSegments: 32 });
+    curbGeo.rotateX(-Math.PI / 2);
+    const curbMat = limestone();
+    curbMat.roughness = 0.5;
+    const curb = new THREE.Mesh(curbGeo, curbMat);
+    curb.receiveShadow = true;
+    curb.castShadow = true;
+    this.add(curb);
+    this.materials.push(curbMat);
+    this.geometries.push(curbGeo);
+  }
+
+  /** While the environment is captured: no (stale) mirror image in the marble. */
+  set capturing(v: boolean) {
+    this.floorUniforms.uReflectivity.value = v ? 0 : 0.85;
+  }
+
+  setSize(width: number, height: number): void {
+    this.target.setSize(Math.max(1, Math.round(width * this.resolution)), Math.max(1, Math.round(height * this.resolution)));
+  }
+
+  /** Render the mirrored scene into `target` (call before the main pass). */
+  update(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.PerspectiveCamera, et: number): void {
+    this.poolUniforms.uTime.value = et / 1000;
+    this.floorUniforms.uFloorTime.value = et / 1000;
+    // The mirror image re-renders the whole pavilion (glass included): every other frame is enough
+    // for a scene that only floats and drifts.
+    if (this.frame++ % 2 === 1) return;
+    scene.updateMatrixWorld();
+    const camPos = new THREE.Vector3().setFromMatrixPosition(camera.matrixWorld);
+    const lookAt = new THREE.Vector3(0, 0, -1).applyMatrix4(new THREE.Matrix4().extractRotation(camera.matrixWorld)).add(camPos);
+    const up = new THREE.Vector3(0, 1, 0).applyMatrix4(new THREE.Matrix4().extractRotation(camera.matrixWorld));
+    // Mirror across the world plane y = 0.
+    this.mirror.position.set(camPos.x, -camPos.y, camPos.z);
+    this.mirror.up.set(up.x, -up.y, up.z);
+    this.mirror.lookAt(lookAt.x, -lookAt.y, lookAt.z);
+    this.mirror.far = camera.far;
+    this.mirror.updateMatrixWorld();
+    this.mirror.projectionMatrix.copy(camera.projectionMatrix);
+
+    this.textureMatrix.set(0.5, 0, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0, 0.5, 0.5, 0, 0, 0, 1);
+    this.textureMatrix.multiply(this.mirror.projectionMatrix);
+    this.textureMatrix.multiply(this.mirror.matrixWorldInverse);
+
+    // Oblique near plane = the floor, so nothing below it shows in the reflection.
+    const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0).applyMatrix4(this.mirror.matrixWorldInverse);
+    const clip = new THREE.Vector4(plane.normal.x, plane.normal.y, plane.normal.z, plane.constant);
+    const p = this.mirror.projectionMatrix;
+    const q = new THREE.Vector4(
+      (Math.sign(clip.x) + p.elements[8]) / p.elements[0],
+      (Math.sign(clip.y) + p.elements[9]) / p.elements[5],
+      -1,
+      (1 + p.elements[10]) / p.elements[14],
+    );
+    clip.multiplyScalar(2 / clip.dot(q));
+    p.elements[2] = clip.x;
+    p.elements[6] = clip.y;
+    p.elements[10] = clip.z + 1 - 0.003;
+    p.elements[14] = clip.w;
+
+    for (const m of this.reflectors) m.visible = false;
+    const previous = renderer.getRenderTarget();
+    renderer.setRenderTarget(this.target);
+    renderer.clear();
+    renderer.render(scene, this.mirror);
+    renderer.setRenderTarget(previous);
+    for (const m of this.reflectors) m.visible = true;
+  }
+
+  dispose(): void {
+    this.target.dispose();
+    for (const m of this.materials) m.dispose();
+    for (const g of this.geometries) g.dispose();
+    for (const t of this.textures) t.dispose();
+  }
+}

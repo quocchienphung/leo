@@ -1,0 +1,65 @@
+[
+  {
+    "file": "docs/research/leoparpeix/raw/avantt-variable.ttf",
+    "bytes": 104204,
+    "sha256": "4d83948e9aedb31008cf23d34c33c019d144886c8e77e7c5cd7891c1ec11b22d",
+    "verified": "SFNT header"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/bee_v4.glb",
+    "bytes": 137356,
+    "sha256": "3c42b1c5f3a3c9299a79fc594fc4ad6d0c45225d41d627a29674e93ad9cb04eb",
+    "verified": "GLB v2 header and JSON chunk parsed; not GPU-decoded locally"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/flower_v2.glb",
+    "bytes": 196620,
+    "sha256": "be66fe023ebc0cf528c4b4d7f441da0b2383e3a1427aadf4e0f33488894bb45f",
+    "verified": "GLB v2 header and JSON chunk parsed; not GPU-decoded locally"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/index-B1uQITYR.js",
+    "bytes": 1397114,
+    "sha256": "575e15342cc90033540339677671d3b35bbdfd863142b4879951c9b62faaa445"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/index-Df3Q1d9l.css",
+    "bytes": 308468,
+    "sha256": "3f8f3435fd41b6ba744fe6e7f66f31e2c40cb32d57dac31ff9852c86faf62887"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/index.html",
+    "bytes": 3824,
+    "sha256": "80c2a6ed31ebebc1e2a82f07bdf5c7f2fb9daed75956ff6c3585d1b0eebcdaac"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/monumentgrotesk-regular.woff2",
+    "bytes": 27408,
+    "sha256": "b8d019374ae15ba2096102d77f6dcc3072369d23a305c2392967b3bfde5e8b3f",
+    "verified": "WOFF2 header"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/orange.glb",
+    "bytes": 334876,
+    "sha256": "ce5df39e82f2a574ccd9ea4a0dfd5b8d7beef58f3bea10c63a75450111b4530b",
+    "verified": "GLB v2 header and JSON chunk parsed; not GPU-decoded locally"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/raisin.glb",
+    "bytes": 1119096,
+    "sha256": "0aa384adb75066915fe455159c92b94b3f01e8254ef872e58a5146dc3266b8d7",
+    "verified": "GLB v2 header and JSON chunk parsed; not GPU-decoded locally"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/scene_v15.glb",
+    "bytes": 2336576,
+    "sha256": "ca2db186348edc9699d44eb8e8ff2ae3192bd80e024fa29f62cf891c15d91340",
+    "verified": "GLB v2 header and JSON chunk parsed; not GPU-decoded locally"
+  },
+  {
+    "file": "docs/research/leoparpeix/raw/scene_v9.glb",
+    "bytes": 141924,
+    "sha256": "f6751078ccf60e0e73e9557df281fab37999e70fbbc3915662cd933d63da69ee",
+    "verified": "GLB v2 header and JSON chunk parsed; not GPU-decoded locally"
+  }
+]

@@ -1,0 +1,5 @@
+/* Ported from source scope data-v-94b09d28 (HomeView). */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}

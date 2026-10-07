@@ -1,0 +1,55 @@
+/* Ported from source scope data-v-e2dfbf19 (BeeTextIndication). */
+.beeTextIndication {
+  z-index: 3001;
+  position: fixed;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate(-100%, -100%);
+}
+
+.beeTextIndication__text {
+  --bee-scale: 1;
+  --reveal: 1;
+  --text-size-base: 16px;
+  --pad-y-base: 0.6214285714rem;
+  --pad-x-base: 1.4571428571rem;
+  --radius-base: 5.1928571429rem;
+  padding: calc(var(--pad-y-base) * var(--bee-scale) * var(--reveal))
+    calc(var(--pad-x-base) * var(--bee-scale) * var(--reveal));
+  border-radius: calc(var(--radius-base) * var(--bee-scale) * var(--reveal));
+  color: #022016;
+  background: #f7f7f7;
+  display: inline-block;
+  font-family: text;
+  line-height: auto;
+  font-size: calc(var(--text-size-base) * var(--bee-scale) * var(--reveal));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.beeTextIndication__label {
+  display: block;
+  white-space: nowrap;
+}
+
+.beeTextIndication--theme-white .beeTextIndication__text {
+  background: #f7f7f7;
+  color: #022016;
+}
+
+.beeTextIndication--theme-beige .beeTextIndication__text {
+  background: #eed6c8;
+  color: #022016;
+}
+
+.beeTextIndication--theme-yellow .beeTextIndication__text {
+  background: #f6e016;
+  color: #022016;
+}
+
+.beeTextIndication--conversation .beeTextIndication__text {
+  background: #022016;
+  color: #f7f7f7;
+}

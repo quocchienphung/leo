@@ -1,0 +1,9 @@
+/* Ported from source scope data-v-0a0537df (TextComponent). */
+.textComponent {
+  overflow: hidden;
+  contain: paint;
+}
+
+.textComponent :global(.line) {
+  backface-visibility: hidden;
+}

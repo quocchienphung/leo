@@ -1,0 +1,340 @@
+{
+  "blocks": [
+    {
+      "class": "gridWrapper hasPadding headerBlock",
+      "height": 2035.2000732421875,
+      "top": 0
+    },
+    {
+      "class": "webglBg heroBlock",
+      "height": 1017.6000366210938,
+      "top": 2035.1999969482424
+    },
+    {
+      "class": "",
+      "height": 19.912500381469727,
+      "top": 2113.625
+    },
+    {
+      "class": "agencyLink",
+      "height": 49.16250228881836,
+      "top": 2099
+    },
+    {
+      "class": "title",
+      "height": 207.3500061035156,
+      "top": 2201.6875
+    },
+    {
+      "class": "title",
+      "height": 207.3500061035156,
+      "top": 2409.0375366210938
+    },
+    {
+      "class": "title",
+      "height": 207.3500061035156,
+      "top": 2616.3875122070312
+    },
+    {
+      "class": "title title--1",
+      "height": 207.3500061035156,
+      "top": 2409.0375366210938
+    },
+    {
+      "class": "title title--2",
+      "height": 207.3500061035156,
+      "top": 2616.3875122070312
+    },
+    {
+      "class": "title title--3",
+      "height": 207.3500061035156,
+      "top": 2823.7374877929688
+    },
+    {
+      "class": "webglBg introBlock",
+      "height": 1046.1624755859375,
+      "top": 3052.800048828125
+    },
+    {
+      "class": "wrapper",
+      "height": 9360.212890625,
+      "top": 4098.962646484375
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 1308.925048828125,
+      "top": 4098.962646484375
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 1226.5,
+      "top": 5407.887451171875
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 1226.5,
+      "top": 6634.3876953125
+    },
+    {
+      "class": "gridWrapper hasPadding webglSectionBlock",
+      "height": 2035.2000732421875,
+      "top": 7860.8876953125
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 1285.0125732421875,
+      "top": 9896.08740234375
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 1226.5,
+      "top": 11181.1005859375
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 1051.5750732421875,
+      "top": 12407.6005859375
+    },
+    {
+      "class": "webglBg archivesBlock",
+      "height": 2304.175048828125,
+      "top": 13459.1748046875
+    },
+    {
+      "class": "webglBg footerBlock white",
+      "height": 1163.7125244140625,
+      "top": 15763.3505859375
+    },
+    {
+      "class": "title",
+      "height": 207.3500061035156,
+      "top": 16366.25
+    },
+    {
+      "class": "title",
+      "height": 207.3500061035156,
+      "top": 16573.6005859375
+    },
+    {
+      "class": "title",
+      "height": 207.3500061035156,
+      "top": 16780.9501953125
+    },
+    {
+      "class": "title title--1",
+      "height": 207.3500061035156,
+      "top": 16366.25
+    },
+    {
+      "class": "title title--2",
+      "height": 207.3500061035156,
+      "top": 16573.6005859375
+    },
+    {
+      "class": "title title--3",
+      "height": 207.3500061035156,
+      "top": 16780.9501953125
+    }
+  ],
+  "styles": [
+    {
+      "cls": "gridWrapper hasPadding loaderBlock__container",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "139.712px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px",
+      "padding": "0px 29.2571px",
+      "text": "Léo ParpeixArt director, Interactive designerWorld building",
+      "width": "2048px"
+    },
+    {
+      "cls": "gridWrapper hasPadding navbarBlock__left",
+      "color": "rgb(0, 0, 0)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "139.712px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px",
+      "padding": "0px 29.2571px",
+      "text": "Léo ParpeixArt director, Interactive designer",
+      "width": "2048px"
+    },
+    {
+      "cls": "left__title",
+      "color": "rgb(2, 32, 22)",
+      "font": "19.9111px / 19.9111px text",
+      "fontFamily": "text",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Léo Parpeix",
+      "width": "103.225px"
+    },
+    {
+      "cls": "left__infos",
+      "color": "rgb(2, 32, 22)",
+      "font": "19.9111px / 19.9111px text",
+      "fontFamily": "text",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Art director, Interactive designer",
+      "width": "276.475px"
+    },
+    {
+      "cls": "gridWrapper hasPadding navbarBlock__right",
+      "color": "rgb(0, 0, 0)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "139.712px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px",
+      "padding": "0px 29.2571px",
+      "text": "WorkAboutPlaygroundLab",
+      "width": "2048px"
+    },
+    {
+      "cls": "gridWrapper hasPadding navbarBlock__menu",
+      "color": "rgb(0, 0, 0)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
+      "padding": "0px 29.2571px",
+      "text": "Art director, Interactive designerWorkAboutPlaygroundLablparpeix@gmail.com",
+      "width": "100%"
+    },
+    {
+      "cls": "gridWrapper hasPadding headerBlock",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "139.712px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px",
+      "padding": "0px 29.2571px",
+      "text": "Driven by detail. Obsessed with seamless motion.Scroll down",
+      "width": "2048px"
+    },
+    {
+      "cls": "gridWrapper hasPadding heroBlock__top",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "139.712px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px",
+      "padding": "0px 29.2571px",
+      "text": "Raised in France  Designing worldwide*Currently pushing designboundaries at@Locomotiveand in freelan",
+      "width": "2048px"
+    },
+    {
+      "cls": "title",
+      "color": "rgb(2, 32, 22)",
+      "font": "",
+      "fontFamily": "title",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "French",
+      "width": "1877.35px"
+    },
+    {
+      "cls": "title",
+      "color": "rgb(2, 32, 22)",
+      "font": "",
+      "fontFamily": "title",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Interactive",
+      "width": "1877.35px"
+    },
+    {
+      "cls": "title",
+      "color": "rgb(2, 32, 22)",
+      "font": "",
+      "fontFamily": "title",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Designer",
+      "width": "1877.35px"
+    },
+    {
+      "cls": "title title--1",
+      "color": "rgb(2, 32, 22)",
+      "font": "",
+      "fontFamily": "title",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Creative",
+      "width": "2048px"
+    },
+    {
+      "cls": "title title--2",
+      "color": "rgb(2, 32, 22)",
+      "font": "",
+      "fontFamily": "title",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Passionnate",
+      "width": "2048px"
+    },
+    {
+      "cls": "title title--3",
+      "color": "rgb(2, 32, 22)",
+      "font": "",
+      "fontFamily": "title",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Art Director",
+      "width": "2048px"
+    },
+    {
+      "cls": "webglBg introBlock",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "160.914px 0px 312.889px",
+      "text": "Bonjour,I cherish simplicity, a touch of craziness, a unique identity & pixel-perfect animations.*Hi",
+      "width": "2048px"
+    },
+    {
+      "cls": "webglBg__content introBlock",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal",
+      "grid": "none",
+      "padding": "0px",
+      "text": "Bonjour,I cherish simplicity, a touch of craziness, a unique identity & pixel-perfect animations.*Hi",
+      "width": "2048px"
+    },
+    {
+      "cls": "gridWrapper hasPadding introBlock__top",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "139.712px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px 139.725px",
+      "padding": "0px 29.2571px",
+      "text": "Bonjour,I cherish simplicity, a touch of craziness, a unique identity & pixel-perfect animations.",
+      "width": "2048px"
+    },
+    {
+      "cls": "gridWrapper hasPadding introBlock__bottom",
+      "color": "rgb(2, 32, 22)",
+      "font": "20.48px sans-serif",
+      "fontFamily": "sans-serif",
+      "gap": "normal 28.4444px",
+      "grid": "136.988px 137px 136.988px 137px 136.988px 137px 136.988px 137px 147.913px 147.913px 147.913px 137px",
+      "padding": "0px 29.2571px",
+      "text": "*Hi there, it looks like you've landed on my portfolio.Whether you're curious about me, seeking insp",
+      "width": "2048px"
+    }
+  ],
+  "y": 1832
+}

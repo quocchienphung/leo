@@ -1,0 +1,124 @@
+/* Ported from source scope data-v-fbcd8e8f (ArrowButton). */
+.arrowButton {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  gap: 0.5rem;
+  padding: 1.0714285714rem;
+  margin: -1.0714285714rem;
+  overflow: hidden;
+}
+
+.arrowButton .arrowButton__text {
+  overflow: hidden;
+}
+
+.arrowButton:before, .arrowButton:after {
+  content: "";
+  position: absolute;
+  left: 1.0714285714rem;
+  bottom: 0.7142857143rem;
+  width: calc(100% - 2.1428571429rem);
+  height: 0.0714285714rem;
+  background: #022016;
+}
+
+.arrowButton.alwaysVisible:after {
+  transform: scaleX(1);
+}
+
+.arrowButton:after {
+  opacity: 0.2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s 0.1s cubic-bezier(0.16, 1, 0.1, 1);
+}
+
+.arrowButton:before {
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1s 0s cubic-bezier(0.16, 1, 0.1, 1);
+}
+
+.arrowButton .arrowButton__wrapper {
+  overflow: hidden;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-bottom: 0.2142857143rem;
+}
+
+.arrowButton .arrowButton__arrows {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.arrowButton .arrowButton__arrows .arrows__arrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.arrowButton .arrowButton__arrows .arrows__arrow .arrow__rect {
+  fill: #022016;
+}
+
+.arrowButton .arrowButton__arrows .arrows__arrow--default {
+  opacity: 0.2;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.1, 1);
+}
+
+.arrowButton .arrowButton__arrows .arrows__arrow--hover {
+  transform: translate(-100%, 100%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.1, 1);
+}
+
+.arrowButton.is-resetting:before, .arrowButton.is-resetting:after {
+  transition: none !important;
+  transform: scaleX(0) !important;
+}
+
+.arrowButton.is-resetting .arrows__arrow {
+  transition: none !important;
+}
+
+.arrowButton.is-resetting .arrows__arrow--default {
+  transform: none !important;
+}
+
+.arrowButton.is-resetting .arrows__arrow--hover {
+  transform: translate(-100%, 100%) !important;
+}
+
+.arrowButton.visible:after {
+  transform: scaleX(1);
+}
+
+@media screen and (min-width: 1025px) {
+  .arrowButton:hover:before {
+    transform-origin: left;
+    transition: transform 1s 0.1s cubic-bezier(0.16, 1, 0.1, 1);
+    transform: scaleX(1);
+  }
+  .arrowButton:hover:after {
+    transform-origin: right;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.1, 1);
+    transform: scaleX(0);
+  }
+  .arrowButton:hover .arrows__arrow--default {
+    transition: transform 1s cubic-bezier(0.16, 1, 0.1, 1);
+    transform: translate(100%, -100%);
+  }
+  .arrowButton:hover .arrows__arrow--hover {
+    transition: transform 1s cubic-bezier(0.16, 1, 0.1, 1);
+    transform: translate(0);
+  }
+}

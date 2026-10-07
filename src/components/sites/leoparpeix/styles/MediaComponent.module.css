@@ -1,0 +1,34 @@
+/* Ported from source scope data-v-40c4f0b4 (MediaComponent). */
+.mediaComponent {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.mediaComponent__media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.mediaComponent__video, .mediaComponent__poster {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mediaComponent__poster {
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+}

@@ -1,0 +1,129 @@
+/* Ported from source scope data-v-afac87a3 (WebglSectionBlock). */
+.webglSectionBlock {
+  position: relative;
+  width: 100%;
+  height: 200dvh;
+  grid-template-rows: 1fr;
+  isolation: isolate;
+}
+
+@media screen and (max-width: 1025px) {
+  .webglSectionBlock {
+    height: 150dvh;
+  }
+}
+
+.webglSectionBlock__card {
+  position: relative;
+  z-index: 2;
+  grid-column: 1/13;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+.webglSectionBlock__textWrapper {
+  position: relative;
+  z-index: 1;
+  grid-column: 1/-1;
+  height: fit-content;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1.3888888889vw;
+}
+
+@media (min-width: 2880px) {
+  .webglSectionBlock__textWrapper {
+    grid-column-gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .webglSectionBlock__textWrapper {
+    grid-column-gap: 8px;
+  }
+}
+
+.webglSectionBlock__textWrapper {
+  align-items: center;
+}
+
+@media screen and (max-width: 1025px) {
+  .webglSectionBlock__textWrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.webglSectionBlock__textWrapper .textWrapper__inner {
+  grid-column: 2/13;
+  position: relative;
+  width: 100%;
+  max-width: 62.8472222222vw;
+}
+
+@media (min-width: 2880px) {
+  .webglSectionBlock__textWrapper .textWrapper__inner {
+    max-width: 1810px;
+  }
+}
+
+@media (max-width: 487px) {
+  .webglSectionBlock__textWrapper .textWrapper__inner {
+    max-width: 306px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .webglSectionBlock__textWrapper .textWrapper__inner {
+    grid-column: 1/9;
+    justify-self: center;
+    text-align: center;
+  }
+}
+
+.webglSectionBlock__text {
+  margin: 0;
+  width: 100%;
+  color: #f7f7f7;
+  font-family: title;
+  font-variation-settings: "wght" 622;
+  line-height: 0.8;
+  text-transform: uppercase;
+  font-size: 8.1944444444vw;
+}
+
+@media (min-width: 2880px) {
+  .webglSectionBlock__text {
+    font-size: 236px;
+  }
+}
+
+@media (max-width: 488px) {
+  .webglSectionBlock__text {
+    font-size: 40px;
+  }
+}
+
+.webglSectionBlock__text .text__line {
+  display: block;
+}
+
+.webglSectionBlock__text--base {
+  position: relative;
+  z-index: 0;
+}
+
+.webglSectionBlock__text--reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.webglSectionBlock__text :global(.webglSection-char) {
+  display: inline-block;
+  white-space: pre;
+  will-change: opacity;
+}

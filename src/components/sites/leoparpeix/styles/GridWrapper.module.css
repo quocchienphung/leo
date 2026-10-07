@@ -1,0 +1,31 @@
+/* Ported from source scope data-v-56dff9b3 (GridWrapper). */
+.gridWrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  max-width: 2560px;
+  margin: 0 auto;
+  grid-column-gap: 1.3888888889vw;
+}
+
+@media (min-width: 2880px) {
+  .gridWrapper {
+    grid-column-gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gridWrapper {
+    grid-column-gap: 8px;
+  }
+}
+
+.gridWrapper.hasPadding {
+  padding: 0 1.4285714286rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .gridWrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,922 @@
+[
+  {
+    "kind": "font",
+    "url": "https://www.leoparpeix.com/assets/fonts/monumentgrotesk-regular.woff2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "font",
+    "url": "https://www.leoparpeix.com/assets/fonts/avantt-variable.ttf",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "script",
+    "url": "https://www.leoparpeix.com/assets/index-B1uQITYR.js",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "stylesheet",
+    "url": "https://www.leoparpeix.com/assets/index-Df3Q1d9l.css",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "script",
+    "url": "https://www.leoparpeix.com/assets/basis/basis_transcoder.js",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://www.leoparpeix.com/assets/basis/basis_transcoder.wasm",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/showreel-compressed/desktop/showreel.mp4",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/flower-ktx/1024/flower.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/bee-ktx/1024/bee.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/noise-ktx/512/noise.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexFleur.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexProps.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexMobilier.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexDecor.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexTableaux.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexBibli.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexFloor.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/home/scene-ktx/4096/TexWalls.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud1.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud2.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud3.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud4.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud5.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/clouds/cloud6.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/models/global/bee/bee_v4.glb",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/models/global/flower/flower_v2.glb",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/models/global/fruits/orange.glb",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/models/global/fruits/raisin.glb",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/models/home/scene_v9.glb",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "script",
+    "url": "https://www.leoparpeix.com/assets/models/draco/draco_wasm_wrapper.js",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://www.leoparpeix.com/assets/models/draco/draco_decoder.wasm",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/ambient.aac",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/fruit1.aac",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/fruit2.aac",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/sounds/compressed/pageTransition.aac",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/showreel-base/showreel-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/7-PortfolioGab-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/8-Unity-2025-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/9-Pangaia-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/11-Merrel-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/13-Tougo-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/14-DrakeHotel-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/15-Vooban-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/17-Unity-2024-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/18-TheHayAdams-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/19-PrisonBoss-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/20-Palosanto-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/21-Longines-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/23-ImmersiveGarden-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/24-LonginesDolceVita-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/25-Omega-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/26-Aleph-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/28-TourDeFrance-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/29-Manza-poster.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/showreel-compressed/preview/showreel.mp4",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexBook.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexFleur.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexRock.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexGround.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexProps.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexDecor.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexMobilier.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexArbresFront.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene-ktx/4096/TexArbresBack.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/global/waterDeformation-ktx/1024/waterDeformation.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-ktx/512/roughness.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-ktx/512/ao.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-ktx/512/diffuse.ktx2",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/leaves-webp/256/leaves.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/ground-webp/512/normal.webp",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/textures/about/scene/texMontagne.png",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/models/about/scene_v15.glb",
+    "observedIn": "asset-inventory.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/1.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/2.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/3.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/4.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/5.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/6.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/7.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/8.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/9.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/10.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/11.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project1-ktx/2048/12.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/1.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/2.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/3.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/4.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/5.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/6.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/7.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/8.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/9.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/10.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/11.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project2-ktx/2048/12.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/1.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/2.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/3.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/4.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/5.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/6.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/7.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/8.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/9.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/10.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project3-ktx/2048/11.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/1.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/2.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/3.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/4.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/5.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/6.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/7.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/8.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project4-ktx/2048/9.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/1.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/2.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/3.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/4.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/5.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/6.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/7.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/9.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/8.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project5-ktx/2048/10.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/1.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/2.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/3.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/4.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/5.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/6.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/7.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/8.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/9.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/10.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "other",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/projects/project6-ktx/2048/11.ktx2",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/dna.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/16-AubergerLaChatelaine.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/27-Omexom.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/about/intro-webp/intro.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/about/content-webp/content.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/1-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/2-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/3-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/4-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/5-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/9-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/14-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/11-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/15-poster.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/1.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/2.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/3.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/4.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/5.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/9.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/11.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/14.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "video",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground/15.webm",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground-webp/6.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground-webp/7.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground-webp/8.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground-webp/10.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground-webp/12.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "image",
+    "url": "https://cdn.leoparpeix.com/assets/medias/playground-webp/13.webp",
+    "observedIn": "asset-inventory-playground.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/7-PortfolioGab.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/8-Unity-2025.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/9-Pangaia.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/11-Merrel.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/13-Tougo.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/14-DrakeHotel.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/15-Vooban.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/17-Unity-2024.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/18-TheHayAdams.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/19-PrisonBoss.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/20-Palosanto.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/21-Longines.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/23-ImmersiveGarden.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/24-LonginesDolceVita.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/25-Omega.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/26-Aleph.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/28-TourDeFrance.mp4",
+    "observedIn": "dom-initial.json"
+  },
+  {
+    "kind": "dom-media",
+    "url": "https://cdn.leoparpeix.com/assets/medias/home/archives-compressed/29-Manza.mp4",
+    "observedIn": "dom-initial.json"
+  }
+]

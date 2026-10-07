@@ -1,0 +1,31 @@
+/* Ported from source scope data-v-7544a4c6 (AgencyLink). */
+.agencyLink {
+  opacity: 1;
+  cursor: pointer;
+  z-index: 2;
+  pointer-events: auto;
+  width: fit-content;
+  height: fit-content;
+  margin: -0.7142857143rem;
+  padding: 0.7142857143rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .agencyLink {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .agencyLink {
+    font-size: 14px;
+  }
+}
+
+.agencyLink :global(.agency-char) {
+  display: inline-block;
+  will-change: opacity;
+}

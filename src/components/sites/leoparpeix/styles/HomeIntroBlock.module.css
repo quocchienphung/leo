@@ -1,0 +1,228 @@
+/* Ported from source scope data-v-ca186108 (HomeIntroBlock). */
+.introBlock {
+  color: #022016;
+  padding-top: 7.8571428571rem;
+  padding-bottom: 15.2777777778vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock {
+    padding-bottom: 440px;
+  }
+}
+
+@media (max-width: 1047px) {
+  .introBlock {
+    padding-bottom: 160px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock {
+    padding-top: 0;
+  }
+}
+
+.introBlock__top .top__baseline {
+  margin: 0 0 4.2857142857rem;
+  width: 31.4285714286rem;
+  grid-column: 2/12;
+  font-family: text;
+  line-height: 1.175;
+  font-size: 2.3611111111vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__top .top__baseline {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 932px) {
+  .introBlock__top .top__baseline {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__top .top__baseline {
+    width: 274px;
+    margin: 0 0 60px 1.4285714286rem;
+    margin-top: -22dvh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .introBlock__top .top__baseline {
+    grid-column: 1/9;
+  }
+}
+
+.introBlock__bottom .bottom__stars {
+  grid-column: 2/3;
+  font-family: text;
+  line-height: auto;
+  font-size: 2.2222222222vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__bottom .bottom__stars {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .introBlock__bottom .bottom__stars {
+    font-size: 24px;
+  }
+}
+
+.introBlock__bottom .bottom__stars {
+  margin-top: -0.4166666667vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__bottom .bottom__stars {
+    margin-top: -12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .introBlock__bottom .bottom__stars {
+    margin-top: -2px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__bottom .bottom__stars {
+    margin-left: 1.4285714286rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .introBlock__bottom .bottom__stars {
+    grid-column: 1/2;
+  }
+}
+
+.introBlock__bottom .bottom__text {
+  grid-column: 3/8;
+  width: 23.7857142857rem;
+  font-family: text;
+  line-height: 1.2;
+  font-size: 1.25vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__bottom .bottom__text {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .introBlock__bottom .bottom__text {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__bottom .bottom__text {
+    width: 241px;
+    margin-right: 1.4285714286rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .introBlock__bottom .bottom__text {
+    grid-column: 3/9;
+  }
+}
+
+.introBlock__bottom .bottom__text span {
+  display: block;
+  margin-bottom: 1.7857142857rem;
+}
+
+.introBlock__bottom .bottom__video {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  grid-column: 9/12;
+  margin-top: -7.1428571429rem;
+  aspect-ratio: 352/218;
+  width: 24.4444444444vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__bottom .bottom__video {
+    width: 704px;
+  }
+}
+
+@media (max-width: 986px) {
+  .introBlock__bottom .bottom__video {
+    width: 241px;
+  }
+}
+
+.introBlock__bottom .bottom__video {
+  height: 15.1388888889vw;
+}
+
+@media (min-width: 2880px) {
+  .introBlock__bottom .bottom__video {
+    height: 436px;
+  }
+}
+
+@media (max-width: 1149px) {
+  .introBlock__bottom .bottom__video {
+    height: 174px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__bottom .bottom__video {
+    grid-column: 1/9;
+    margin-top: 60px;
+    width: calc(100% - 1.4285714286rem * 2);
+    margin-left: 1.4285714286rem;
+    height: unset;
+    aspect-ratio: 310/203;
+  }
+}
+
+.introBlock__bottom .bottom__showreelHint {
+  display: none;
+}
+
+@media screen and (max-width: 1025px) {
+  .introBlock__bottom .bottom__showreelHint {
+    display: block;
+    grid-column: 1/9;
+    justify-self: center;
+    margin-top: 1.4285714286rem;
+    padding: 0.4285714286rem 1rem;
+    border-radius: 3.5714285714rem;
+    text-transform: uppercase;
+    color: #022016;
+    background: #f6e016;
+    pointer-events: none;
+    font-family: text;
+    line-height: auto;
+    font-size: 0.7638888889vw;
+  }
+}
+
+@media screen and (max-width: 1025px) and (min-width: 2880px) {
+  .introBlock__bottom .bottom__showreelHint {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1025px) and (max-width: 1440px) {
+  .introBlock__bottom .bottom__showreelHint {
+    font-size: 11px;
+  }
+}

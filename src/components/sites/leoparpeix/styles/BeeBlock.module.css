@@ -1,0 +1,250 @@
+/* Ported from source scope data-v-fbfd32ba (BeeBlock). */
+.beeBlock {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.beeBlock.isFooter {
+  justify-content: end;
+}
+
+.beeBlock.isInZone .beeBlock__container {
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.beeBlock.isHoldingFruit .beeBlock__container {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.beeBlock__container {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  padding: 4.1666666667vw;
+}
+
+@media (min-width: 2880px) {
+  .beeBlock__container {
+    padding: 120px;
+  }
+}
+
+@media (max-width: 720px) {
+  .beeBlock__container {
+    padding: 30px;
+  }
+}
+
+.beeBlock__container {
+  margin: -4.1666666667vw;
+}
+
+@media (min-width: 2880px) {
+  .beeBlock__container {
+    margin: -120px;
+  }
+}
+
+@media (max-width: 720px) {
+  .beeBlock__container {
+    margin: -30px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .beeBlock__container {
+    padding: 14dvh 0;
+    margin: -14dvh 0;
+  }
+}
+
+.beeBlock__container .container__titles--default {
+  width: 100%;
+  z-index: 2;
+  contain: paint;
+}
+
+.beeBlock__container
+  .container__titles--default
+  .titles__wrapper {
+  overflow: hidden;
+}
+
+.beeBlock__container
+  .container__titles--default
+  .titles__wrapper
+  .wrapper {
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.beeBlock__container
+  .container__titles--default
+  .titles__wrapper
+  .wrapper
+  .title {
+  font-family: title;
+  font-variation-settings: "wght" 622;
+  line-height: 0.9;
+  text-transform: uppercase;
+  font-size: 11.25vw;
+}
+
+@media (min-width: 2880px) {
+  .beeBlock__container
+    .container__titles--default
+    .titles__wrapper
+    .wrapper
+    .title {
+    font-size: 324px;
+  }
+}
+
+@media (max-width: 427px) {
+  .beeBlock__container
+    .container__titles--default
+    .titles__wrapper
+    .wrapper
+    .title {
+    font-size: 48px;
+  }
+}
+
+.beeBlock__container
+  .container__titles--default
+  .titles__wrapper
+  .wrapper
+  .title {
+  backface-visibility: hidden;
+}
+
+.beeBlock__container .container__titles--reveal {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper {
+  overflow: hidden;
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper
+  .wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper
+  .wrapper
+  .title {
+  font-family: title;
+  font-variation-settings: "wght" 622;
+  line-height: 0.9;
+  text-transform: uppercase;
+  font-size: 11.25vw;
+}
+
+@media (min-width: 2880px) {
+  .beeBlock__container
+    .container__titles--reveal
+    .titles__wrapper
+    .wrapper
+    .title {
+    font-size: 324px;
+  }
+}
+
+@media (max-width: 427px) {
+  .beeBlock__container
+    .container__titles--reveal
+    .titles__wrapper
+    .wrapper
+    .title {
+    font-size: 48px;
+  }
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper
+  .wrapper
+  .title {
+  backface-visibility: hidden;
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper
+  .wrapper
+  .title--1 {
+  transform: translateY(100%) translate(-5%);
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper
+  .wrapper
+  .title--2 {
+  transform: translateY(100%) translate(5%);
+}
+
+.beeBlock__container
+  .container__titles--reveal
+  .titles__wrapper
+  .wrapper
+  .title--3 {
+  transform: translateY(100%) translate(-5%);
+}
+
+.beeBlock .indication {
+  display: block;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .beeBlock .indication {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .beeBlock .indication {
+    font-size: 14px;
+  }
+}
+
+.beeBlock .indication {
+  margin-top: 2.0833333333vw;
+}
+
+@media (min-width: 2880px) {
+  .beeBlock .indication {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 960px) {
+  .beeBlock .indication {
+    margin-top: 20px;
+  }
+}

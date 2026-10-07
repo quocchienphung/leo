@@ -1,0 +1,323 @@
+/* Ported from source scope data-v-ce774f65 (AboutContentBlock). */
+.contentBlock {
+  width: 100%;
+  color: #eed6c8;
+}
+
+.contentBlock__left {
+  grid-column: 2/9;
+  margin-top: 10rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .contentBlock__left {
+    grid-column: 1/7;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .contentBlock__left {
+    grid-column: 1/5;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__left {
+    grid-column: 1/10;
+    margin-top: 120px;
+  }
+}
+
+.contentBlock__left .left__title {
+  width: 39.5833333333vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__title {
+    width: 1140px;
+  }
+}
+
+@media (max-width: 707px) {
+  .contentBlock__left .left__title {
+    width: 280px;
+  }
+}
+
+.contentBlock__left .left__title {
+  font-family: title;
+  font-variation-settings: "wght" 622;
+  line-height: 0.9;
+  text-transform: uppercase;
+  font-size: 3.6111111111vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__title {
+    font-size: 104px;
+  }
+}
+
+@media (max-width: 886px) {
+  .contentBlock__left .left__title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__left .left__title {
+    text-align: center;
+    justify-self: center;
+  }
+}
+
+.contentBlock__left .left__star {
+  font-family: text;
+  font-size: 2.3611111111vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__star {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .contentBlock__left .left__star {
+    font-size: 34px;
+  }
+}
+
+.contentBlock__left .left__star {
+  margin: 6.4285714286rem 0 3.5714285714rem;
+  line-height: 0.6;
+  width: 10px;
+  height: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__left .left__star {
+    justify-self: center;
+    margin: 60px 0;
+    font-size: 36px;
+  }
+}
+
+.contentBlock__left .left__media {
+  margin-bottom: 7.1428571429rem;
+  border-radius: 0.4285714286rem;
+  width: 32.7083333333vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__media {
+    width: 942px;
+  }
+}
+
+@media (max-width: 825px) {
+  .contentBlock__left .left__media {
+    width: 270px;
+  }
+}
+
+.contentBlock__left .left__media {
+  height: 37.7083333333vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__media {
+    height: 1086px;
+  }
+}
+
+@media (max-width: 825px) {
+  .contentBlock__left .left__media {
+    height: 311px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__left .left__media {
+    margin-bottom: 60px;
+    justify-self: center;
+  }
+}
+
+.contentBlock__left .left__text {
+  font-family: text;
+  line-height: 1.2;
+  font-size: 2.3611111111vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__text {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 932px) {
+  .contentBlock__left .left__text {
+    font-size: 22px;
+  }
+}
+
+.contentBlock__left .left__text {
+  width: 32.9166666667vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__left .left__text {
+    width: 948px;
+  }
+}
+
+@media (max-width: 972px) {
+  .contentBlock__left .left__text {
+    width: 320px;
+  }
+}
+
+.contentBlock__left .left__text---1 {
+  margin-top: 2.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__left .left__text---1 {
+    margin-top: 28px;
+  }
+}
+
+.contentBlock__right {
+  grid-column: 9/12;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8.5714285714rem;
+  font-family: text;
+  line-height: 1.2;
+  font-size: 1.25vw;
+}
+
+@media (min-width: 2880px) {
+  .contentBlock__right {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .contentBlock__right {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .contentBlock__right {
+    grid-column: 8/13;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .contentBlock__right {
+    grid-column: 5/10;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__right {
+    grid-column: 1/10;
+    margin-top: 120px;
+  }
+}
+
+.contentBlock__right
+  .right__recognitions
+  .recognitions__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.2142857143rem;
+  opacity: 0.3;
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__right
+    .right__recognitions
+    .recognitions__title {
+    margin-bottom: 40px;
+  }
+}
+
+.contentBlock__right
+  .right__recognitions
+  .recognitions__award {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentBlock__right
+  .right__recognitions
+  .recognitions__award:nth-child(2), .contentBlock__right
+  .right__recognitions
+  .recognitions__award:nth-child(3), .contentBlock__right
+  .right__recognitions
+  .recognitions__award:nth-child(6), .contentBlock__right
+  .right__recognitions
+  .recognitions__award:nth-child(8), .contentBlock__right
+  .right__recognitions
+  .recognitions__award:nth-child(10), .contentBlock__right
+  .right__recognitions
+  .recognitions__award:nth-child(11) {
+  margin-top: 2.2857142857rem;
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__right
+    .right__recognitions
+    .recognitions__award:nth-child(2), .contentBlock__right
+    .right__recognitions
+    .recognitions__award:nth-child(3), .contentBlock__right
+    .right__recognitions
+    .recognitions__award:nth-child(6), .contentBlock__right
+    .right__recognitions
+    .recognitions__award:nth-child(8), .contentBlock__right
+    .right__recognitions
+    .recognitions__award:nth-child(10), .contentBlock__right
+    .right__recognitions
+    .recognitions__award:nth-child(11) {
+    margin-top: 30px;
+  }
+}
+
+.contentBlock__right .right__clients .clients__title {
+  margin-bottom: 3.2142857143rem;
+  opacity: 0.3;
+}
+
+@media screen and (max-width: 700px) {
+  .contentBlock__right .right__clients .clients__title {
+    margin-bottom: 40px;
+  }
+}
+
+.contentBlock__right .right__clients .clients__wrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.contentBlock__right
+  .right__clients
+  .clients__wrapper
+  .wrapper__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contentBlock__right
+  .right__clients
+  .clients__wrapper
+  .wrapper__name {
+  list-style: none;
+}

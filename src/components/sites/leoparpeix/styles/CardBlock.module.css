@@ -1,0 +1,263 @@
+/* Ported from source scope data-v-c38c2dd3 (CardBlock). */
+.cardBlock {
+  width: 37.1428571429rem;
+  height: fit-content;
+  border-radius: 1rem;
+  background: #f7f7f7;
+}
+
+@media screen and (max-width: 700px) {
+  .cardBlock {
+    width: 100%;
+  }
+}
+
+.cardBlock__top {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.8571428571rem 2.8571428571rem 2.1428571429rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__top {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardBlock__top {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cardBlock__top {
+    margin: 30px;
+  }
+}
+
+.cardBlock__top .top__indication {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBlock__top .top__indication .indication__circle {
+  width: 0.5714285714rem;
+  height: 0.5714285714rem;
+  margin-right: 0.8571428571rem;
+  border-radius: 100%;
+  background: #008841;
+}
+
+.cardBlock__content .content__title {
+  width: 14.7142857143rem;
+  margin-left: 2.8571428571rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 2.6388888889vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__content .content__title {
+    font-size: 76px;
+  }
+}
+
+@media (max-width: 1061px) {
+  .cardBlock__content .content__title {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cardBlock__content .content__title {
+    margin-left: 30px;
+    width: 152px;
+  }
+}
+
+.cardBlock__content .content__jobs {
+  position: relative;
+  margin-top: 9.7916666667vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__content .content__jobs {
+    margin-top: 282px;
+  }
+}
+
+@media (max-width: 827px) {
+  .cardBlock__content .content__jobs {
+    margin-top: 81px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job {
+  margin: 0 2.8571428571rem;
+  position: relative;
+}
+
+@media screen and (max-width: 700px) {
+  .cardBlock__content .content__jobs .jobs__job {
+    margin: 0 30px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__wrapper {
+  display: flex;
+  gap: 3.5rem;
+  margin: 1.2857142857rem 0;
+}
+
+@media screen and (max-width: 700px) {
+  .cardBlock__content .content__jobs .jobs__job .job__wrapper {
+    gap: 30px;
+    flex-direction: column;
+  }
+}
+
+.cardBlock__content
+  .content__jobs
+  .jobs__job:last-child
+  .job__wrapper {
+  margin: 1.2857142857rem 0 2.8571428571rem;
+}
+
+@media screen and (max-width: 700px) {
+  .cardBlock__content
+    .content__jobs
+    .jobs__job:last-child
+    .job__wrapper {
+    margin: 18px 0 30px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__line {
+  width: 100%;
+  height: 0.0714285714rem;
+  background: #022016;
+  opacity: 0.1;
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__date {
+  margin-top: 0.2857142857rem;
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__content .content__jobs .jobs__job .job__date {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardBlock__content .content__jobs .jobs__job .job__date {
+    font-size: 14px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job .wrapper {
+  display: flex;
+  gap: 0.4285714286rem;
+  align-items: center;
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__current {
+  padding: 0.3214285714rem 0.6857142857rem 0.3214285714rem 0.5571428571rem;
+  border-radius: 7.1428571429rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3928571429rem;
+  width: fit-content;
+  background: #f6e016;
+}
+
+.cardBlock__content
+  .content__jobs
+  .jobs__job
+  .job__current
+  .current__circle {
+  width: 0.4285714286rem;
+  height: 0.4285714286rem;
+  border-radius: 100%;
+  background: #083d2a;
+  opacity: 0.8;
+}
+
+.cardBlock__content
+  .content__jobs
+  .jobs__job
+  .job__current
+  .current__text {
+  font-family: text;
+  line-height: 1;
+  font-size: 0.9722222222vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__content
+    .content__jobs
+    .jobs__job
+    .job__current
+    .current__text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardBlock__content
+    .content__jobs
+    .jobs__job
+    .job__current
+    .current__text {
+    font-size: 14px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__name {
+  font-family: text;
+  line-height: 1.2;
+  font-size: 1.25vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__content .content__jobs .jobs__job .job__name {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardBlock__content .content__jobs .jobs__job .job__name {
+    font-size: 18px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__roles {
+  margin-top: 0.4285714286rem;
+  font-family: text;
+  line-height: 1.12;
+  font-size: 0.8333333333vw;
+}
+
+@media (min-width: 2880px) {
+  .cardBlock__content .content__jobs .jobs__job .job__roles {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .cardBlock__content .content__jobs .jobs__job .job__roles {
+    font-size: 12px;
+  }
+}
+
+.cardBlock__content .content__jobs .jobs__job .job__roles {
+  opacity: 0.45;
+}

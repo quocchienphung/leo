@@ -1,0 +1,39 @@
+/* Ported from source scope data-v-13eb05a0 (MenuButton). */
+.menuButton {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #ececec;
+  overflow: hidden;
+}
+
+.menuButton__default {
+  opacity: 1;
+}
+
+.menuButton__default .default__line {
+  stroke: #022016;
+  stroke-dasharray: 10;
+  will-change: stroke-dashoffset;
+}
+
+.menuButton__cross {
+  position: absolute;
+  background: #eed6c8;
+  transform: translateY(-100%);
+}
+
+.menuButton__cross .cross__line {
+  stroke-dasharray: 11;
+  stroke-dashoffset: 11;
+  stroke: #022016;
+  will-change: stroke-dashoffset;
+}

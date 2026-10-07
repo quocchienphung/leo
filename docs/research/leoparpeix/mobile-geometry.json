@@ -1,0 +1,157 @@
+{
+  "blocks": [
+    {
+      "class": "gridWrapper hasPadding headerBlock",
+      "height": 844,
+      "top": 0
+    },
+    {
+      "class": "webglBg heroBlock",
+      "height": 871.3250122070312,
+      "top": 844
+    },
+    {
+      "class": "webglBg introBlock",
+      "height": 670.1875,
+      "top": 1715.3250732421875
+    },
+    {
+      "class": "wrapper",
+      "height": 3233.675048828125,
+      "top": 2385.512451171875
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 364.3999938964844,
+      "top": 2385.512451171875
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 320.3999938964844,
+      "top": 2749.91259765625
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 320.3999938964844,
+      "top": 3070.3125
+    },
+    {
+      "class": "gridWrapper hasPadding webglSectionBlock",
+      "height": 1266,
+      "top": 3390.712646484375
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 354.6750183105469,
+      "top": 4656.71240234375
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 320.3999938964844,
+      "top": 5011.3876953125
+    },
+    {
+      "class": "webglBg projectBlock",
+      "height": 287.3999938964844,
+      "top": 5331.78759765625
+    },
+    {
+      "class": "webglBg archivesBlock",
+      "height": 1536,
+      "top": 5619.1875
+    },
+    {
+      "class": "webglBg footerBlock white",
+      "height": 1165.800048828125,
+      "top": 7155.1875
+    }
+  ],
+  "h": 844,
+  "styles": [
+    {
+      "class": "gridWrapper hasPadding loaderBlock__container",
+      "columns": "33.5125px 33.5125px 33.5125px 33.525px 33.5125px 33.5125px 33.5125px 33.525px 0px 0px 0px 0px",
+      "font": "12px sans-serif",
+      "gap": "8px",
+      "padding": "0px 17.1429px"
+    },
+    {
+      "class": "gridWrapper hasPadding navbarBlock__left",
+      "columns": "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
+      "font": "12px sans-serif",
+      "gap": "8px",
+      "padding": "0px 17.1429px"
+    },
+    {
+      "class": "gridWrapper hasPadding navbarBlock__right",
+      "columns": "36.5125px 36.5125px 36.5125px 36.525px 36.5125px 36.5125px 36.5125px 36.525px 0px",
+      "font": "12px sans-serif",
+      "gap": "8px",
+      "padding": "0px 17.1429px"
+    },
+    {
+      "class": "gridWrapper hasPadding navbarBlock__menu",
+      "columns": "36.5125px 36.5125px 36.5125px 36.525px 36.5125px 36.5125px 36.5125px 36.525px 0px",
+      "font": "12px sans-serif",
+      "gap": "8px",
+      "padding": "0px 17.1429px"
+    },
+    {
+      "class": "gridWrapper hasPadding headerBlock",
+      "columns": "37.5125px 37.5125px 37.5125px 37.525px 37.5125px 37.5125px 37.5125px 37.525px",
+      "font": "12px sans-serif",
+      "gap": "8px",
+      "padding": "0px 17.1429px"
+    },
+    {
+      "class": "gridWrapper hasPadding heroBlock__top",
+      "columns": "37.5125px 37.5125px 37.5125px 37.525px 37.5125px 37.5125px 37.5125px 37.525px",
+      "font": "12px sans-serif",
+      "gap": "8px",
+      "padding": "0px 17.1429px"
+    },
+    {
+      "class": "title",
+      "columns": "none",
+      "font": "",
+      "gap": "normal",
+      "padding": "0px"
+    },
+    {
+      "class": "title",
+      "columns": "none",
+      "font": "",
+      "gap": "normal",
+      "padding": "0px"
+    },
+    {
+      "class": "title",
+      "columns": "none",
+      "font": "",
+      "gap": "normal",
+      "padding": "0px"
+    },
+    {
+      "class": "title title--1",
+      "columns": "none",
+      "font": "",
+      "gap": "normal",
+      "padding": "0px"
+    },
+    {
+      "class": "title title--2",
+      "columns": "none",
+      "font": "",
+      "gap": "normal",
+      "padding": "0px"
+    },
+    {
+      "class": "title title--3",
+      "columns": "none",
+      "font": "",
+      "gap": "normal",
+      "padding": "0px"
+    }
+  ],
+  "w": 390
+}

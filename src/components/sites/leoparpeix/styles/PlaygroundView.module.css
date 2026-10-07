@@ -1,0 +1,10 @@
+/* Ported from source scope data-v-0f9e78d4 (PlaygroundView). */
+.page__spacer {
+  height: 5.7142857143rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .page__spacer {
+    height: 60px;
+  }
+}
