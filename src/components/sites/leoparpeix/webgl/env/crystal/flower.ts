@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { mergeVertices } from "three/addons/utils/BufferGeometryUtils.js";
-import { ConvexGeometry } from "three/addons/geometries/ConvexGeometry.js";
-import { COLORS, champagneGlass, clearGlass, crystal, frostedGlass, glassRod, rng, withFacetEdges, type GlitterUniforms } from "./materials";
+import { cutLeaf, ringGem, type CutSolid } from "./cut";
+import { COLORS, champagneGlass, clearGlass, frostedGlass, glassRod, rng, tracedCrystal, type GlitterUniforms } from "./materials";
 import { FLOWER, SUN_WORLD } from "./layout";
 
 /*
@@ -68,7 +68,7 @@ function petalGeometry(): THREE.BufferGeometry {
 }
 
 /** Tube along a curve with a tapering radius. */
-function taperedTube(curve: THREE.Curve<THREE.Vector3>, segments: number, radial: number, r0: number, r1: number): THREE.BufferGeometry {
+export function taperedTube(curve: THREE.Curve<THREE.Vector3>, segments: number, radial: number, r0: number, r1: number): THREE.BufferGeometry {
   const frames = curve.computeFrenetFrames(segments, false);
   const positions: number[] = [];
   const index: number[] = [];
@@ -97,111 +97,34 @@ function taperedTube(curve: THREE.Curve<THREE.Vector3>, segments: number, radial
 }
 
 /**
- * Brilliant-cut leaf: a pointed oval with real volume. Front and back each carry a raised midrib
- * and two rows of facets per side; a thin girdle joins them. Non-indexed so every facet is flat.
- * Local frame: base at the origin, tip at +y, width on x, front towards +z.
+ * The daisy's crystal base: one broad cushion-cut stone (girdle low, crown stepping in to a small
+ * table under the stem) with two small stones at its foot. Stage units, foot on the floor.
  */
-function crystalLeafGeometry(length: number, width: number, thickness: number, seed: number): THREE.BufferGeometry {
-  const random = rng(seed);
-  const segments = 6;
-  const girdle = thickness * 0.08;
-  const half = (s: number) => (width / 2) * Math.sin(Math.PI * s) ** 0.8 * (1 + 0.12 * Math.sin(Math.PI * 2 * s - 0.6));
-  const ridge = (s: number) => (thickness / 2) * Math.sin(Math.PI * s) ** 0.55;
-  type Row = { mid: THREE.Vector3; inner: THREE.Vector3[]; edge: THREE.Vector3[] };
-  const front: Row[] = [];
-  const back: Row[] = [];
-  for (let k = 0; k <= segments; k++) {
-    const s = k / segments;
-    const y = s * length;
-    const w = half(s);
-    const r = ridge(s);
-    const jitter = () => 1 + (random() - 0.5) * 0.08;
-    for (const [list, sign] of [[front, 1], [back, -1]] as const) {
-      const depth = sign > 0 ? 1 : 0.7;
-      list.push({
-        mid: new THREE.Vector3(0, y, sign * (girdle + r * depth)),
-        inner: [-1, 1].map((side) => new THREE.Vector3(side * w * 0.52, y, sign * (girdle + r * depth * 0.62 * jitter()))),
-        edge: [-1, 1].map((side) => new THREE.Vector3(side * w, y, sign * girdle)),
-      });
-    }
-  }
-  const out: number[] = [];
-  const tri = (a: THREE.Vector3, b: THREE.Vector3, c: THREE.Vector3, flip: boolean) => {
-    if (flip) out.push(a.x, a.y, a.z, c.x, c.y, c.z, b.x, b.y, b.z);
-    else out.push(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z);
-  };
-  const quad = (a: THREE.Vector3, b: THREE.Vector3, c: THREE.Vector3, d: THREE.Vector3, flip: boolean, alt: boolean) => {
-    if (alt) {
-      tri(a, b, c, flip);
-      tri(a, c, d, flip);
-    } else {
-      tri(a, b, d, flip);
-      tri(b, c, d, flip);
-    }
-  };
-  for (const [list, sign] of [[front, 1], [back, -1]] as const) {
-    for (let k = 0; k < segments; k++) {
-      const r0 = list[k];
-      const r1 = list[k + 1];
-      for (let side = 0; side < 2; side++) {
-        // Facets read as a cut stone when the diagonals alternate.
-        const flipSide = (side === 0) !== (sign < 0);
-        quad(r0.mid, r0.inner[side], r1.inner[side], r1.mid, !flipSide, (k + side) % 2 === 0);
-        quad(r0.inner[side], r0.edge[side], r1.edge[side], r1.inner[side], !flipSide, (k + side) % 2 === 1);
-      }
-    }
-  }
-  // Girdle between the front and back edges.
-  for (let k = 0; k < segments; k++) {
-    for (let side = 0; side < 2; side++) {
-      quad(front[k].edge[side], back[k].edge[side], back[k + 1].edge[side], front[k + 1].edge[side], side === 0, true);
-    }
-  }
-  const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(out, 3));
-  g.computeVertexNormals();
-  return g;
-}
-
-/**
- * Cut crystal block: a faceted, slightly tapered cylinder with a broad table on top — vertical
- * sides, a ring of crown facets, rounded-off foot (the base of the reference).
- */
-function blockGeometry(random: () => number, size: THREE.Vector3, rings: number, perRing: number): THREE.BufferGeometry {
-  const pts: THREE.Vector3[] = [];
-  for (let k = 0; k < rings; k++) {
-    const t = k / (rings - 1);
-    const y = THREE.MathUtils.lerp(-1, 1, t);
-    // Full radius on the sides, a crown that steps in towards the table, a softer foot.
-    const crown = THREE.MathUtils.smoothstep(t, 0.62, 1);
-    const foot = THREE.MathUtils.smoothstep(1 - t, 0.85, 1);
-    const r = (1 - 0.38 * crown) * (1 - 0.12 * foot) * (1 - 0.06 * t);
-    for (let i = 0; i < perRing; i++) {
-      const a = ((i + (k % 2) * 0.5) / perRing) * Math.PI * 2 + (random() - 0.5) * 0.25;
-      const rr = r * (0.94 + random() * 0.08);
-      pts.push(new THREE.Vector3(Math.cos(a) * rr * size.x, (y + (random() - 0.5) * 0.08) * size.y, Math.sin(a) * rr * size.z));
-    }
-  }
-  return new ConvexGeometry(pts);
-}
-
-/**
- * Faceted chunk: convex hull of jittered points on an ellipsoid (rounder → more, smaller facets).
- * `broadTop` lowers the upper cap so the top reads as a wide, gently faceted table; it never makes
- * points coplanar (that leaves sliver triangles that shimmer).
- */
-function chunkGeometry(random: () => number, size: THREE.Vector3, points: number, broadTop = false, roundness = 0.82): THREE.BufferGeometry {
-  const pts: THREE.Vector3[] = [];
-  for (let i = 0; i < points; i++) {
-    const u = random() * 2 - 1;
-    const a = random() * Math.PI * 2;
-    const r = Math.sqrt(1 - u * u);
-    const k = roundness + random() * (1 - roundness);
-    let y = u * size.y * k;
-    if (broadTop && y > 0) y *= 0.82;
-    pts.push(new THREE.Vector3(Math.cos(a) * r * size.x * k, y, Math.sin(a) * r * size.z * k));
-  }
-  return new ConvexGeometry(pts);
+function baseStones(): { solid: CutSolid; position: [number, number, number]; rotation: number }[] {
+  const main = ringGem(
+    [
+      { y: 0, r: 0.6, n: 9 },
+      { y: 0.17, r: 0.74, n: 9, phase: 0.5 },
+      { y: 0.43, r: 0.69, n: 9 },
+      { y: 0.64, r: 0.5, n: 8, phase: 0.5 },
+      { y: 0.79, r: 0.24, n: 6 },
+    ],
+    { depth: 0.82, wobble: 0.035, seed: 4 },
+  );
+  const small = (r: number, seed: number) =>
+    ringGem(
+      [
+        { y: 0, r: r * 0.8, n: 7 },
+        { y: r * 0.45, r, n: 7, phase: 0.5 },
+        { y: r * 0.95, r: r * 0.55, n: 6 },
+      ],
+      { depth: 0.85, wobble: 0.05, seed, apexTop: r * 1.25 },
+    );
+  return [
+    { solid: main, position: [0, 0, 0], rotation: 0.35 },
+    { solid: small(0.22, 8), position: [0.62, 0, 0.3], rotation: 0.5 },
+    { solid: small(0.19, 11), position: [-0.66, 0, 0.22], rotation: 1.1 },
+  ];
 }
 
 // ------------------------------------------------------------------------------------ flower
@@ -297,38 +220,32 @@ export class CrystalFlower extends THREE.Group {
     this.materials.push(stemMat);
     this.add(new THREE.Mesh(stemGeo, stemMat));
 
-    // Cut crystal leaves.
-    const leafMat = crystal({ thickness: 1.4, dispersion: 6, fire: 1, inner: 0.08, scatter: 1.1, shade: 0.18, internal: 0.4, cellScale: 6 });
-    this.materials.push(leafMat);
+    // Cut crystal leaves (traced: the facets seen through them are their real back faces).
     for (const spec of FLOWER.leaves) {
-      const g = withFacetEdges(crystalLeafGeometry(spec.length, spec.width, spec.thickness, spec.seed));
-      this.geometries.push(g);
+      const leaf = cutLeaf(spec.length, spec.width, spec.thickness, { rows: 6, bend: spec.length * 0.06, asym: 0.12 });
+      const leafMat = tracedCrystal(leaf.planes, { ior: 1.58, spread: 0.014, backDist: 0.8, sparkle: 1 });
+      this.geometries.push(leaf.geometry);
+      this.materials.push(leafMat);
       const pivot = new THREE.Object3D();
       pivot.position.set(...spec.base);
       pivot.rotation.set(spec.rotation[0], spec.rotation[1], spec.rotation[2], "ZXY");
-      pivot.add(new THREE.Mesh(g, leafMat));
+      pivot.add(new THREE.Mesh(leaf.geometry, leafMat));
       this.add(pivot);
       this.leaves.push(pivot);
     }
 
-    // Crystal cluster base: one chunky cut mass, smaller chunks around it, a few quartz points.
-    const baseMat = crystal({ thickness: 3.2, dispersion: 6, fire: 0.85, inner: 0.1, scatter: 1.3, shade: 0.3, internal: 0.55, cellScale: 3.6 });
-    this.materials.push(baseMat);
+    // Crystal base: a cushion-cut stone and two small ones, each traced against its own faces.
     const base = new THREE.Group();
     base.position.set(...FLOWER.base);
-    const chunk = (raw: THREE.BufferGeometry, p: [number, number, number], r: [number, number, number]) => {
-      const g = withFacetEdges(raw);
-      this.geometries.push(g);
-      const m = new THREE.Mesh(g, baseMat);
-      m.position.set(...p);
-      m.rotation.set(...r);
+    for (const stone of baseStones()) {
+      const mat = tracedCrystal(stone.solid.planes, { ior: 1.58, spread: 0.016, backDist: 1.2, sparkle: 1.2 });
+      this.geometries.push(stone.solid.geometry);
+      this.materials.push(mat);
+      const m = new THREE.Mesh(stone.solid.geometry, mat);
+      m.position.set(...stone.position);
+      m.rotation.y = stone.rotation;
       base.add(m);
-    };
-    // The reference base is one chunky cut block (u 705 → 965, top y 0.78): broad faceted table,
-    // near-vertical faceted sides, two small stones fused low at its foot.
-    chunk(blockGeometry(random, new THREE.Vector3(0.7, 0.4, 0.58), 6, 9), [0, 0.39, 0], [0, 0.35, 0]);
-    chunk(chunkGeometry(random, new THREE.Vector3(0.26, 0.17, 0.24), 22), [0.5, 0.12, 0.28], [0.2, 0.5, 0]);
-    chunk(chunkGeometry(random, new THREE.Vector3(0.22, 0.15, 0.2), 20), [-0.55, 0.1, 0.22], [0, 1.1, 0.3]);
+    }
     this.add(base);
 
     // Thin glass disc in the pool.

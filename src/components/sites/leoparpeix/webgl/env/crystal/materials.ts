@@ -1,5 +1,6 @@
 import * as THREE from "three";
-import { crystalFireMain, crystalFirePars, crystalVertexMain, crystalVertexPars, facetedTransmission, glitterFragmentMain, glitterFragmentPars, glitterVertexMain, glitterVertexPars, milkTransmission, translucencyMain, translucencyPars } from "../../shaders/crystal";
+import { glitterFragmentMain, glitterFragmentPars, glitterVertexMain, glitterVertexPars, milkTransmission, translucencyMain, translucencyPars } from "../../shaders/crystal";
+import { traceFragmentMain, traceFragmentPars, traceVertexMain, traceVertexPars } from "../../shaders/crystalTrace";
 
 /*
  * Materials of the crystal pavilion. Colours are sRGB hex converted to linear by three (the scene
@@ -87,25 +88,21 @@ interface PhysicalPatch {
   milk?: { color: number; amount: number; edge: number };
   translucency?: TranslucencyOptions;
   glitter?: GlitterUniforms;
-  fire?: number;
-  /** Share of one internal bounce (cut crystal brilliance), with `fire`. */
-  inner?: number;
-  /** How far each facet's refraction direction is scattered (kaleidoscope), with `fire`. */
-  scatter?: number;
-  /** How much darker the deepest facets read, with `fire`. */
-  shade?: number;
-  /** Strength and density (cells per unit) of the internal facets, with `fire`. */
-  internal?: number;
-  cellScale?: number;
   key: string;
+}
+
+/** `src.replace(anchor, …)` that says so in development when three's chunk no longer has the anchor. */
+function inject(src: string, anchor: string, replacement: string, where: string): string {
+  if (!src.includes(anchor) && process.env.NODE_ENV !== "production") console.warn(`crystal material: anchor ${anchor} missing (${where})`);
+  return src.replace(anchor, replacement);
 }
 
 /**
  * Extends MeshPhysicalMaterial:
  * - milk: the refracted background is whitened by internal scattering (frosted, milky glass);
  * - translucency: sunlight passing through thin glass glows towards the camera;
- * - glitter: fine sparkles in the frosted petals;
- * - fire: per-facet brightness and a restrained spectral tint (cut crystal).
+ * - glitter: fine sparkles in the frosted petals.
+ * `userData.uniforms` lists the added uniforms (debug toggles).
  */
 function patchPhysical(m: THREE.MeshPhysicalMaterial, patch: PhysicalPatch): void {
   const uniforms: Record<string, THREE.IUniform> = {};
@@ -123,14 +120,6 @@ function patchPhysical(m: THREE.MeshPhysicalMaterial, patch: PhysicalPatch): voi
     uniforms.uTransAmbient = { value: t.ambient };
   }
   if (patch.glitter) Object.assign(uniforms, patch.glitter);
-  if (patch.fire !== undefined) {
-    uniforms.uFire = { value: patch.fire };
-    uniforms.uInner = { value: patch.inner ?? 0 };
-    uniforms.uScatter = { value: patch.scatter ?? 0.9 };
-    uniforms.uShade = { value: patch.shade ?? 0.1 };
-    uniforms.uInternal = { value: patch.internal ?? 0.6 };
-    uniforms.uCellScale = { value: patch.cellScale ?? 5 };
-  }
   m.userData.uniforms = uniforms;
   m.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, uniforms);
@@ -138,7 +127,7 @@ function patchPhysical(m: THREE.MeshPhysicalMaterial, patch: PhysicalPatch): voi
     let main = "";
     if (patch.milk) {
       pars += "uniform vec3 uMilkColor;\nuniform float uMilk;\nuniform float uMilkEdge;\n";
-      shader.fragmentShader = shader.fragmentShader.replace("#include <transmission_fragment>", milkTransmission(THREE.ShaderChunk.transmission_fragment));
+      shader.fragmentShader = inject(shader.fragmentShader, "#include <transmission_fragment>", milkTransmission(THREE.ShaderChunk.transmission_fragment), patch.key);
     }
     if (patch.translucency) {
       pars += translucencyPars;
@@ -147,45 +136,35 @@ function patchPhysical(m: THREE.MeshPhysicalMaterial, patch: PhysicalPatch): voi
     if (patch.glitter) {
       pars += glitterFragmentPars;
       main += glitterFragmentMain;
-      shader.vertexShader = shader.vertexShader
-        .replace("#include <common>", `#include <common>\n${glitterVertexPars}`)
-        .replace("#include <begin_vertex>", `#include <begin_vertex>\n${glitterVertexMain}`);
+      shader.vertexShader = inject(shader.vertexShader, "#include <common>", `#include <common>\n${glitterVertexPars}`, patch.key);
+      shader.vertexShader = inject(shader.vertexShader, "#include <begin_vertex>", `#include <begin_vertex>\n${glitterVertexMain}`, patch.key);
     }
-    if (patch.fire !== undefined) {
-      pars += crystalFirePars;
-      main += crystalFireMain;
-      shader.fragmentShader = shader.fragmentShader.replace("#include <transmission_fragment>", facetedTransmission(THREE.ShaderChunk.transmission_fragment));
-      shader.vertexShader = shader.vertexShader
-        .replace("#include <common>", `#include <common>\n${crystalVertexPars}`)
-        .replace("#include <begin_vertex>", `#include <begin_vertex>\n${crystalVertexMain}`);
-    }
-    shader.fragmentShader = shader.fragmentShader
-      .replace("#include <common>", `#include <common>\n${pars}`)
-      .replace("#include <opaque_fragment>", `${main}\n#include <opaque_fragment>`);
+    shader.fragmentShader = inject(shader.fragmentShader, "#include <common>", `#include <common>\n${pars}`, patch.key);
+    shader.fragmentShader = inject(shader.fragmentShader, "#include <opaque_fragment>", `${main}\n#include <opaque_fragment>`, patch.key);
   };
   m.customProgramCacheKey = () => `crystal-${patch.key}`;
 }
 
-/** Milky frosted glass of the petals: glossy shell, cloudy body, luminous when back-lit. */
+/** Frosted glass of the daisy petals: glossy shell, softly clouded body, luminous when back-lit. */
 export function frostedGlass(glitter: GlitterUniforms): THREE.MeshPhysicalMaterial {
   const m = new THREE.MeshPhysicalMaterial({
     color: COLORS.petal,
     transmission: 1,
-    roughness: 0.32,
+    roughness: 0.2,
     metalness: 0,
     ior: 1.45,
-    thickness: 0.6,
+    thickness: 0.22,
     attenuationColor: new THREE.Color(COLORS.petalAttenuation),
-    attenuationDistance: 1.6,
-    clearcoat: 0.6,
-    clearcoatRoughness: 0.03,
-    specularIntensity: 0.9,
-    envMapIntensity: 0.9,
+    attenuationDistance: 1.2,
+    clearcoat: 1,
+    clearcoatRoughness: 0.02,
+    specularIntensity: 1,
+    envMapIntensity: 1,
   });
   patchPhysical(m, {
     key: "petal",
-    milk: { color: COLORS.petalMilk, amount: 0.07, edge: 0.5 },
-    translucency: { color: 0xf2f1ee, scale: 0.12, power: 2.2, distortion: 0.35, ambient: 0.02 },
+    milk: { color: COLORS.petalMilk, amount: 0.05, edge: 0.4 },
+    translucency: { color: 0xf6f3ee, scale: 0.1, power: 2.4, distortion: 0.35, ambient: 0.015 },
     glitter,
   });
   return m;
@@ -196,7 +175,7 @@ export function champagneGlass(): THREE.MeshPhysicalMaterial {
   const m = new THREE.MeshPhysicalMaterial({
     color: COLORS.champagne,
     transmission: 1,
-    roughness: 0.28,
+    roughness: 0.2,
     ior: 1.45,
     thickness: 0.9,
     attenuationColor: new THREE.Color(COLORS.champagneDeep),
@@ -204,73 +183,134 @@ export function champagneGlass(): THREE.MeshPhysicalMaterial {
     clearcoat: 1,
     clearcoatRoughness: 0.03,
     specularIntensity: 0.9,
-    envMapIntensity: 1.3,
+    envMapIntensity: 1.2,
   });
   patchPhysical(m, {
     key: "champagne",
-    milk: { color: COLORS.champagne, amount: 0.62, edge: 0.32 },
-    translucency: { color: 0xffd596, scale: 0.6, power: 1.6, distortion: 0.5, ambient: 0.45 },
+    milk: { color: COLORS.champagne, amount: 0.55, edge: 0.3 },
+    translucency: { color: 0xffd596, scale: 0.5, power: 1.6, distortion: 0.5, ambient: 0.3 },
   });
   return m;
 }
 
-/** Cut crystal (leaves, base, sculptures): clear, high index, flat facets, restrained fire. */
-export function crystal(opts: { dispersion?: number; thickness?: number; fire?: number; inner?: number; scatter?: number; shade?: number; internal?: number; cellScale?: number } = {}): THREE.MeshPhysicalMaterial {
+export interface TraceOptions {
+  ior?: number;
+  /** IOR spread between the red and the blue rays (fire). */
+  spread?: number;
+  /** Body colour (sRGB) reached after `depth` world units inside the stone; omitted → clear. */
+  tint?: number;
+  depth?: number;
+  /** How far behind the stone the refraction buffer is sampled (world units). */
+  backDist?: number;
+  /** Sun glints seen through the stone. */
+  sparkle?: number;
+  bounces?: number;
+  envGain?: number;
+}
+
+/** Program buckets for the plane array (programs are shared within a bucket). */
+const PLANE_BUCKETS = [16, 32, 64, 128] as const;
+
+/**
+ * Cut crystal with real light paths (shaders/crystalTrace.ts) through the convex solid `planes`.
+ * Clear by default; `tint` + `depth` give coloured crystal (Beer–Lambert over the traced length):
+ * pale where the path is short, saturated where it is long.
+ */
+export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}): THREE.MeshPhysicalMaterial {
+  const size = PLANE_BUCKETS.find((b) => b >= planes.length) ?? PLANE_BUCKETS[PLANE_BUCKETS.length - 1];
+  if (planes.length > size && process.env.NODE_ENV !== "production") console.warn(`tracedCrystal: ${planes.length} planes > ${size}`);
+  const padded = Array.from({ length: size }, (_, i) => planes[i]?.clone() ?? new THREE.Vector4(0, 1, 0, 1e3));
+  const ior = opts.ior ?? 1.58;
+  const absorb = new THREE.Vector3();
+  if (opts.tint !== undefined) {
+    const c = new THREE.Color(opts.tint);
+    const d = opts.depth ?? 0.2;
+    absorb.set(-Math.log(Math.max(c.r, 1e-3)) / d, -Math.log(Math.max(c.g, 1e-3)) / d, -Math.log(Math.max(c.b, 1e-3)) / d);
+  }
   const m = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
     transmission: 1,
-    roughness: 0.03,
-    ior: 1.75,
-    thickness: opts.thickness ?? 0.5,
-    dispersion: opts.dispersion ?? 3,
+    roughness: 0.015,
+    metalness: 0,
+    ior,
+    thickness: 0,
     specularIntensity: 1,
-    // The crystal geometries are non-indexed with one normal per facet already: interpolated
-    // normals are exact and stable (derivative-based flat shading flickers on small facets).
-    envMapIntensity: 0.75,
+    envMapIntensity: 1,
   });
-  patchPhysical(m, {
-    key: "crystal",
-    fire: opts.fire ?? 1,
-    inner: opts.inner ?? 0.25,
-    scatter: opts.scatter ?? 0.9,
-    shade: opts.shade ?? 0.1,
-    internal: opts.internal ?? 0.6,
-    cellScale: opts.cellScale ?? 5,
-  });
+  const bounces = opts.bounces ?? 4;
+  m.defines = { TRACE_PLANES: size, TRACE_BOUNCES: bounces };
+  const uniforms: Record<string, THREE.IUniform> = {
+    uPlanes: { value: padded },
+    uPlaneCount: { value: planes.length },
+    uTraceIor: { value: ior },
+    uSpread: { value: opts.spread ?? 0.012 },
+    uAbsorb: { value: absorb },
+    uBackDist: { value: opts.backDist ?? 0.6 },
+    uSparkle: { value: opts.sparkle ?? 1 },
+    uEnvGain: { value: opts.envGain ?? 1 },
+  };
+  m.userData.uniforms = uniforms;
+  m.userData.traced = true;
+  m.onBeforeCompile = (shader) => {
+    Object.assign(shader.uniforms, uniforms);
+    shader.vertexShader = inject(shader.vertexShader, "#include <common>", `#include <common>\n${traceVertexPars}`, "trace");
+    shader.vertexShader = inject(shader.vertexShader, "#include <worldpos_vertex>", `#include <worldpos_vertex>\n${traceVertexMain}`, "trace");
+    shader.fragmentShader = inject(shader.fragmentShader, "#include <transmission_pars_fragment>", `#include <transmission_pars_fragment>\n${traceFragmentPars}`, "trace");
+    shader.fragmentShader = inject(shader.fragmentShader, "#include <transmission_fragment>", traceFragmentMain, "trace");
+  };
+  m.customProgramCacheKey = () => `crystal-trace-${size}-${bounces}`;
   return m;
 }
 
-/** Solid glass rod (the stem): clear, but it gathers light along its length and glows a little. */
+/**
+ * Coloured crystal for open, non-convex pieces (bells): three's thin-volume transmission with a
+ * coloured body; the jewel surround gives the facets their light and dark.
+ */
+export function colouredCrystal(tint: number, opts: { thickness?: number; depth?: number; ior?: number; dispersion?: number } = {}): THREE.MeshPhysicalMaterial {
+  const c = new THREE.Color(tint);
+  return new THREE.MeshPhysicalMaterial({
+    color: c.clone().lerp(new THREE.Color(1, 1, 1), 0.35),
+    transmission: 1,
+    roughness: 0.02,
+    metalness: 0,
+    ior: opts.ior ?? 1.58,
+    thickness: opts.thickness ?? 0.05,
+    attenuationColor: c,
+    attenuationDistance: opts.depth ?? 0.08,
+    dispersion: opts.dispersion ?? 0.3,
+    specularIntensity: 1,
+    envMapIntensity: 1.2,
+  });
+}
+
+/** Champagne gold-tone metal (Florere stems, calyces, filaments). */
+export function goldMetal(): THREE.MeshPhysicalMaterial {
+  return new THREE.MeshPhysicalMaterial({ color: 0xe6cf98, metalness: 1, roughness: 0.2, envMapIntensity: 1.25, clearcoat: 0.4, clearcoatRoughness: 0.08 });
+}
+
+/** Green lacquered metal (Lily of the Valley stems and leaves): opaque glossy paint. */
+export function greenLacquer(): THREE.MeshPhysicalMaterial {
+  return new THREE.MeshPhysicalMaterial({ color: 0x2f8f2c, metalness: 0.15, roughness: 0.32, clearcoat: 1, clearcoatRoughness: 0.04, envMapIntensity: 1, side: THREE.DoubleSide });
+}
+
+/** Solid glass rod (the daisy stem): clear, a little light gathered along its length. */
 export function glassRod(): THREE.MeshPhysicalMaterial {
   const m = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
     transmission: 1,
-    roughness: 0.04,
+    roughness: 0.02,
     ior: 1.5,
-    thickness: 0.7,
-    dispersion: 1.5,
+    thickness: 0.13,
+    dispersion: 0.4,
     attenuationColor: new THREE.Color(0xf4ead8),
     attenuationDistance: 2,
     clearcoat: 1,
     clearcoatRoughness: 0.02,
     specularIntensity: 1,
-    envMapIntensity: 2,
+    envMapIntensity: 1.6,
   });
-  patchPhysical(m, { key: "rod", translucency: { color: 0xfff4e6, scale: 0.3, power: 3, distortion: 0.2, ambient: 0.1 } });
+  patchPhysical(m, { key: "rod", translucency: { color: 0xfff4e6, scale: 0.18, power: 3, distortion: 0.2, ambient: 0.05 } });
   return m;
-}
-
-/**
- * Per-triangle barycentric coordinates for the crystal's cut-edge lines. Every geometry drawn with
- * `crystal()` needs it (non-indexed, one facet per triangle).
- */
-export function withFacetEdges<T extends THREE.BufferGeometry>(geometry: T): T {
-  const g = geometry.index ? (geometry.toNonIndexed() as T) : geometry;
-  const count = g.getAttribute("position").count;
-  const bary = new Float32Array(count * 3);
-  for (let i = 0; i < count; i++) bary[i * 3 + (i % 3)] = 1;
-  g.setAttribute("aBary", new THREE.BufferAttribute(bary, 3));
-  return g;
 }
 
 /** Clear glass (panels, vase, bowl, blocks, orbs). */

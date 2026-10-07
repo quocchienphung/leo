@@ -146,3 +146,38 @@ export const DISTANT_TREES = [
   { position: new THREE.Vector3(14.2, 2.4, -14), radius: 1.1 },
   { position: new THREE.Vector3(11.6, 2.2, -15.5), radius: 1.0 },
 ] as const;
+
+export type FlorereSpecies = "rose" | "forgetMeNot" | "rozanne" | "lily" | "lilyOfTheValley" | "blueBellflower";
+
+export interface GardenSpot {
+  species: FlorereSpecies;
+  /** Foot of the plinth (or of the figurine) in stage units. */
+  at: [number, number, number];
+  /** Figurine height (it is modelled 1 tall). */
+  scale: number;
+  yaw: number;
+  plinth?: { kind: "marble" | "glass"; size: [number, number, number]; yaw?: number };
+}
+
+/**
+ * The Florere garden in depth layers around the daisy (Crystal Flower Pavilion board: rose left
+ * midground, forget-me-not low front left, bellflower back left, lily front right, Rozanne back
+ * right, lily of the valley far right). Projected heights ≈ 35–60 % of the daisy's; nothing
+ * crosses the daisy's face or the header copy (u 300 → 520, v 700 → 830 at 1672 × 941).
+ */
+export const GARDEN: GardenSpot[] = [
+  { species: "rose", at: [-2.7, 0, -1.25], scale: 1.75, yaw: 0.35, plinth: { kind: "marble", size: [0.9, 0.95, 0.8], yaw: 0.12 } },
+  { species: "forgetMeNot", at: [-3.75, 0, 1.0], scale: 1.5, yaw: 0.45, plinth: { kind: "marble", size: [0.75, 0.48, 0.7], yaw: -0.2 } },
+  { species: "blueBellflower", at: [-2.05, 0, -4.0], scale: 1.7, yaw: 0.1, plinth: { kind: "marble", size: [0.75, 1.35, 0.75], yaw: 0.05 } },
+  { species: "lily", at: [2.15, 0, 0.35], scale: 1.6, yaw: -0.35, plinth: { kind: "glass", size: [0.7, 0.66, 0.7], yaw: 0.3 } },
+  { species: "rozanne", at: [3.35, 0, -2.75], scale: 1.75, yaw: -0.2, plinth: { kind: "marble", size: [0.85, 1.3, 0.85], yaw: -0.1 } },
+  { species: "lilyOfTheValley", at: [4.3, 0, -0.35], scale: 1.6, yaw: -0.45, plinth: { kind: "marble", size: [0.8, 0.55, 0.8], yaw: 0.2 } },
+];
+
+/** `?debug=florere`: the six side by side in front of the daisy, as on a product sheet. */
+export const LINEUP: GardenSpot[] = (["rose", "forgetMeNot", "rozanne", "lily", "lilyOfTheValley", "blueBellflower"] as const).map((species, i) => ({
+  species,
+  at: [-2.4 + i * 0.96, 0.75, 2.6],
+  scale: 1.45,
+  yaw: 0,
+}));

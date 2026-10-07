@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { ConvexGeometry } from "three/addons/geometries/ConvexGeometry.js";
-import { COLORS, clearGlass, crystal, limestone, rng, withFacetEdges } from "./materials";
+import { cutSolid, type CutSolid } from "./cut";
+import { COLORS, clearGlass, limestone, rng, tracedCrystal } from "./materials";
 import { DISTANT_TREES, PROPS } from "./layout";
 
 function boxBetween(min: THREE.Vector3, max: THREE.Vector3, material: THREE.Material, radius = 0.02): THREE.Mesh {
@@ -63,7 +63,7 @@ function vaseGeometry(radius: number, height: number): THREE.LatheGeometry {
 }
 
 /** Cut crystal cube: every edge chamfered and every corner truncated. */
-function cutCubeGeometry(side: number): THREE.BufferGeometry {
+function cutCube(side: number): CutSolid {
   const h = side / 2;
   const c = side * 0.13;
   const pts: THREE.Vector3[] = [];
@@ -76,7 +76,7 @@ function cutCubeGeometry(side: number): THREE.BufferGeometry {
       }
     }
   }
-  return new ConvexGeometry(pts);
+  return cutSolid(pts);
 }
 
 /** Narrow lanceolate olive leaf. */
@@ -170,7 +170,8 @@ export class Props extends THREE.Group {
     const thinGlass = clearGlass({ thickness: 0.05, dispersion: 0.6 });
     const solid = clearGlass({ thickness: 1.6, dispersion: 1.5, ior: 1.5 });
     solid.envMapIntensity = 1.5;
-    const gem = crystal({ thickness: 1.4, dispersion: 6, fire: 1, inner: 0.15, scatter: 0.9, shade: 0.25, internal: 0.55, cellScale: 7 });
+    const cubeCut = cutCube(PROPS.cube.size);
+    const gem = tracedCrystal(cubeCut.planes, { backDist: 1, sparkle: 1 });
     const stone = limestone();
     stone.roughness = 0.35;
     this.materials.push(block, thinGlass, solid, gem, stone);
@@ -202,7 +203,7 @@ export class Props extends THREE.Group {
     // Right: glass pedestal and the cut crystal cube balanced on an edge.
     const ped = PROPS.pedestal;
     glass(boxBetween(ped.position.clone().add(new THREE.Vector3(-ped.size.x / 2, 0, -ped.size.z / 2)), ped.position.clone().add(new THREE.Vector3(ped.size.x / 2, ped.size.y, ped.size.z / 2)), block, 0.03));
-    const cube = glass(new THREE.Mesh(withFacetEdges(cutCubeGeometry(PROPS.cube.size)), gem));
+    const cube = glass(new THREE.Mesh(cubeCut.geometry, gem));
     cube.position.copy(PROPS.cube.position);
     // Balanced on an edge: a diamond outline, one face nearly square to the camera.
     cube.rotation.set(THREE.MathUtils.degToRad(8), THREE.MathUtils.degToRad(16), Math.PI / 4, "YXZ");

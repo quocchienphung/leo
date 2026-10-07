@@ -6,6 +6,7 @@ import { Pavilion } from "./architecture";
 import { Backdrop } from "./backdrop";
 import { MirrorFloor } from "./floor";
 import { CrystalFlower } from "./flower";
+import { FlorereGarden } from "./florere/garden";
 import { COLORS, applyEnvironment, captureEnvironment } from "./materials";
 import { CrystalPost } from "./post";
 import { Props } from "./props";
@@ -23,6 +24,9 @@ const ADAPT = { slowMs: 24, fastMs: 15, step: 0.08, everyMs: 900 } as const;
 function pinnedQuality(): boolean {
   return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("quality") === "high";
 }
+
+/** Surroundings reflected inside traced crystal: the pavilion capture or the jewel studio. */
+const TRACED_ENV = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("crystalEnv") === "jewel" ? "jewel" : "pavilion";
 
 /** `?debug=backdrop | lighting | composition | sun | glass | probe` (development only). */
 function debugMode(): string | null {
@@ -43,6 +47,7 @@ export class PlaygroundEnvironment extends THREE.Group {
   private readonly floor: MirrorFloor;
   private readonly pavilion: Pavilion;
   private readonly props: Props;
+  private readonly garden: FlorereGarden;
   private readonly shafts: SunShafts;
   private envTarget: THREE.WebGLRenderTarget | null = null;
   private readonly jewelTarget: THREE.WebGLRenderTarget;
@@ -80,6 +85,9 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.stage.add(this.shafts);
     this.flower = new CrystalFlower();
     this.stage.add(this.flower);
+    this.garden = new FlorereGarden(this.debug === "florere");
+    this.stage.add(this.garden);
+    if (this.debug === "florere") this.flower.visible = this.props.visible = false;
 
     // Sun: warm, from the right and a little behind the colonnade (glare on the right pier,
     // diagonal light through the arches on the floor, back-lit petals and crystals).
@@ -122,7 +130,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     if (this.debug === "backdrop") this.stage.visible = false;
     if (this.debug) Object.assign(window, { __crystal: this });
     if (this.debug === "glass") this.plainGlass();
-    if (this.debug === "composition") for (const o of [this.flower, this.props, this.pavilion]) this.add(new THREE.BoxHelper(o, 0xff0055));
+    if (this.debug === "composition") for (const o of [this.flower, this.props, this.garden, this.pavilion]) this.add(new THREE.BoxHelper(o, 0xff0055));
   }
 
   /** Neutral clay everywhere: reads the light hierarchy alone. */
@@ -208,7 +216,7 @@ export class PlaygroundEnvironment extends THREE.Group {
    * baked. The glass is hidden during the capture, and so is everything else in the shared scene.
    */
   private captureEnvironment(renderer: THREE.WebGLRenderer, scene: THREE.Scene): void {
-    const hide: THREE.Object3D[] = [...scene.children.filter((c) => c !== this), this.flower, ...this.props.glass, ...this.pavilion.glass, this.shafts];
+    const hide: THREE.Object3D[] = [...scene.children.filter((c) => c !== this), this.flower, ...this.props.glass, ...this.garden.glass, ...this.pavilion.glass, this.shafts];
     const studio = createLightformers(new THREE.Color(COLORS.sun));
     this.stage.add(studio);
     this.backdrop.sunDisc = 40;
@@ -220,7 +228,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.stage.remove(studio);
     disposeLightformers(studio);
     // Everything but the cut crystal (which keeps the jewel surround) reflects the pavilion.
-    applyEnvironment(this.stage, this.envTarget.texture, (m) => !m.userData.uniforms?.uFire);
+    applyEnvironment(this.stage, this.envTarget.texture, (m) => !m.userData.traced || TRACED_ENV === "pavilion");
   }
 
   /**
@@ -255,6 +263,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.props.render(et);
     this.shafts.render(et);
     this.flower.update(et);
+    this.garden.update(et);
     this.floor.update(renderer, scene, camera, et);
   }
 
@@ -264,6 +273,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.floor.dispose();
     this.pavilion.dispose();
     this.props.dispose();
+    this.garden.dispose();
     this.shafts.dispose();
     this.backdrop.dispose();
     this.post.dispose();
