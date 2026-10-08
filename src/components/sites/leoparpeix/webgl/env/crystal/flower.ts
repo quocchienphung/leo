@@ -230,6 +230,11 @@ export class CrystalFlower extends THREE.Group {
     this.face.update(et, camera);
   }
 
+  /** Actual animated crown position, for camera-space optical focus. */
+  getFocusPoint(out: THREE.Vector3): THREE.Vector3 {
+    return this.head.getWorldPosition(out);
+  }
+
   dispose(): void {
     this.face.dispose();
     for (const m of this.materials) disposeMaterial(m);

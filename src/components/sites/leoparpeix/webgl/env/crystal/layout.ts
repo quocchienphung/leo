@@ -47,9 +47,10 @@ export const RIG_CAMERA = createRigCamera();
  */
 export const SUN_STAGE = new THREE.Vector3(0.449, 0.438, -0.778).normalize();
 
-/** Off-frame colonnade on the right whose columns stripe the floor with sun and shade. */
-export const SIDE_COLONNADE = { x: 8.1, width: 0.75, depth: 0.75, height: 11, from: -5, to: 4.5, step: 2.15 } as const;
 export const SUN_WORLD = new THREE.Vector3(SUN_STAGE.z, SUN_STAGE.y, -SUN_STAGE.x);
+
+/** Full-scale open palace, 40m deep, with a 14m cornice and five successive vaults. */
+export const PALACE = { halfWidth: 4.9, outerWidth: 9.5, spring: 8.3, cornice: 13.7, bays: [-4, -12, -20, -28, -36] } as const;
 
 const deg = THREE.MathUtils.degToRad;
 
@@ -85,27 +86,8 @@ export const FLOWER = {
   discRadius: 0.98,
 } as const;
 
-/** Colonnade (front face at d 14). */
-export const WALL = {
-  z: -6,
-  depth: 1.1,
-  left: -10.5,
-  right: 5.82, // right pier outer edge, u 1430
-  top: 14,
-  plinth: 0.3,
-  /** Central arch: u 600 → 1300 (jambs), springing above the frame. */
-  arch: { left: -2.2, right: 4.57, spring: 6.0 },
-  /** Small left arch: u 290 → 445. */
-  leftArch: { left: -5.2, right: -3.7, spring: 6.4 },
-  /** Behind the curtains: a wide, tall opening; bright daylight glows through the voile. */
-  farArch: { left: -10.3, right: -5.6, spring: 6.6 },
-} as const;
-
-/** Parapet behind the pool: top at v 655 (y 0.9). */
-export const PARAPET = { z: -6.05, depth: 0.55, height: 0.9, right: 45 } as const;
-
 /** Shallow pool round the daisy's base; the plinths of the garden stand on the marble around it. */
-export const POOL = { left: -2.0, right: 1.7, back: -2.6, front: 0.85, radius: 1.0 } as const;
+export const POOL = { left: -2.0, right: 1.7, back: -11.4, front: 0.85, radius: 1.0 } as const;
 
 export const PROPS = {
   /** Clear glass spheres: on the floor and resting on plinths. */
@@ -121,6 +103,8 @@ export const PROPS = {
   clusters: [
     { position: new THREE.Vector3(-1.6, 0, -3.3), scale: 0.85, seed: 11 },
     { position: new THREE.Vector3(2.2, 0, -3.4), scale: 0.8, seed: 19 },
+    { position: new THREE.Vector3(-2.45, 0, 3.5), scale: 1.8, seed: 23 },
+    { position: new THREE.Vector3(2.65, 0, 3.0), scale: 2.0, seed: 29 },
   ],
 } as const;
 
@@ -152,9 +136,12 @@ export const GARDEN: GardenSpot[] = [
   { species: "rozanne", at: [3.75, 0, -2.9], scale: 2.25, yaw: -0.2, plinth: { kind: "marble", size: [0.85, 1.15, 0.85], yaw: -0.1 } },
   { species: "lilyOfTheValley", at: [4.2, 0, -0.5], scale: 1.95, yaw: -0.45, plinth: { kind: "marble", size: [0.8, 0.5, 0.8], yaw: 0.2 } },
   // Repeats behind the main six, so the garden reads in layers.
-  { species: "rozanne", at: [-4.6, 0, -4.4], scale: 2.0, yaw: 0.6, plinth: { kind: "marble", size: [0.75, 1.05, 0.75], yaw: 0.25 }, repeat: true },
-  { species: "rose", at: [5.0, 0, -4.7], scale: 2.1, yaw: -0.7, plinth: { kind: "marble", size: [0.8, 1.25, 0.8], yaw: -0.2 }, repeat: true },
-  { species: "blueBellflower", at: [2.75, 0, -4.6], scale: 1.9, yaw: -0.4, plinth: { kind: "glass", size: [0.6, 0.6, 0.6], yaw: 0.4 }, repeat: true },
+  { species: "rozanne", at: [-3.8, 0, -9.2], scale: 2.0, yaw: 0.6, plinth: { kind: "marble", size: [0.75, 1.05, 0.75], yaw: 0.25 }, repeat: true },
+  { species: "rose", at: [3.8, 0, -11.2], scale: 2.1, yaw: -0.7, plinth: { kind: "marble", size: [0.8, 1.25, 0.8], yaw: -0.2 }, repeat: true },
+  { species: "blueBellflower", at: [2.75, 0.28, -16.6], scale: 2.2, yaw: -0.4, plinth: { kind: "glass", size: [0.6, 0.6, 0.6], yaw: 0.4 }, repeat: true },
+  { species: "forgetMeNot", at: [-3.0, 0.28, -18.8], scale: 2.3, yaw: 0.2, plinth: { kind: "marble", size: [0.8, 0.8, 0.8] }, repeat: true },
+  { species: "lily", at: [3.7, 0.56, -27], scale: 2.4, yaw: -0.2, plinth: { kind: "marble", size: [0.8, 0.7, 0.8] }, repeat: true },
+  { species: "rose", at: [-3.7, 0.56, -30.5], scale: 2.4, yaw: 0.5, plinth: { kind: "marble", size: [0.85, 0.75, 0.85] }, repeat: true },
 ];
 
 /** `?debug=florere`: the six side by side in front of the daisy, as on a product sheet. */

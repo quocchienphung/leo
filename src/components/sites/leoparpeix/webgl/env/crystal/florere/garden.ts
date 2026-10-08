@@ -64,7 +64,7 @@ export class FlorereGarden extends THREE.Group {
         const geo = roundedBox(w, h, d, spot.plinth.kind === "glass" ? 0.03 : 0.015);
         this.owned.geometries.push(geo);
         const m = new THREE.Mesh(geo, spot.plinth.kind === "glass" ? block : marble);
-        m.position.set(spot.at[0], h / 2, spot.at[2]);
+        m.position.set(spot.at[0], spot.at[1] + h / 2, spot.at[2]);
         m.rotation.y = spot.plinth.yaw ?? 0;
         m.castShadow = m.receiveShadow = spot.plinth.kind !== "glass";
         this.add(m);

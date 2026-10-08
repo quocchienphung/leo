@@ -77,10 +77,10 @@ export class MirrorFloor extends THREE.Group {
         .replace("#include <opaque_fragment>", `${floorFragmentMain}\n#include <opaque_fragment>`);
     };
     floorMat.customProgramCacheKey = () => "crystal-granite-floor-v1";
-    const floorGeo = new THREE.PlaneGeometry(60, 60);
+    const floorGeo = new THREE.PlaneGeometry(60, 100);
     floorGeo.rotateX(-Math.PI / 2);
     const floor = new THREE.Mesh(floorGeo, floorMat);
-    floor.position.set(10, 0, -2);
+    floor.position.set(10, 0, -22);
     floor.receiveShadow = true;
     this.add(floor);
     this.reflectors.push(floor);

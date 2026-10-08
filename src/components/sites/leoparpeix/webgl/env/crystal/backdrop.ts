@@ -44,8 +44,8 @@ const MASSIFS: [number, number, number, number][] = [
   [...at(18.5, 14.5), 1.8, 2.2],
   [...at(-17, 11.5), 2.0, 2.2],
   [...at(-25, 13), 1.75, 2.8],
-  [...at(-6, 17), 1.5, 2.8],
-  [...at(4, 19), 1.55, 3.0],
+  [...at(-6, 17), 2.85, 2.8],
+  [...at(4, 19), 3.3, 3.0],
   // Forested foothills: behind the daisy's leaves and base (600–1000, 540–655) and lower right.
   [...at(-18, 6.2), 0.78, 2.2],
   [...at(-9, 4.4), 0.8, 1.4],

@@ -30,7 +30,8 @@ try {
     await page.goto(`http://localhost:3000/playground?skipLoader&debug=probe${c.query}`);
     await page.waitForFunction(() => window.__crystal?.envTarget, undefined, { timeout: 120000 });
     if (c.bloomOff) await page.evaluate(() => { const u = window.__crystal.post.finalMat.uniforms; u.uBloom.value.set(0, 0, 0); u.uGlare.value.z = 0; if (u.uGlints) u.uGlints.value = 0; });
-    await page.waitForTimeout(3500);
+    // The existing navbar reveal has a 3.75s delay plus a 1s fade.
+    await page.waitForTimeout(6000);
     await page.screenshot({ path: `${out}/${c.name}.png` });
     const state = await page.evaluate(() => { const e = window.__crystal; return { renderScale: e.renderScale, hdr: [e.post.target.width, e.post.target.height], mirror: [e.floor.target.width, e.floor.target.height], garden: e.garden.planted.map((p) => p.figurine.name), props: e.props.children.map((o) => o.type), stone: e.pavilion.children.filter((o) => o.material?.userData.stone).map((o) => o.material.name) }; });
     report.shots.push({ ...c, ...state });
@@ -40,11 +41,16 @@ try {
         await page.mouse.move(1020, 380, { steps: 18 });
         await page.waitForTimeout(1000);
         await page.screenshot({ path: `${out}/07-pointer.png` });
-        for (const route of ['/', '/about', '/playground?skipLoader&debug=probe']) {
-          await page.goto(`http://localhost:3000${route}`);
-          await page.waitForTimeout(2000);
-          report.navigation.push({ route, status: await page.title(), canvas: await page.locator('canvas').count() });
+        for (const [label, route] of [['About', '/about'], ['Playground', '/playground'], ['Work', '/'], ['Playground', '/playground']]) {
+          await page.getByRole('link', { name: label, exact: true }).click();
+          await page.waitForURL((url) => url.pathname === route);
+          await page.waitForTimeout(4000);
+          report.navigation.push({ action: `Click ${label}`, route, title: await page.title(), canvas: await page.locator('canvas').count() });
         }
+        await page.setViewportSize({ width: 1024, height: 768 });
+        await page.waitForTimeout(1500);
+        report.resize = await page.evaluate(() => ({ viewport: [innerWidth, innerHeight], hdr: [window.__crystal.post.target.width, window.__crystal.post.target.height], stoneTexture: [window.__crystal.granite.color.image.width, window.__crystal.granite.color.image.height] }));
+        await page.screenshot({ path: `${out}/08-live-resize.png` });
       }
     }
     await page.close();

@@ -1,0 +1,102 @@
+{
+  "phase": "palace-iteration-2",
+  "shots": [
+    {
+      "name": "01-desktop-default",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "query": "",
+      "renderScale": 1,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1254,
+        706
+      ],
+      "garden": [
+        "Rose",
+        "Forget-me-not",
+        "Blue Bellflower",
+        "Lily",
+        "Rozanne",
+        "Lily of the Valley",
+        "Rozanne",
+        "Rose",
+        "Blue Bellflower",
+        "Forget-me-not",
+        "Lily",
+        "Rose"
+      ],
+      "props": [
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh"
+      ],
+      "stone": [
+        "Ivory granite / honed",
+        "Ivory granite / polished"
+      ]
+    },
+    {
+      "name": "02-desktop-high",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "query": "&quality=high",
+      "renderScale": 1,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "garden": [
+        "Rose",
+        "Forget-me-not",
+        "Blue Bellflower",
+        "Lily",
+        "Rozanne",
+        "Lily of the Valley",
+        "Rozanne",
+        "Rose",
+        "Blue Bellflower",
+        "Forget-me-not",
+        "Lily",
+        "Rose"
+      ],
+      "props": [
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh",
+        "Mesh"
+      ],
+      "stone": [
+        "Ivory granite / honed",
+        "Ivory granite / polished"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "THREE.WebGLProgram: Program Info Log: (210,81-129): warning X4122: sum of 0.996094 and -2.98545e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (58,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (593,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (603,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (543,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (59,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n(59,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (61,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n(61,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n(61,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n\n\n\u0000"
+  ],
+  "navigation": []
+}

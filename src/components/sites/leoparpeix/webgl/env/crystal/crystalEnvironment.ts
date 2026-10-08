@@ -62,6 +62,7 @@ export class PlaygroundEnvironment extends THREE.Group {
   private openTl: gsap.core.Timeline | null = null;
   private readonly debug = debugMode();
   private readonly sunPoint = new THREE.Vector3();
+  private readonly focusPoint = new THREE.Vector3();
   private readonly granite = new GranitePalette();
 
   constructor(renderer: THREE.WebGLRenderer) {
@@ -293,6 +294,9 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.backdrop.update(renderer, et);
     if (!this.envTarget && this.backdrop.ready) this.captureEnvironment(renderer, scene);
     this.flower.update(et, camera);
+    // Focus follows the actual moving flower and the intro/scroll camera, not a fixed screen mask.
+    this.flower.getFocusPoint(this.focusPoint);
+    this.post.dof.focus(camera, this.focusPoint);
     this.garden.update(et);
     this.floor.update(renderer, scene, camera, et);
   }
