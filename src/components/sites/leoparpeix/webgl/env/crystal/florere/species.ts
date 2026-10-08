@@ -29,7 +29,7 @@ const TINT = {
   violet: { tint: 0xa58cff, depth: 0.075 },
   purple: { tint: 0x7a3ee6, depth: 0.025 },
   lilac: { tint: 0xd59cf2, depth: 0.05 },
-  jonquil: { tint: 0xffdf92, depth: 0.11 },
+  jonquil: { tint: 0xffebc0, depth: 0.18 },
   amber: { tint: 0xffa21a, depth: 0.035 },
   sapphire: { tint: 0x5274ff, depth: 0.11 },
 } as const;
@@ -178,12 +178,12 @@ export function lily(kit: Kit): Figurine {
   f.wire([[0.03, 0.12, 0.0], [0.07, 0.24, 0.01], [0.02, 0.38, 0.02], [-0.02, 0.5, 0.02], [0.04, 0.63, 0.01], [0.08, 0.74, 0.0], [0.07, 0.81, -0.01], [0.04, 0.85, -0.01]], 0.0068, 0.006);
 
   // Trumpet facing up, left and towards the viewer.
-  const axis = new THREE.Vector3(-0.45, 0.65, 0.6);
+  const axis = new THREE.Vector3(-0.12, 0.3, 0.95);
   const head = compose(vec([-0.02, 0.89, 0.02]), frame(axis, new THREE.Vector3(0.3, 0.2, -1)), 1.35);
   const yellow = { ...CLEAR, ...TINT.jonquil, backDist: 0.25 };
   // Six broad pointed tepals in two rings: the outer three open wide, the inner three form the cup.
-  const outerT = petalChip(ovalOutline(0.185, 0.1, { point: 1.0, belly: 0.42, segments: 16 }), 0.017, 0.013, 0.02);
-  const innerT = petalChip(ovalOutline(0.17, 0.112, { point: 0.9, belly: 0.45, segments: 16 }), 0.017, 0.013, 0.022);
+  const outerT = petalChip(ovalOutline(0.205, 0.135, { point: 0.9, belly: 0.46, segments: 18 }), 0.017, 0.013, 0.02);
+  const innerT = petalChip(ovalOutline(0.19, 0.14, { point: 0.8, belly: 0.48, segments: 18 }), 0.017, 0.013, 0.022);
   f.crystal(outerT, yellow, corolla(head, 3, { tilt: deg(16), root: 0.018, offset: deg(10), jitter: (i) => ({ tilt: deg([0, 8, -6][i]) }) }));
   f.crystal(innerT, yellow, corolla(head, 3, { tilt: deg(32), root: 0.014, offset: deg(70), jitter: (i) => ({ tilt: deg([4, -4, 10][i]) }) }));
   // Amber throat.

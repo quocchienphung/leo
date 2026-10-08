@@ -36,6 +36,18 @@ try {
     await page.waitForTimeout(c.intro ? 10000 : 6000);
     await page.screenshot({ path: `${out}/${c.name}.png` });
     report.shots.push(await page.evaluate((name) => { const e = window.__crystal; return { name, viewport: [innerWidth, innerHeight, devicePixelRatio], renderScale: e.renderScale, hdr: [e.post.target.width, e.post.target.height], dof: { enabled: e.post.dof.enabled, focus: e.post.dof.gather.uniforms.uFocus.value, aperture: e.post.dof.gather.uniforms.uAperture.value, taps: e.post.dof.gather.defines.DOF_TAPS }, gardenCount: e.garden.planted.length, palaceMeshes: e.pavilion.children.filter((o) => o.isMesh).length, overflow: document.documentElement.scrollWidth > innerWidth }; }, c.name));
+    if (flourish) {
+      const collection = await page.evaluate(() => {
+        const e = window.__crystal;
+        const cuts = [];
+        e.garden.traverse((o) => { if (o.material?.userData.traced) cuts.push(o.material.userData.uniforms.uPlaneCount.value); });
+        return { species: [...new Set(e.garden.planted.map((p) => p.figurine.name))], planes: [...new Set(cuts)].sort((a, b) => a - b), lights: e.children.filter((o) => o.name.startsWith('Crystal gallery')).map((o) => ({ name: o.name, intensity: o.intensity })) };
+      });
+      report.shots.at(-1).collection = collection;
+      for (const name of ['Tulip', 'Iris', 'Hydrangea', 'Wildflower']) assert(collection.species.includes(name), `${name} missing`);
+      assert(Math.max(...collection.planes) <= 256, 'A cut exceeds the shader plane budget');
+      assert.equal(collection.lights.length, 2);
+    }
     if (c.name === '02-desktop-high') {
       // Obtain the actual renderer for an independent 1px depth readback through the GPU.
       await page.evaluate(() => {
@@ -89,6 +101,10 @@ try {
         e.post.dof.composite.uniforms.uDebug.value = 0;
         [e.flower.update, e.garden.update, e.backdrop.update, e.floor.update] = window.__palaceRestore;
       });
+      if (flourish) {
+        await page.waitForTimeout(200);
+        for (const [name, clip] of Object.entries({ left: { x: 0, y: 160, width: 580, height: 730 }, right: { x: 1070, y: 160, width: 602, height: 730 }, cuts: { x: 280, y: 260, width: 220, height: 200 } })) await page.screenshot({ path: `${out}/crop-${name}.png`, clip });
+      }
       if (!quick) {
         await page.mouse.move(1020, 380, { steps: 18 });
         await page.waitForTimeout(1000);

@@ -26,10 +26,10 @@ export function tulip(kit: Kit): Figurine {
   f.wire([[0, 0.12, 0], [-0.03, 0.32, 0], [-0.02, 0.5, 0.015], [0.02, 0.7, 0.01], [0.035, 0.78, 0]], 0.007, 0.0055);
   const head = compose(vec([0.035, 0.77, 0]), frame(vec([0.08, 0.97, 0.25])));
   const pink = { ...CLEAR, tint: 0xffbaca, depth: 0.16, backDist: 0.24 };
-  const petal = petalChip(ovalOutline(0.29, 0.18, { segments: 18, point: 0.62, belly: 0.62 }), 0.028, 0.019, 0.018);
+  const petal = petalChip(ovalOutline(0.3, 0.14, { segments: 18, point: 0.5, belly: 0.62 }), 0.028, 0.019, 0.018);
   f.crystal(petal, pink, [
-    ...corolla(head, 3, { tilt: deg(58), root: 0.026, offset: deg(15) }),
-    ...corolla(head, 3, { tilt: deg(68), root: 0.02, offset: deg(75), jitter: (i) => ({ scale: 0.95 + i * 0.025 }) }),
+    ...corolla(head, 3, { tilt: deg(72), root: 0.034, offset: deg(15) }),
+    ...corolla(head, 3, { tilt: deg(78), root: 0.026, offset: deg(75), jitter: (i) => ({ scale: 0.95 + i * 0.025 }) }),
   ]);
   f.crystal(bead(0.035, 10), { ...CLEAR, tint: 0xffd68c, depth: 0.09 }, [head]);
   leaf(f, [-0.02, 0.38, 0.01], [-0.6, 0.8, 0.1], 0.34, 0.09);
@@ -74,7 +74,7 @@ export function hydrangea(kit: Kit): Figurine {
     flowers.push(compose(p, frame(d.clone().multiplyScalar(0.65).add(vec([0, 0.1, 0.65]))), 0.9 + (i % 3) * 0.07));
     if (i % 4 === 0) f.wire([[0, 0.7, 0], [p.x * 0.5, p.y - 0.04, p.z * 0.5], [p.x, p.y, p.z]], 0.003, 0.0025);
   }
-  const petal = petalChip(ovalOutline(0.054, 0.054, { segments: 12, point: 0.48, belly: 0.6 }), 0.01, 0.007, 0.003);
+  const petal = petalChip(ovalOutline(0.064, 0.062, { segments: 12, point: 0.48, belly: 0.6 }), 0.01, 0.007, 0.003);
   f.crystal(petal, { ...CLEAR, tint: 0xc6e2ff, depth: 0.1, backDist: 0.12, bounces: 2 }, flowers.flatMap((m, i) => corolla(m, 4, { tilt: deg(12), root: 0.006, offset: deg(i * 19) })));
   f.crystal(bead(0.008, 6), { ...CLEAR, tint: 0xffe7ac, depth: 0.06, bounces: 2 }, flowers);
   leaf(f, [0.015, 0.48, 0], [-0.8, 0.55, 0.15], 0.21, 0.14);
