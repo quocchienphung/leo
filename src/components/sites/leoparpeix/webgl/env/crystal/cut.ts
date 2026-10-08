@@ -238,3 +238,57 @@ export function bellBody(length: number, crown: number, mouth: number, around: n
   }
   return ringGem(rings, { apexTop: 0 });
 }
+
+/**
+ * Quartz point: a hexagonal prism with a six-faced pyramidal termination, foot at the origin,
+ * axis +y. Faces are slightly unequal (`seed`), as on natural points.
+ */
+export function quartzPoint(radius: number, length: number, seed: number): CutSolid {
+  const random = rng(seed);
+  const pts: THREE.Vector3[] = [];
+  const shoulder = length * 0.72;
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2;
+    const r = radius * (0.92 + random() * 0.16);
+    pts.push(v3(Math.cos(a) * r, 0, Math.sin(a) * r), v3(Math.cos(a) * r * 0.97, shoulder + (random() - 0.5) * radius * 0.4, Math.sin(a) * r * 0.97));
+  }
+  pts.push(v3((random() - 0.5) * radius * 0.25, length, (random() - 0.5) * radius * 0.25));
+  return cutSolid(pts);
+}
+
+/**
+ * Faceted rock (the daisy's base, after the home/about daisy's low-poly stone): a block with a flat
+ * foot, short near-vertical walls and a domed faceted crown, pushed in and out
+ * by a few smooth seeded bulges. `count` points spread evenly (Fibonacci spiral) give facets of
+ * similar size facing every way, never in even bands. Foot at y 0; `width` × `height` × `depth`.
+ */
+export function facetedRock(width: number, height: number, depth: number, count: number, seed: number): CutSolid {
+  const random = rng(seed);
+  const bulges = Array.from({ length: 5 }, () => ({ dir: v3(random() - 0.5, random() - 0.3, random() - 0.5).normalize(), amp: 0.05 + random() * 0.07 }));
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  const pts: THREE.Vector3[] = [];
+  for (let i = 0; i < count; i++) {
+    const sy = 1 - ((i + 0.5) / count) * 2;
+    const a = i * golden;
+    // Profile by sy: foot (y 0), short wall (to 35 %), rounded crown.
+    let y: number;
+    let radial: number;
+    if (sy < -0.5) {
+      y = 0;
+      radial = 0.92 * Math.sqrt((sy + 1) / 0.5);
+    } else if (sy < 0.15) {
+      const u = (sy + 0.5) / 0.65;
+      y = 0.35 * u;
+      radial = 1 - 0.04 * u;
+    } else {
+      const u = ((sy - 0.15) / 0.85) * Math.PI * 0.5;
+      y = 0.35 + 0.65 * Math.sin(u);
+      radial = 0.96 * Math.cos(u) ** 0.85;
+    }
+    const d = v3(Math.cos(a) * radial, sy, Math.sin(a) * radial);
+    let k = 1;
+    for (const b of bulges) k += b.amp * Math.max(0, d.clone().normalize().dot(b.dir)) ** 2;
+    pts.push(v3(d.x * (width / 2) * k, y * height * (0.94 + 0.06 * k), d.z * (depth / 2) * k));
+  }
+  return cutSolid(pts);
+}

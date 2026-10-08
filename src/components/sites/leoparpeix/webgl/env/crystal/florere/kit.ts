@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import type { CutSolid } from "../cut";
 import { taperedTube } from "../flower";
-import { tracedCrystal, type TraceOptions } from "../materials";
+import { disposeMaterial, tracedCrystal, type TraceOptions } from "../materials";
 
 /*
  * Building blocks of the Florere figurines. Each species is modelled in "product units": the
@@ -137,7 +137,7 @@ export class Figurine extends THREE.Group {
 
   dispose(): void {
     for (const g of this.geometries) g.dispose();
-    for (const m of this.materials) m.dispose();
+    for (const m of this.materials) disposeMaterial(m);
   }
 }
 

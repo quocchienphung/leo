@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GARDEN, LINEUP } from "../layout";
-import { clearGlass, goldMetal, greenLacquer, marbleTexture } from "../materials";
+import { clearGlass, goldMetal, greenLacquer } from "../materials";
+import { GranitePalette } from "../stone";
 import { type Figurine, type Kit } from "./kit";
 import { SPECIES } from "./species";
 
@@ -40,21 +41,19 @@ export class FlorereGarden extends THREE.Group {
   private readonly kit: Kit;
   private readonly owned: { geometries: THREE.BufferGeometry[]; materials: THREE.Material[]; textures: THREE.Texture[] } = { geometries: [], materials: [], textures: [] };
 
-  constructor(lineup = false) {
+  /** `lite`: the back-layer repeats are left out. */
+  constructor(granite: GranitePalette, lineup = false, lite = false) {
     super();
     this.name = "FlorereGarden";
     this.kit = { gold: goldMetal(), lacquer: greenLacquer() };
     this.owned.materials.push(this.kit.gold, this.kit.lacquer);
 
-    const map = marbleTexture(9);
-    map.repeat.set(0.5, 0.5);
-    const marble = new THREE.MeshPhysicalMaterial({ map, roughness: 0.18, clearcoat: 0.6, clearcoatRoughness: 0.12, envMapIntensity: 0.6 });
+    const marble = granite.material("polished");
     const block = clearGlass({ thickness: 0.6, dispersion: 0.8, ior: 1.52 });
     block.envMapIntensity = 1.4;
     this.owned.materials.push(marble, block);
-    this.owned.textures.push(map);
 
-    const spots = lineup ? LINEUP : GARDEN;
+    const spots = lineup ? LINEUP : GARDEN.filter((s) => !(lite && s.repeat));
     spots.forEach((spot, i) => {
       const pivot = new THREE.Object3D();
       pivot.position.set(...spot.at);

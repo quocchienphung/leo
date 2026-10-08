@@ -10,8 +10,8 @@ import { traceFragmentMain, traceFragmentPars, traceVertexMain, traceVertexPars 
  */
 export const COLORS = {
   sun: 0xffd9a8,
-  petal: 0xe9e6e1,
-  petalMilk: 0xf6f4f1,
+  petal: 0xf1efeb,
+  petalMilk: 0xfdf7ee,
   petalAttenuation: 0xf0ebe4,
   champagne: 0xeccb8c,
   champagneDeep: 0xd39a4a,
@@ -39,11 +39,11 @@ export function rng(seed: number): () => number {
  * pre-filtered once. Glass and crystal reflect this; without it they look dead.
  * `hide` are switched off during the capture (the glass would only reflect itself).
  */
-export function captureEnvironment(renderer: THREE.WebGLRenderer, scene: THREE.Scene, position: THREE.Vector3, hide: THREE.Object3D[]): THREE.WebGLRenderTarget {
+export function captureEnvironment(renderer: THREE.WebGLRenderer, scene: THREE.Scene, position: THREE.Vector3, hide: THREE.Object3D[], size = 256): THREE.WebGLRenderTarget {
   const restore = hide.map((o) => o.visible);
   for (const o of hide) o.visible = false;
   const pmrem = new THREE.PMREMGenerator(renderer);
-  const target = pmrem.fromScene(scene, 0, 0.05, 1500, { size: 256, position });
+  const target = pmrem.fromScene(scene, 0, 0.05, 1500, { size, position });
   pmrem.dispose();
   hide.forEach((o, i) => (o.visible = restore[i]));
   return target;
@@ -68,6 +68,8 @@ export function applyEnvironment(root: THREE.Object3D, env: THREE.Texture, accep
 export interface GlitterUniforms {
   uGlitterSun: THREE.IUniform<THREE.Vector3>;
   uGlitter: THREE.IUniform<number>;
+  /** Thin bright rim line, independent of the flakes. */
+  uGlitterRim: THREE.IUniform<number>;
 }
 
 export interface TranslucencyOptions {
@@ -81,6 +83,8 @@ export interface TranslucencyOptions {
   distortion: number;
   /** Glow present whatever the light direction (internal scattering of the sky light). */
   ambient: number;
+  /** 1: the whole body glows (orb); 0: only the thick rim does (petals, stem). */
+  body: number;
 }
 
 interface PhysicalPatch {
@@ -118,6 +122,7 @@ function patchPhysical(m: THREE.MeshPhysicalMaterial, patch: PhysicalPatch): voi
     uniforms.uTransPower = { value: t.power };
     uniforms.uTransDistortion = { value: t.distortion };
     uniforms.uTransAmbient = { value: t.ambient };
+    uniforms.uTransBody = { value: t.body };
   }
   if (patch.glitter) Object.assign(uniforms, patch.glitter);
   m.userData.uniforms = uniforms;
@@ -145,50 +150,56 @@ function patchPhysical(m: THREE.MeshPhysicalMaterial, patch: PhysicalPatch): voi
   m.customProgramCacheKey = () => `crystal-${patch.key}`;
 }
 
-/** Frosted glass of the daisy petals: glossy shell, softly clouded body, luminous when back-lit. */
+/**
+ * Frosted crystal of the daisy petals (target: clear rounded crystal with a fine frost, bright
+ * selective rims, depth in the body). A smooth clear coat over a lightly frosted, lightly clouded
+ * body; the sun glows only along the thick rims; sparse filtered sparkle.
+ */
 export function frostedGlass(glitter: GlitterUniforms): THREE.MeshPhysicalMaterial {
   const m = new THREE.MeshPhysicalMaterial({
     color: COLORS.petal,
     transmission: 1,
-    roughness: 0.2,
+    // Frosted body (the scene behind is softly blurred), sharp clear coat on top.
+    roughness: 0.22,
     metalness: 0,
-    ior: 1.45,
+    ior: 1.5,
     thickness: 0.22,
     attenuationColor: new THREE.Color(COLORS.petalAttenuation),
-    attenuationDistance: 1.2,
+    attenuationDistance: 3,
     clearcoat: 1,
-    clearcoatRoughness: 0.02,
+    clearcoatRoughness: 0.03,
     specularIntensity: 1,
     envMapIntensity: 1,
   });
   patchPhysical(m, {
     key: "petal",
-    milk: { color: COLORS.petalMilk, amount: 0.05, edge: 0.4 },
-    translucency: { color: 0xf6f3ee, scale: 0.1, power: 2.4, distortion: 0.35, ambient: 0.015 },
+    // Negative edge: light piped along the thick rim makes it brighter, as in cast glass.
+    milk: { color: COLORS.petalMilk, amount: 0.16, edge: -0.2 },
+    translucency: { color: 0xfff6ea, scale: 0.2, power: 2.5, distortion: 0.3, ambient: 0.03, body: 0.14 },
     glitter,
   });
   return m;
 }
 
-/** Champagne orb in the middle of the head: warm, translucent, lit from within. */
+/** Champagne orb in the middle of the head: warm, satin, softly lit from within. */
 export function champagneGlass(): THREE.MeshPhysicalMaterial {
   const m = new THREE.MeshPhysicalMaterial({
-    color: COLORS.champagne,
+    color: 0xf7deaa,
     transmission: 1,
-    roughness: 0.2,
+    roughness: 0.18,
     ior: 1.45,
     thickness: 0.9,
-    attenuationColor: new THREE.Color(COLORS.champagneDeep),
-    attenuationDistance: 0.8,
-    clearcoat: 1,
-    clearcoatRoughness: 0.03,
-    specularIntensity: 0.9,
-    envMapIntensity: 1.2,
+    attenuationColor: new THREE.Color(0xf1ca8d),
+    attenuationDistance: 2.5,
+    clearcoat: 0.9,
+    clearcoatRoughness: 0.035,
+    specularIntensity: 1,
+    envMapIntensity: 1.1,
   });
   patchPhysical(m, {
     key: "champagne",
-    milk: { color: COLORS.champagne, amount: 0.55, edge: 0.3 },
-    translucency: { color: 0xffd596, scale: 0.5, power: 1.6, distortion: 0.5, ambient: 0.3 },
+    milk: { color: 0xf7deaa, amount: 0.22, edge: 0.08 },
+    translucency: { color: 0xffdbad, scale: 0.18, power: 2, distortion: 0.4, ambient: 0.09, body: 0.7 },
   });
   return m;
 }
@@ -197,7 +208,7 @@ export interface TraceOptions {
   ior?: number;
   /** IOR spread between the red and the blue rays (fire). */
   spread?: number;
-  /** Body colour (sRGB) reached after `depth` world units inside the stone; omitted → clear. */
+  /** Body colour (sRGB) reached after `depth` object-space units inside the stone; omitted → clear. */
   tint?: number;
   depth?: number;
   /** How far behind the stone the refraction buffer is sampled (world units). */
@@ -208,18 +219,33 @@ export interface TraceOptions {
   envGain?: number;
 }
 
-/** Program buckets for the plane array (programs are shared within a bucket). */
-const PLANE_BUCKETS = [16, 32, 64, 128] as const;
+/** Loop bounds for the plane count (programs are shared within a bucket). */
+const PLANE_BUCKETS = [16, 32, 64, 128, 256] as const;
+
+/** The planes of a solid as a 1-row float texture (shared by every material tracing that solid). */
+const planeTextures = new WeakMap<THREE.Vector4[], THREE.DataTexture>();
+function planeTexture(planes: THREE.Vector4[]): THREE.DataTexture {
+  let tex = planeTextures.get(planes);
+  if (tex) return tex;
+  const data = new Float32Array(Math.max(1, planes.length) * 4);
+  planes.forEach((p, i) => data.set([p.x, p.y, p.z, p.w], i * 4));
+  tex = new THREE.DataTexture(data, Math.max(1, planes.length), 1, THREE.RGBAFormat, THREE.FloatType);
+  tex.minFilter = tex.magFilter = THREE.NearestFilter;
+  tex.generateMipmaps = false;
+  tex.needsUpdate = true;
+  planeTextures.set(planes, tex);
+  return tex;
+}
 
 /**
  * Cut crystal with real light paths (shaders/crystalTrace.ts) through the convex solid `planes`.
  * Clear by default; `tint` + `depth` give coloured crystal (Beer–Lambert over the traced length):
- * pale where the path is short, saturated where it is long.
+ * pale where the path is short, saturated where it is long. Dispose the material's
+ * `userData.planeTexture` with the solid.
  */
 export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}): THREE.MeshPhysicalMaterial {
   const size = PLANE_BUCKETS.find((b) => b >= planes.length) ?? PLANE_BUCKETS[PLANE_BUCKETS.length - 1];
   if (planes.length > size && process.env.NODE_ENV !== "production") console.warn(`tracedCrystal: ${planes.length} planes > ${size}`);
-  const padded = Array.from({ length: size }, (_, i) => planes[i]?.clone() ?? new THREE.Vector4(0, 1, 0, 1e3));
   const ior = opts.ior ?? 1.58;
   const absorb = new THREE.Vector3();
   if (opts.tint !== undefined) {
@@ -240,7 +266,7 @@ export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}):
   const bounces = opts.bounces ?? 4;
   m.defines = { TRACE_PLANES: size, TRACE_BOUNCES: bounces };
   const uniforms: Record<string, THREE.IUniform> = {
-    uPlanes: { value: padded },
+    uPlanes: { value: planeTexture(planes) },
     uPlaneCount: { value: planes.length },
     uTraceIor: { value: ior },
     uSpread: { value: opts.spread ?? 0.012 },
@@ -251,6 +277,7 @@ export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}):
   };
   m.userData.uniforms = uniforms;
   m.userData.traced = true;
+  m.userData.planeTexture = uniforms.uPlanes.value;
   m.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, uniforms);
     shader.vertexShader = inject(shader.vertexShader, "#include <common>", `#include <common>\n${traceVertexPars}`, "trace");
@@ -262,25 +289,10 @@ export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}):
   return m;
 }
 
-/**
- * Coloured crystal for open, non-convex pieces (bells): three's thin-volume transmission with a
- * coloured body; the jewel surround gives the facets their light and dark.
- */
-export function colouredCrystal(tint: number, opts: { thickness?: number; depth?: number; ior?: number; dispersion?: number } = {}): THREE.MeshPhysicalMaterial {
-  const c = new THREE.Color(tint);
-  return new THREE.MeshPhysicalMaterial({
-    color: c.clone().lerp(new THREE.Color(1, 1, 1), 0.35),
-    transmission: 1,
-    roughness: 0.02,
-    metalness: 0,
-    ior: opts.ior ?? 1.58,
-    thickness: opts.thickness ?? 0.05,
-    attenuationColor: c,
-    attenuationDistance: opts.depth ?? 0.08,
-    dispersion: opts.dispersion ?? 0.3,
-    specularIntensity: 1,
-    envMapIntensity: 1.2,
-  });
+/** Disposes a material and, for traced crystal, the plane texture it reads. */
+export function disposeMaterial(m: THREE.Material): void {
+  (m.userData.planeTexture as THREE.Texture | undefined)?.dispose();
+  m.dispose();
 }
 
 /** Champagne gold-tone metal (Florere stems, calyces, filaments). */
@@ -302,14 +314,15 @@ export function glassRod(): THREE.MeshPhysicalMaterial {
     ior: 1.5,
     thickness: 0.13,
     dispersion: 0.4,
-    attenuationColor: new THREE.Color(0xf4ead8),
-    attenuationDistance: 2,
+    attenuationColor: new THREE.Color(0xf6efe2),
+    attenuationDistance: 3,
     clearcoat: 1,
     clearcoatRoughness: 0.02,
     specularIntensity: 1,
-    envMapIntensity: 1.6,
+    envMapIntensity: 1.8,
   });
-  patchPhysical(m, { key: "rod", translucency: { color: 0xfff4e6, scale: 0.18, power: 3, distortion: 0.2, ambient: 0.05 } });
+  // Only a thin back-lit rim: the rod reads as clear glass with specular edges, not an ivory stick.
+  patchPhysical(m, { key: "rod", translucency: { color: 0xfff4e6, scale: 0.12, power: 3, distortion: 0.2, ambient: 0.02, body: 0 } });
   return m;
 }
 

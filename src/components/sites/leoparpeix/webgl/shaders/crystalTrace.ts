@@ -39,7 +39,9 @@ flat varying vec3 vTraceX;
 flat varying vec3 vTraceY;
 flat varying vec3 vTraceZ;
 flat varying vec3 vTraceT;
-uniform vec4 uPlanes[TRACE_PLANES];
+// Face planes, one RGBA float texel each (a texture, not a uniform array: no uniform budget to
+// exhaust on mobile, any number of faces).
+uniform sampler2D uPlanes;
 uniform int uPlaneCount;
 uniform float uTraceIor;
 uniform float uSpread;
@@ -53,7 +55,7 @@ float traceExit(vec3 p, vec3 d, out vec3 nOut) {
   nOut = d;
   for (int i = 0; i < TRACE_PLANES; i++) {
     if (i >= uPlaneCount) break;
-    vec4 pl = uPlanes[i];
+    vec4 pl = texelFetch(uPlanes, ivec2(i, 0), 0);
     float denom = dot(pl.xyz, d);
     if (denom > 1e-5) {
       float t = (pl.w - dot(pl.xyz, p)) / denom;
@@ -85,22 +87,36 @@ vec3 traceEnv(vec3 dirW) {
   #endif
 }
 
-vec3 traceScreen(vec3 posW, vec3 dirW, int c) {
+vec3 traceScreen(vec3 posW, vec3 dirW) {
   vec4 ndc = projectionMatrix * viewMatrix * vec4(posW + dirW * uBackDist, 1.0);
-  vec2 uv = (ndc.xy / ndc.w) * 0.5 + 0.5;
+  vec2 uv = (ndc.xy / max(ndc.w, 1e-4)) * 0.5 + 0.5;
   // Off-screen or behind the camera: the surroundings instead.
-  if (ndc.w <= 0.0 || any(lessThan(uv, vec2(0.0))) || any(greaterThan(uv, vec2(1.0)))) return traceEnv(dirW);
-  return getTransmissionSample(uv, 0.0, uTraceIor).rgb;
+  bool inside = ndc.w > 0.0 && all(greaterThanEqual(uv, vec2(0.0))) && all(lessThanEqual(uv, vec2(1.0)));
+  vec3 seen = traceEnv(dirW);
+  if (inside) seen = getTransmissionSample(uv, 0.0, uTraceIor).rgb;
+  return seen;
 }
+
 
 vec3 traceSun(vec3 dirW) {
   #if NUM_DIR_LIGHTS > 0
     vec3 L = transformDirectionByInverseViewMatrix(directionalLights[0].direction, viewMatrix);
     float a = max(dot(dirW, L), 0.0);
-    return directionalLights[0].color * (pow(a, 1600.0) * 6.0 + pow(a, 90.0) * 0.12) * uSparkle;
+    // The sun seen through the stone: a tight glint, and a warm glow for exits heading roughly
+    // towards it (sun size, polish and the haze around it), which lights the back-lit facets gold.
+    return directionalLights[0].color * (pow(a, 900.0) * 3.0 + pow(a, 50.0) * 0.22 + pow(a, 6.0) * 0.025) * uSparkle;
   #else
     return vec3(0.0);
   #endif
+}
+
+/** Light seen along the exit direction for one wavelength's IOR (first exit: the scene behind). */
+vec3 traceExitLight(vec3 d, vec3 nOut, float ior, mat3 toWorld, vec3 exitW, bool first) {
+  vec3 o = refract(d, -nOut, ior);
+  if (dot(o, o) < 1e-6) o = reflect(d, nOut);
+  vec3 oW = normalize(toWorld * o);
+  vec3 seen = first ? traceScreen(exitW, oW) : traceEnv(oW);
+  return seen + traceSun(oW);
 }
 
 /** Light leaving the stone towards the eye at a front facet (world normal nW, view vW). */
@@ -118,18 +134,18 @@ vec3 crystalTrace(vec3 nW, vec3 vW, vec3 posW) {
     vec3 nOut;
     float t = traceExit(p, d, nOut);
     p += d * t;
-    throughput *= exp(-uAbsorb * t * s);
+    // Absorption per object-space unit: a figurine keeps its colour at any placement scale.
+    throughput *= exp(-uAbsorb * t);
     float R = traceFresnel(dot(d, nOut), 1.0 / uTraceIor);
     if (R < 1.0) {
       vec3 exitW = vTraceT + toWorld * p * s;
-      vec3 col;
-      for (int c = 0; c < 3; c++) {
-        vec3 o = refract(d, -nOut, uTraceIor + float(c - 1) * uSpread);
-        if (dot(o, o) < 1e-6) o = reflect(d, nOut);
-        vec3 oW = normalize(toWorld * o);
-        vec3 seen = (b == 0 ? traceScreen(exitW, oW, c) : traceEnv(oW)) + traceSun(oW);
-        col[c] = seen[c];
-      }
+      // Red, green and blue leave at slightly different angles (dispersion).
+      bool first = b == 0;
+      vec3 col = vec3(
+        traceExitLight(d, nOut, uTraceIor - uSpread, toWorld, exitW, first).r,
+        traceExitLight(d, nOut, uTraceIor, toWorld, exitW, first).g,
+        traceExitLight(d, nOut, uTraceIor + uSpread, toWorld, exitW, first).b
+      );
       acc += throughput * (1.0 - R) * col;
     }
     throughput *= R;

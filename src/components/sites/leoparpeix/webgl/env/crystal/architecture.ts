@@ -1,5 +1,7 @@
 import * as THREE from "three";
-import { clearGlass, limestone } from "./materials";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import { clearGlass } from "./materials";
+import { GranitePalette } from "./stone";
 import { PARAPET, SIDE_COLONNADE, WALL } from "./layout";
 
 function archHole(left: number, right: number, bottom: number, spring: number): THREE.Path {
@@ -22,16 +24,15 @@ function box(min: [number, number, number], max: [number, number, number], mater
   return m;
 }
 
-/** Colonnade, parapet, steps, glass panels and sheer curtains (stage coordinates). */
+/** Colonnade, parapet, steps and tall glass panels (stage coordinates). */
 export class Pavilion extends THREE.Group {
-  /** Glass and sheer fabric (hidden while the environment is captured). */
+  /** Glass (hidden while the environment is captured). */
   readonly glass: THREE.Object3D[] = [];
   private readonly materials: THREE.Material[] = [];
-  private readonly curtainUniforms = { uTime: { value: 0 } };
 
-  constructor(curtainSegments: number) {
+  constructor(granite: GranitePalette) {
     super();
-    const stone = limestone();
+    const stone = granite.material("honed", true);
     this.materials.push(stone);
 
     // Arched wall: semi-circular openings, the plinth runs under them.
@@ -49,6 +50,38 @@ export class Pavilion extends THREE.Group {
     wall.receiveShadow = true;
     this.add(wall);
 
+    // Dressed arch edging: shallow real bevels catch the low sun, unlike a painted outline.
+    const dressed = granite.material("polished");
+    this.materials.push(dressed);
+    const archBlocks: THREE.BufferGeometry[] = [];
+    for (const a of [WALL.arch, WALL.leftArch, WALL.farArch]) {
+      const center = (a.left + a.right) / 2;
+      const inner = (a.right - a.left) / 2;
+      const outer = inner + 0.13;
+      const divisions = Math.max(10, Math.ceil(inner * 8));
+      for (let i = 0; i < divisions; i++) {
+        const start = (i / divisions) * Math.PI + 0.001;
+        const end = ((i + 1) / divisions) * Math.PI - 0.001;
+        const wedge = new THREE.Shape();
+        wedge.moveTo(Math.cos(start) * inner, Math.sin(start) * inner);
+        wedge.absarc(0, 0, inner, start, end, false);
+        wedge.lineTo(Math.cos(end) * outer, Math.sin(end) * outer);
+        wedge.absarc(0, 0, outer, end, start, true);
+        wedge.closePath();
+        const geo = new THREE.ExtrudeGeometry(wedge, { depth: 0.035, bevelEnabled: true, bevelSize: 0.008, bevelThickness: 0.008, bevelSegments: 2, curveSegments: 6 });
+        geo.translate(center, a.spring, WALL.z + 0.006);
+        archBlocks.push(geo);
+      }
+      this.add(box([a.left - 0.13, WALL.plinth, WALL.z], [a.left - 0.008, a.spring, WALL.z + 0.045], dressed));
+      this.add(box([a.right + 0.008, WALL.plinth, WALL.z], [a.right + 0.13, a.spring, WALL.z + 0.045], dressed));
+    }
+    const archGeometry = mergeGeometries(archBlocks);
+    for (const geo of archBlocks) geo.dispose();
+    if (!archGeometry) throw new Error("Could not assemble pavilion arch blocks");
+    const archEdging = new THREE.Mesh(archGeometry, dressed);
+    archEdging.castShadow = archEdging.receiveShadow = true;
+    this.add(archEdging);
+
     // Parapet across the openings and on along the terrace, with a slightly wider cap.
     const back = PARAPET.z - PARAPET.depth;
     this.add(box([WALL.left, 0, back], [PARAPET.right, PARAPET.height - 0.06, PARAPET.z], stone));
@@ -64,7 +97,7 @@ export class Pavilion extends THREE.Group {
     this.add(box([-3.6, 0, -5.5], [-1.3, 0.3, -4.9], stone));
     this.add(box([-3.6, 0, -6.0], [-1.3, 0.45, -5.4], stone));
 
-    // Tall glass panels: two on the left (rainbow streaks), one on the right pier.
+    // Tall glass panel on the right pier (it carries the sun glare).
     const panelMat = clearGlass({ thickness: 0.06, dispersion: 2.5, ior: 1.52 });
     this.materials.push(panelMat);
     const panel = (x: number, z: number, width: number, height: number, yaw: number) => {
@@ -74,66 +107,7 @@ export class Pavilion extends THREE.Group {
       this.add(m);
       this.glass.push(m);
     };
-    panel(-1.55, -3.0, 1.1, 8.6, 0.12);
-    panel(-3.45, -2.0, 0.42, 8.2, -0.3);
     panel(5.2, -5.0, 0.46, 9.2, 0.5);
-
-    // Sheer curtains on the far left, almost still: light fabric, not glass (no refraction pass).
-    const curtainMat = new THREE.MeshPhysicalMaterial({
-      color: 0xfffcf6,
-      transparent: true,
-      opacity: 0.72,
-      depthWrite: false,
-      roughness: 0.85,
-      sheen: 1,
-      sheenColor: new THREE.Color(0xfff6e8),
-      // Back-lit voile glows.
-      emissive: new THREE.Color(0xfff1dc),
-      emissiveIntensity: 0.2,
-      side: THREE.DoubleSide,
-      envMapIntensity: 0.8,
-    });
-    curtainMat.onBeforeCompile = (shader) => {
-      Object.assign(shader.uniforms, this.curtainUniforms);
-      shader.vertexShader = shader.vertexShader
-        .replace("#include <common>", "#include <common>\nuniform float uTime;")
-        .replace(
-          "#include <begin_vertex>",
-          `#include <begin_vertex>
-          float hang = clamp(1.0 - uv.y, 0.0, 1.0);
-          transformed.z += sin(uTime * 0.35 + position.x * 2.6 + position.y * 0.25) * 0.018 * hang;`,
-        );
-      // Voile is denser where a fold turns away from the eye: the folds read as soft lines.
-      shader.fragmentShader = shader.fragmentShader.replace(
-        "#include <opaque_fragment>",
-        `diffuseColor.a *= mix(0.55, 1.35, pow(1.0 - abs(dot(normalize(normal), normalize(vViewPosition))), 1.6));
-        #include <opaque_fragment>`,
-      );
-    };
-    curtainMat.customProgramCacheKey = () => "crystal-curtain";
-    this.materials.push(curtainMat);
-    const curtain = (x: number, z: number, width: number, phase: number) => {
-      const g = new THREE.PlaneGeometry(width, 9.6, curtainSegments, 16);
-      const pos = g.attributes.position;
-      for (let i = 0; i < pos.count; i++) {
-        const px = pos.getX(i);
-        const py = pos.getY(i);
-        // Deep, irregular vertical folds; the hem flares a little on the floor.
-      pos.setZ(i, Math.sin(px * 9.0 + phase) * 0.09 + Math.sin(px * 3.7 + phase * 2) * 0.08 + Math.sin(px * 17.0 + phase * 3) * 0.025 + (py < -4.4 ? (py + 4.4) * 0.05 : 0));
-      }
-      g.computeVertexNormals();
-      const m = new THREE.Mesh(g, curtainMat);
-      m.position.set(x, 4.8, z);
-      this.add(m);
-      this.glass.push(m);
-    };
-    // Reference: sheer voile filling u 0 → 330, in front of the left arch, behind the olive tree.
-    curtain(-5.25, -2.7, 2.9, 0);
-    curtain(-4.85, -1.7, 2.4, 1.7);
-  }
-
-  render(et: number): void {
-    this.curtainUniforms.uTime.value = et / 1000;
   }
 
   dispose(): void {

@@ -1,5 +1,7 @@
 # Prompt cho Claude Code
 
+> **ĐÃ ĐƯỢC THAY THẾ ngày 08/10/2026.** Dùng [prompt rescan mới](../audit-2026-10-08/CLAUDE_HANDOFF.md) và [toàn bộ ảnh evidence](../audit-2026-10-08/EVIDENCE_INDEX.md). Yêu cầu mới: bỏ cây/hoa thật, giữ figurines crystal. Các lỗi mô tả dưới đây thuộc snapshot cũ; nhiều lỗi đã được sửa. Không triển khai lại prompt lịch sử này như hiện trạng.
+
 Hãy cải thiện `/playground` theo ảnh Crystal Flower Pavilion mới của người dùng, dùng sáu sản phẩm Florere làm hoa phụ quanh daisy. Đọc toàn bộ `docs/research/leoparpeix/implementation/playground-crystal/audit-2026-10-07/README.md`, ảnh A/B trong `evidence/`, contact sheet và `swarovski-references.json` trước khi chỉnh scene. Đọc AGENTS.md và docs Next.js cài tại workspace trước khi viết code framework.
 
 Kết quả cần đạt: giữ daisy làm hero tương tác; thêm đúng Rose, Forget-me-not, Rozanne, Lily, Lily of the Valley, Blue Bellflower với hình dáng riêng; crystal trong, có chiều sâu, highlight sắc có chọn lọc; bố cục garden nhiều lớp, ánh sáng và phản chiếu thống nhất với pavilion. Các ảnh moodboard mới là chuẩn composition; ảnh Swarovski là chuẩn nhận dạng sản phẩm. Đừng nhầm Iris/Tulip/Hydrangea trong moodboard với sáu mẫu được yêu cầu.

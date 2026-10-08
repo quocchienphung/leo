@@ -4,20 +4,9 @@ import * as THREE from "three";
  * Lightformers: emissive shapes that exist only while the environment is captured, the way a
  * product photographer surrounds glass with softboxes. Without them the pavilion's environment is
  * almost uniformly bright (marble, sky) and the glass shows no highlight shapes at all; with them
- * the petals, orb and spheres pick up tall arched-window reflections, the right edges catch the
- * sunlit opening, and crystal facets alternate between bright and dark. Stage coordinates.
+ * the right edges catch the sunlit opening, the tops a crisp strip, and crystal facets pick up
+ * scattered warm points of light. Stage coordinates.
  */
-
-function arch(width: number, height: number): THREE.ShapeGeometry {
-  const r = width / 2;
-  const s = new THREE.Shape();
-  s.moveTo(-r, 0);
-  s.lineTo(-r, height - r);
-  s.absarc(0, height - r, r, Math.PI, 0, true);
-  s.lineTo(r, 0);
-  s.lineTo(-r, 0);
-  return new THREE.ShapeGeometry(s, 32);
-}
 
 export function createLightformers(sun: THREE.Color): THREE.Group {
   const group = new THREE.Group();
@@ -30,14 +19,37 @@ export function createLightformers(sun: THREE.Color): THREE.Group {
     group.add(m);
   };
 
-  // Behind the camera: a warm shaded wall pierced by three tall arched windows full of daylight.
-  add(new THREE.PlaneGeometry(44, 22), new THREE.Color(0.2, 0.17, 0.14), [0, 7, 16], [0, 7, 0]);
-  for (const x of [-6.5, 0, 6.5]) add(arch(2.6, 8.5), new THREE.Color(2.6, 2.55, 2.45), [x, 0.8, 15.8], [x, 0.8, 0]);
+  // Behind the camera: the sunlit, warm side of the pavilion (no window shapes: those drew the
+  // same arched reflection on every petal and on the orb).
+  add(new THREE.PlaneGeometry(44, 22), new THREE.Color(0.62, 0.5, 0.36), [0, 7, 16], [0, 7, 0]);
+  // Two tall narrow openings behind the camera, off to each side: each rounded petal catches them
+  // as a long bright streak down its length.
+  // Glass reflects ≈ 4 % head-on: they must be far brighter than the walls to read.
+  for (const x of [-7.5, 8.5]) add(new THREE.PlaneGeometry(1.1, 10), new THREE.Color(6, 5.8, 5.4), [x, 4, 15.6], [x * 0.6, 4, 0]);
+  // Shaded openings give glass a dark reflected edge beside the bright strip, like a product
+  // photographed in the pavilion. These cards only exist in the environment capture.
+  add(new THREE.PlaneGeometry(4, 7), new THREE.Color(0.06, 0.065, 0.07), [-6, 3, 11], [0, 3, 0]);
+  add(new THREE.PlaneGeometry(5, 2), new THREE.Color(0.12, 0.105, 0.085), [3, 0.5, 9], [0, 2.5, 0]);
   // Sunlit opening on the right: the strongest, warmest source after the sun disc.
-  add(new THREE.PlaneGeometry(7, 11), sun.clone().multiplyScalar(5), [13, 5, 1], [0, 3, 0]);
+  add(new THREE.PlaneGeometry(7, 11), sun.clone().multiplyScalar(3.2), [13, 5, 1], [0, 3, 0]);
   // Soft cool bounce from the left, and a long strip high on the right for crisp top highlights.
-  add(new THREE.PlaneGeometry(9, 9), new THREE.Color(0.75, 0.82, 0.92).multiplyScalar(0.9), [-13, 4, 3], [0, 3, 0]);
-  add(new THREE.PlaneGeometry(14, 1.2), new THREE.Color(3, 2.9, 2.7), [6, 11, 5], [0, 2.5, 0]);
+  add(new THREE.PlaneGeometry(9, 9), new THREE.Color(0.75, 0.82, 0.92).multiplyScalar(0.6), [-13, 4, 3], [0, 3, 0]);
+  add(new THREE.PlaneGeometry(14, 0.6), new THREE.Color(5.5, 5.3, 5), [6, 11, 5], [0, 2.5, 0]);
+  // Small sunlit things all round (polished stone edges, glass, water): seen in cut facets they
+  // become the scattered warm points of light of real crystal in the sun.
+  const random = (() => {
+    let a = 91;
+    return () => ((a = (a * 16807) % 2147483647) - 1) / 2147483646;
+  })();
+  const dot = new THREE.CircleGeometry(0.32, 16);
+  for (let i = 0; i < 14; i++) {
+    const az = random() * Math.PI * 2;
+    const el = -0.35 + random() * 1.1;
+    const d = 11 + random() * 5;
+    const p: [number, number, number] = [Math.cos(az) * Math.cos(el) * d, 3 + Math.sin(el) * d, Math.sin(az) * Math.cos(el) * d];
+    add(dot.clone(), sun.clone().multiplyScalar(3 + random() * 5), p, [0, 3, 0]);
+  }
+  dot.dispose();
   return group;
 }
 
@@ -57,7 +69,7 @@ export function disposeLightformers(group: THREE.Group): void {
  * floor and the sun itself. The pavilion is almost uniformly cream, so crystal reflecting it reads
  * as white plaster; against this surround its facets alternate dark and brilliant. Stage frame.
  */
-export function createJewelEnvironment(renderer: THREE.WebGLRenderer, sunDirection: THREE.Vector3, sun: THREE.Color): THREE.WebGLRenderTarget {
+export function createJewelEnvironment(renderer: THREE.WebGLRenderer, sunDirection: THREE.Vector3, sun: THREE.Color, size = 256): THREE.WebGLRenderTarget {
   const scene = new THREE.Scene();
   // Built in the stage frame; environment maps are looked up in world space.
   const stage = new THREE.Group();
@@ -99,7 +111,7 @@ export function createJewelEnvironment(renderer: THREE.WebGLRenderer, sunDirecti
   stage.add(disc);
 
   const pmrem = new THREE.PMREMGenerator(renderer);
-  const target = pmrem.fromScene(scene, 0, 0.1, 100, { size: 256 });
+  const target = pmrem.fromScene(scene, 0, 0.1, 100, { size });
   pmrem.dispose();
   scene.traverse((o) => {
     const m = o as THREE.Mesh<THREE.BufferGeometry, THREE.Material>;

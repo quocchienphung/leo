@@ -1,0 +1,414 @@
+{
+  "shots": [
+    {
+      "name": "01-default",
+      "url": "/playground?skipLoader&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": false,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1003,
+        565
+      ],
+      "transmissionScale": 0.8
+    },
+    {
+      "name": "02-high",
+      "url": "/playground?skipLoader&quality=high&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "03-bloom-off",
+      "url": "/playground?skipLoader&quality=high&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "04-petal-glow-off",
+      "url": "/playground?skipLoader&quality=high&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "05-petal-glitter-off",
+      "url": "/playground?skipLoader&quality=high&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "06-petal-rim-off",
+      "url": "/playground?skipLoader&quality=high&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "07-debug-glass",
+      "url": "/playground?skipLoader&quality=high&debug=glass",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "08-debug-unpatched",
+      "url": "/playground?skipLoader&quality=high&debug=unpatched",
+      "width": 1672,
+      "height": 941,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        1672,
+        941
+      ],
+      "mirror": [
+        1672,
+        941
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "09-florere-lineup",
+      "url": "/playground?skipLoader&quality=high&debug=florere",
+      "width": 1672,
+      "height": 941,
+      "dpr": 2,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        3344,
+        1882
+      ],
+      "mirror": [
+        3344,
+        1882
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "10-high-dpr2",
+      "url": "/playground?skipLoader&quality=high&debug=probe",
+      "width": 1672,
+      "height": 941,
+      "dpr": 2,
+      "renderScale": 1,
+      "pinned": true,
+      "lite": false,
+      "hdr": [
+        3344,
+        1882
+      ],
+      "mirror": [
+        3344,
+        1882
+      ],
+      "transmissionScale": 1
+    },
+    {
+      "name": "11-wide-2559",
+      "url": "/playground?skipLoader&debug=probe",
+      "width": 2559,
+      "height": 1276,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": false,
+      "lite": false,
+      "hdr": [
+        2559,
+        1276
+      ],
+      "mirror": [
+        1535,
+        766
+      ],
+      "transmissionScale": 0.8
+    },
+    {
+      "name": "12-mobile",
+      "url": "/playground?skipLoader&debug=probe",
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "renderScale": 1,
+      "pinned": false,
+      "lite": true,
+      "hdr": [
+        780,
+        1688
+      ],
+      "mirror": [
+        312,
+        675
+      ],
+      "transmissionScale": 0.5
+    },
+    {
+      "name": "13-tablet",
+      "url": "/playground?skipLoader&debug=probe",
+      "width": 1024,
+      "height": 768,
+      "dpr": 1,
+      "renderScale": 1,
+      "pinned": false,
+      "lite": true,
+      "hdr": [
+        1024,
+        768
+      ],
+      "mirror": [
+        410,
+        307
+      ],
+      "transmissionScale": 0.5
+    }
+  ],
+  "console": [
+    "01-default warning: THREE.WebGLProgram: Program Info Log: (210,81-129): warning X4122: sum of 0.996094 and -2.98545e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accuratel",
+    "01-default warning: THREE.WebGLProgram: Program Info Log: (58,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n\n\n\u0000",
+    "01-default warning: THREE.WebGLProgram: Program Info Log: (593,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "01-default warning: THREE.WebGLProgram: Program Info Log: (543,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "01-default warning: THREE.WebGLProgram: Program Info Log: (603,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000"
+  ],
+  "inventory": {
+    "meshes": 110,
+    "instances": 291,
+    "kinds": {
+      "ShaderMaterial": 2,
+      "MeshStandardMaterial textured": 1,
+      "MeshStandardMaterial": 13,
+      "MeshPhysicalMaterial": 34,
+      "MeshPhysicalMaterial traced instanced": 35,
+      "MeshPhysicalMaterial traced": 17,
+      "MeshPhysicalMaterial textured": 7,
+      "MeshPhysicalMaterial instanced": 1
+    },
+    "largestInstanceCounts": [
+      45,
+      15,
+      15,
+      15,
+      10,
+      10
+    ],
+    "garden": 9
+  },
+  "navigation": [
+    {
+      "step": 0,
+      "label": "Playground",
+      "url": "http://localhost:3000/playground"
+    },
+    {
+      "step": 1,
+      "label": "About",
+      "url": "http://localhost:3000/about"
+    },
+    {
+      "step": 2,
+      "label": "Playground",
+      "url": "http://localhost:3000/playground"
+    }
+  ],
+  "intro": {
+    "frames": [
+      {
+        "i": 0,
+        "ms": 145
+      },
+      {
+        "i": 1,
+        "ms": 941
+      },
+      {
+        "i": 2,
+        "ms": 1378
+      },
+      {
+        "i": 3,
+        "ms": 1814
+      },
+      {
+        "i": 4,
+        "ms": 2252
+      },
+      {
+        "i": 5,
+        "ms": 2689
+      },
+      {
+        "i": 6,
+        "ms": 3126
+      },
+      {
+        "i": 7,
+        "ms": 3563
+      },
+      {
+        "i": 8,
+        "ms": 3998
+      },
+      {
+        "i": 9,
+        "ms": 4436
+      },
+      {
+        "i": 10,
+        "ms": 4872
+      },
+      {
+        "i": 11,
+        "ms": 5323
+      },
+      {
+        "i": 12,
+        "ms": 5796
+      },
+      {
+        "i": 13,
+        "ms": 6454
+      },
+      {
+        "i": 14,
+        "ms": 7190
+      },
+      {
+        "i": 15,
+        "ms": 7924
+      },
+      {
+        "i": 16,
+        "ms": 8656
+      },
+      {
+        "i": 17,
+        "ms": 9392
+      },
+      {
+        "i": 18,
+        "ms": 10222
+      },
+      {
+        "i": 19,
+        "ms": 11019
+      },
+      {
+        "i": 20,
+        "ms": 11846
+      },
+      {
+        "i": 21,
+        "ms": 12643
+      },
+      {
+        "i": 22,
+        "ms": 13469
+      },
+      {
+        "i": 23,
+        "ms": 14201
+      },
+      {
+        "i": 24,
+        "ms": 14934
+      },
+      {
+        "i": 25,
+        "ms": 15668
+      },
+      {
+        "i": 26,
+        "ms": 16408
+      },
+      {
+        "i": 27,
+        "ms": 17139
+      }
+    ]
+  }
+}

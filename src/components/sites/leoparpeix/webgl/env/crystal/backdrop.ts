@@ -96,9 +96,10 @@ function puffs(): THREE.Vector4[] {
 }
 
 export const SKY_COLORS = {
-  zenith: new THREE.Color(0.26, 0.47, 0.84),
-  horizon: new THREE.Color(0.8, 0.84, 0.9),
-  haze: new THREE.Color(0.56, 0.65, 0.77),
+  // A clear Mediterranean morning: saturated blue overhead, pale only at the horizon.
+  zenith: new THREE.Color(0.1, 0.3, 0.86),
+  horizon: new THREE.Color(0.6, 0.74, 0.92),
+  haze: new THREE.Color(0.48, 0.6, 0.78),
   ground: new THREE.Color(0.5, 0.46, 0.4),
   sun: new THREE.Color(1.0, 0.87, 0.7),
 } as const;

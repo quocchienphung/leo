@@ -7,10 +7,9 @@ import {
   poolFragment,
   poolVertex,
 } from "../../shaders/crystal";
-import { COLORS, limestone, marbleTexture } from "./materials";
+import { COLORS } from "./materials";
+import { GranitePalette } from "./stone";
 import { POOL, SUN_WORLD } from "./layout";
-
-const TILE = 1.8; // marble tile size (stage units)
 
 function roundedRect(left: number, right: number, back: number, front: number, r: number): THREE.Shape {
   // Shape in (x, −z) so that, rotated −π/2 about X, it lies on the floor in stage coordinates.
@@ -46,18 +45,19 @@ export class MirrorFloor extends THREE.Group {
   private readonly poolUniforms: Record<string, THREE.IUniform>;
   private readonly floorUniforms: Record<string, THREE.IUniform>;
   private readonly resolution: number;
+  private readonly everyFrame: boolean;
   private frame = 0;
 
-  constructor(resolutionScale: number) {
+  /** `everyFrame`: refresh the mirror image on every frame (QA) instead of every other one. */
+  constructor(granite: GranitePalette, resolutionScale: number, everyFrame = false) {
     super();
     this.resolution = resolutionScale;
+    this.everyFrame = everyFrame;
     this.target = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter });
 
     // Marble floor (lit, shadowed) with the reflection injected.
-    const map = marbleTexture();
-    map.repeat.set(60 / (TILE * 2), 60 / (TILE * 2));
-    this.textures.push(map);
-    const floorMat = new THREE.MeshStandardMaterial({ map, roughness: 0.1, metalness: 0, envMapIntensity: 0.35 });
+    const floorMat = granite.material("wet", true);
+    const stoneCompile = floorMat.onBeforeCompile;
     const floorUniforms = {
       tReflection: { value: this.target.texture },
       uTextureMatrix: { value: this.textureMatrix },
@@ -66,7 +66,8 @@ export class MirrorFloor extends THREE.Group {
       uSunColor: { value: new THREE.Color(COLORS.sun) },
     };
     this.floorUniforms = floorUniforms;
-    floorMat.onBeforeCompile = (shader) => {
+    floorMat.onBeforeCompile = (shader, renderer) => {
+      stoneCompile.call(floorMat, shader, renderer);
       Object.assign(shader.uniforms, floorUniforms);
       shader.vertexShader = shader.vertexShader
         .replace("#include <common>", `#include <common>\n${floorVertexPars}`)
@@ -75,7 +76,7 @@ export class MirrorFloor extends THREE.Group {
         .replace("#include <common>", `#include <common>\n${floorFragmentPars}`)
         .replace("#include <opaque_fragment>", `${floorFragmentMain}\n#include <opaque_fragment>`);
     };
-    floorMat.customProgramCacheKey = () => "crystal-floor";
+    floorMat.customProgramCacheKey = () => "crystal-granite-floor-v1";
     const floorGeo = new THREE.PlaneGeometry(60, 60);
     floorGeo.rotateX(-Math.PI / 2);
     const floor = new THREE.Mesh(floorGeo, floorMat);
@@ -110,8 +111,7 @@ export class MirrorFloor extends THREE.Group {
     outer.holes.push(roundedRect(POOL.left, POOL.right, POOL.back, POOL.front, POOL.radius));
     const curbGeo = new THREE.ExtrudeGeometry(outer, { depth: 0.012, bevelEnabled: true, bevelSize: 0.006, bevelThickness: 0.006, bevelSegments: 2, curveSegments: 32 });
     curbGeo.rotateX(-Math.PI / 2);
-    const curbMat = limestone();
-    curbMat.roughness = 0.5;
+    const curbMat = granite.material("polished");
     const curb = new THREE.Mesh(curbGeo, curbMat);
     curb.receiveShadow = true;
     curb.castShadow = true;
@@ -135,7 +135,7 @@ export class MirrorFloor extends THREE.Group {
     this.floorUniforms.uFloorTime.value = et / 1000;
     // The mirror image re-renders the whole pavilion (glass included): every other frame is enough
     // for a scene that only floats and drifts.
-    if (this.frame++ % 2 === 1) return;
+    if (!this.everyFrame && this.frame++ % 2 === 1) return;
     scene.updateMatrixWorld();
     const camPos = new THREE.Vector3().setFromMatrixPosition(camera.matrixWorld);
     const lookAt = new THREE.Vector3(0, 0, -1).applyMatrix4(new THREE.Matrix4().extractRotation(camera.matrixWorld)).add(camPos);

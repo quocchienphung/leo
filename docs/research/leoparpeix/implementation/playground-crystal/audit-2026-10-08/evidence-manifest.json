@@ -1,0 +1,514 @@
+{
+  "generatedAt": "2026-10-08T04:03:20.085Z",
+  "note": "Runtime crops 16/17 correspond to the complaint regions; raw chat screenshots 1-3 were not available as local files. Not original user-upload bytes. References 00-02 are exact copies of locally supplied originals.",
+  "copiedReferences": [
+    [
+      "C:/Users/quocc/Downloads/ChatGPT Image Oct 7, 2026, 09_49_26 PM-1.png",
+      "01-user-pavilion-design-board.png"
+    ],
+    [
+      "C:/Users/quocc/Downloads/ChatGPT Image Oct 7, 2026, 09_49_50 PM.png",
+      "02-user-alternative-flower-board.png"
+    ],
+    [
+      "docs/design-references/playground-crystal-reference.png",
+      "03-previous-project-reference.png"
+    ]
+  ],
+  "crops": [
+    [
+      "14-current-hero-native",
+      "evidence/02-high-quality.png",
+      {
+        "left": 570,
+        "top": 115,
+        "width": 500,
+        "height": 790
+      }
+    ],
+    [
+      "15-original-hero-native",
+      "references/00-user-original-target.png",
+      {
+        "left": 570,
+        "top": 115,
+        "width": 500,
+        "height": 790
+      }
+    ],
+    [
+      "16-real-white-shrub-runtime-crop",
+      "evidence/09-current-wide-adaptive.png",
+      {
+        "left": 0,
+        "top": 1056,
+        "width": 391,
+        "height": 220
+      }
+    ],
+    [
+      "17-real-olive-and-crystal-runtime-crop",
+      "evidence/09-current-wide-adaptive.png",
+      {
+        "left": 0,
+        "top": 350,
+        "width": 725,
+        "height": 740
+      }
+    ],
+    [
+      "18-crystal-figurine-green-parts-keep",
+      "evidence/02-high-quality.png",
+      {
+        "left": 1430,
+        "top": 425,
+        "width": 210,
+        "height": 350
+      }
+    ]
+  ],
+  "images": [
+    {
+      "path": "references/00-user-original-target.png",
+      "name": "00-user-original-target.png",
+      "role": "reference",
+      "width": 1672,
+      "height": 941,
+      "sha256": "a84e150a4fac43095719639c97aea00ced97f53e1a8d06d11bebc3f8e06def46"
+    },
+    {
+      "path": "references/01-user-pavilion-design-board.png",
+      "name": "01-user-pavilion-design-board.png",
+      "role": "reference",
+      "width": 1672,
+      "height": 941,
+      "sha256": "0c31fc67efb4a4ac9feb6a784742248546b0dfc48a2fa2c114f6de604082f481"
+    },
+    {
+      "path": "references/02-user-alternative-flower-board.png",
+      "name": "02-user-alternative-flower-board.png",
+      "role": "reference",
+      "width": 1672,
+      "height": 941,
+      "sha256": "984cabcae690528ac300de035f5f9c58cb8b8246940ce67b2a63a5798d8cf0bc"
+    },
+    {
+      "path": "references/03-previous-project-reference.png",
+      "name": "03-previous-project-reference.png",
+      "role": "reference",
+      "width": 1672,
+      "height": 941,
+      "sha256": "0f406d834eacbded6cdf404c30acc9853e81da037af450afe2a88783d56c6df0"
+    },
+    {
+      "path": "references/5666971-forget-me-not.jpg",
+      "name": "5666971-forget-me-not.jpg",
+      "role": "reference",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "fa8eb42e287bec8c45f9475e3e82ffad1ecc24bf71f069205049732f0e8bb504"
+    },
+    {
+      "path": "references/5666972-lily.jpg",
+      "name": "5666972-lily.jpg",
+      "role": "reference",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "f79d06540216a88cdc9c59b85acbad3ea73ca0f01fe7cdb4dcd2b982a0f85c74"
+    },
+    {
+      "path": "references/5666973-rose.jpg",
+      "name": "5666973-rose.jpg",
+      "role": "reference",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "ca987a3da352fb515a91f25fa65b38a9f70c481f594a7f6535b337ce1cc00c51"
+    },
+    {
+      "path": "references/5693143-rozanne.jpg",
+      "name": "5693143-rozanne.jpg",
+      "role": "reference",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "e15bc059f97d86c60f36f67eae4a790ba891d1ad00546b089e6ae85decf0e35c"
+    },
+    {
+      "path": "references/5719807-blue-bellflower.jpg",
+      "name": "5719807-blue-bellflower.jpg",
+      "role": "reference",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "89f00ec7aababea58ebc84820cd38318c0bd983919c5c25a3e3a2195e651c3b3"
+    },
+    {
+      "path": "references/5721541-lily-of-the-valley.jpg",
+      "name": "5721541-lily-of-the-valley.jpg",
+      "role": "reference",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "fe81e446aa4d7d3d210be5c86b7784bfa30a6290fe2580da07484a88375199b2"
+    },
+    {
+      "path": "references/contact-sheet.jpg",
+      "name": "contact-sheet.jpg",
+      "role": "reference",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "71a476142533ae270912db9a6e4e71f2693b49bceb6463f41cb78a5f55545449"
+    },
+    {
+      "path": "evidence/01-current-adaptive.png",
+      "name": "01-current-adaptive.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "00b9399aa9b65cb855f9269aa512978b3911c5cdc57d4e41b931a5f5f0cbc5bf"
+    },
+    {
+      "path": "evidence/02-high-quality.png",
+      "name": "02-high-quality.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "c987a4b692b93c9e7d8396ea61df899ef208e65b29b7eb6e884cd8d4bf1150c3"
+    },
+    {
+      "path": "evidence/03-post-optical-effects-off.png",
+      "name": "03-post-optical-effects-off.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "790c06f9130612db2d83aeccbcfae573b82d44fd17c5cb541cc86420af6657a4"
+    },
+    {
+      "path": "evidence/04-petal-additions-off.png",
+      "name": "04-petal-additions-off.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "5f530e557eb3d5d4b81558c38b76f51478ae34abf6039856cdc79bd4a6982c52"
+    },
+    {
+      "path": "evidence/05-petal-roughness-008.png",
+      "name": "05-petal-roughness-008.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "4e0ecafae5e35a8533b4fbd7019ff235839f3edab4f48216aec4bd27731ca0e5"
+    },
+    {
+      "path": "evidence/06-stem-glow-off.png",
+      "name": "06-stem-glow-off.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "612db35a42859f92a9e86f283f71f2975c83498c4ce62b0a09c8004cf573ce80"
+    },
+    {
+      "path": "evidence/07-crystal-only-preview.png",
+      "name": "07-crystal-only-preview.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "65c88f7aab844cb99264c9ad9ed196d18b0aa6a35130e06239dd8185891af898"
+    },
+    {
+      "path": "evidence/08-high-quality-dpr2.png",
+      "name": "08-high-quality-dpr2.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 3344,
+      "height": 1882,
+      "sha256": "aaa51cc46cf99fd5a022c81a988d87edf341bc6f696cbf0578acdccdd65fcce1"
+    },
+    {
+      "path": "evidence/09-current-wide-adaptive.png",
+      "name": "09-current-wide-adaptive.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 2559,
+      "height": 1276,
+      "sha256": "3b2a82052bfdb7bef4cfe7e967d1b4dd36b0eea70a03f0a9deb7a9de6de0950b"
+    },
+    {
+      "path": "evidence/10-current-mobile-adaptive.png",
+      "name": "10-current-mobile-adaptive.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 780,
+      "height": 1688,
+      "sha256": "9544b50508563acaba377c943c9bb68c492d4e1a3f64b00f3772c12686035957"
+    },
+    {
+      "path": "evidence/11-petal-glow-only-off.png",
+      "name": "11-petal-glow-only-off.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "e55e1acd0629dc3ef5c9cd3ea27820a0fc31f62de9862607544ad217eadce1ef"
+    },
+    {
+      "path": "evidence/12-petal-glitter-only-off.png",
+      "name": "12-petal-glitter-only-off.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "01d7551a0ba446d1fd343316df2cd1fb187f516b6326790a14fbf63b64c25d0c"
+    },
+    {
+      "path": "evidence/13-petal-milk-rim-only-off.png",
+      "name": "13-petal-milk-rim-only-off.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "dfe8a794d0c208baf5f991882feb522504cf51d4b68106f58a44060ffc6a3c3f"
+    },
+    {
+      "path": "evidence/14-current-hero-native.png",
+      "name": "14-current-hero-native.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 500,
+      "height": 790,
+      "sha256": "b87c8df2d6e1163f98ef0164641acb2713a342a0ab25eb7a72cbb6c2dea13fb9"
+    },
+    {
+      "path": "evidence/15-original-hero-native.png",
+      "name": "15-original-hero-native.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 500,
+      "height": 790,
+      "sha256": "53241a609ed74771a3d0e08415f00887ef161ccf39db1406fa1209931a59146d"
+    },
+    {
+      "path": "evidence/16-real-white-shrub-runtime-crop.png",
+      "name": "16-real-white-shrub-runtime-crop.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 391,
+      "height": 220,
+      "sha256": "9a7736bd753f085251b7b345371821eae25a6f422818dd976439eab657956a80"
+    },
+    {
+      "path": "evidence/17-real-olive-and-crystal-runtime-crop.png",
+      "name": "17-real-olive-and-crystal-runtime-crop.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 725,
+      "height": 740,
+      "sha256": "e5bfc8efa6ba7db4baf4faa830f96f6889889678bd4deca83707792f4aec5a26"
+    },
+    {
+      "path": "evidence/18-crystal-figurine-green-parts-keep.png",
+      "name": "18-crystal-figurine-green-parts-keep.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 210,
+      "height": 350,
+      "sha256": "aeeac06a06dadbfa004ca165576ba3d88fa98dbded695c3cfd5efa2c7bbe9674"
+    },
+    {
+      "path": "evidence/19-original-vs-current-hero.png",
+      "name": "19-original-vs-current-hero.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1036,
+      "height": 900,
+      "sha256": "fa33d7dc81afc7e8730255426de3299a5dc173db71b19069bcee0c842f31ba0b"
+    },
+    {
+      "path": "evidence/20-petal-isolation-contact-sheet.png",
+      "name": "20-petal-isolation-contact-sheet.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1428,
+      "height": 1064,
+      "sha256": "4157fe03db3fc0d820ad310cdcf7b3352752b8ffdcf4f7cd5651e5106f08c313"
+    },
+    {
+      "path": "evidence/21-stem-glow-native-comparison.png",
+      "name": "21-stem-glow-native-comparison.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 948,
+      "height": 440,
+      "sha256": "718ad0d541e9fecca19c71e653c60b18bbd3960807fd0940416dbccb82545a8e"
+    },
+    {
+      "path": "evidence/22-remove-natural-keep-crystal-map.png",
+      "name": "22-remove-natural-keep-crystal-map.png",
+      "role": "current audit or explicitly labeled derived diagnostic",
+      "width": 1672,
+      "height": 941,
+      "sha256": "fd2e1f72bd6847d72e966c5cf77baf8bf33b91b9796c74d37d7cb693d4b72f97"
+    },
+    {
+      "path": "history/before/01-baseline.png",
+      "name": "01-baseline.png",
+      "role": "historical pre-implementation",
+      "width": 1672,
+      "height": 941,
+      "sha256": "e61c891845b8cac34daaa88c0de2d3237696a005a8e697e17127c05592cabea9"
+    },
+    {
+      "path": "history/before/02-existing-debug-glass.png",
+      "name": "02-existing-debug-glass.png",
+      "role": "historical pre-implementation",
+      "width": 1672,
+      "height": 941,
+      "sha256": "00e934b61f4374ef9fa8bf52e211ab46212372c5fbc308f101fc8761a7d3ed4d"
+    },
+    {
+      "path": "history/before/03-all-facet-effects-off.png",
+      "name": "03-all-facet-effects-off.png",
+      "role": "historical pre-implementation",
+      "width": 1672,
+      "height": 941,
+      "sha256": "8a63a089fee1bdbd43d024c0846d38c44fc357633678f801ac72cb078a7bbd53"
+    },
+    {
+      "path": "history/before/04-unpatched-crystal-diagnostic.png",
+      "name": "04-unpatched-crystal-diagnostic.png",
+      "role": "historical pre-implementation",
+      "width": 1672,
+      "height": 941,
+      "sha256": "54d9ba5f449b90c26fbad6bd7267118af1d87d55bfd2677037bc5efc023352ad"
+    },
+    {
+      "path": "history/claude-after/01-final.png",
+      "name": "01-final.png",
+      "role": "previous Claude implementation capture",
+      "width": 1672,
+      "height": 941,
+      "sha256": "672da421fa91205cf658015c21a95f54d522c65d3e4d11c7f059a1450d4e69e7"
+    },
+    {
+      "path": "history/claude-after/02-bloom-off.png",
+      "name": "02-bloom-off.png",
+      "role": "previous Claude implementation capture",
+      "width": 1672,
+      "height": 941,
+      "sha256": "4e1494cfe3339c656c80cc47bcaeb26fa65b98058364a7538448cfbe5d5d9b62"
+    },
+    {
+      "path": "history/claude-after/03-debug-glass.png",
+      "name": "03-debug-glass.png",
+      "role": "previous Claude implementation capture",
+      "width": 1672,
+      "height": 941,
+      "sha256": "0eeec0cec069e5bb6b9aa77254dd7f6766abe492a6e6ee62067ad016db484d52"
+    },
+    {
+      "path": "history/claude-after/04-debug-unpatched.png",
+      "name": "04-debug-unpatched.png",
+      "role": "previous Claude implementation capture",
+      "width": 1672,
+      "height": 941,
+      "sha256": "6465eb1743f224939f75485a139a9ac18ebfaef651482a82ebece129aa14ce9c"
+    },
+    {
+      "path": "history/claude-after/05-florere-lineup.png",
+      "name": "05-florere-lineup.png",
+      "role": "previous Claude implementation capture",
+      "width": 3344,
+      "height": 1882,
+      "sha256": "62c196a2bb46e2e354307ac7dff0780c73ccc3b2b802c1d3a2e23dcc60af4457"
+    },
+    {
+      "path": "history/claude-after/06-wide-2560.png",
+      "name": "06-wide-2560.png",
+      "role": "previous Claude implementation capture",
+      "width": 2560,
+      "height": 1264,
+      "sha256": "0edfe508b3e663830b7741c82135803534a4964d884a637dd86a5dc93ff7bf52"
+    },
+    {
+      "path": "history/claude-after/07-mobile.png",
+      "name": "07-mobile.png",
+      "role": "previous Claude implementation capture",
+      "width": 780,
+      "height": 1688,
+      "sha256": "c656adafb7ffbc297b7346b4c70e748c6fbd4f30127728750cd08d0dd0b3f57b"
+    },
+    {
+      "path": "history/claude-after/08-tablet.png",
+      "name": "08-tablet.png",
+      "role": "previous Claude implementation capture",
+      "width": 1024,
+      "height": 768,
+      "sha256": "e3cab9d59a2406df81d2f0e8c1a759916377665ebc1517ae79109ca00fa46d9e"
+    }
+  ],
+  "sourceSnapshot": [
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/architecture.ts",
+      "sha256": "cc6488d2664f7a0dcc6ea6f3b75eb13641e0d1297a370739450bd1e4033d8bd5"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/backdrop.ts",
+      "sha256": "826c2008a0d3b06391f6e40eef0890d68584268d04e003639fc6529fddca7af1"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/crystalEnvironment.ts",
+      "sha256": "a1ba2ed8c027a5a1eb6bb7bd969585ac165e541e631fca04017b9b5721d2e768"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/cut.ts",
+      "sha256": "a90c55fff6cde81b283d0827d0698c14166a52bbb22dd7a8eab80a69888272ca"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/floor.ts",
+      "sha256": "a5557487ec955dabe1dda47c60be179832e8eeef876eed1dc1cbd05cf63b8193"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/florere/garden.ts",
+      "sha256": "329c784c348947932b4c115df9ec6187b892c5aa41023bd6761fc3a7f652657b"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/florere/kit.ts",
+      "sha256": "dc596767f2c9c5330440911e0ff5723c186a6c08dfafb63e54c8b54d6752de05"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/florere/species.ts",
+      "sha256": "8d4ce300e98fc287212be70d4d0f8890e7ae374dfadc007cf59615a4b83f9da8"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/flower.ts",
+      "sha256": "1fc786a7afd42328562ae3a98e4943852451a6fe888694be2cb363500979ebff"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/layout.ts",
+      "sha256": "9aee09029ca65174ea099267cdaa7ebf3a5c6ff70564d3ad52a013cef583d029"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/lightformers.ts",
+      "sha256": "290fc2049cf024ce5168afb4f5cd456b4522f9b51abbca0068e80a20511e0eea"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/materials.ts",
+      "sha256": "83baf0092149f9a12540f6d322628abd6de6da44da241bf90de597e74491047d"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/post.ts",
+      "sha256": "96774d00cff62ee7bf4b8cb4c7bb62c11c866eda729e8c464ea6dc5f29fa1d62"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/props.ts",
+      "sha256": "9aabfd9319e4ac18433f43520826946fc0a0a8058b3441febd7d89e20f7e0bc6"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/env/crystal/world.ts",
+      "sha256": "8654caa898c3f7865045be8c25e828f5a00a5f81a340610ec764e2132eae75a1"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/shaders/crystal.ts",
+      "sha256": "da6531c04c0c5cadffc0c2c0e154ed7d87bdb0cc552dc3db536805f4b8b03b4c"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/shaders/crystalTrace.ts",
+      "sha256": "126e2cbdd56af459f579158e94983f66926c0825fdcde9a3f6ac58e727aeef3e"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/shaders/backdrop.ts",
+      "sha256": "8130f9d0251e0043aac47f6add48597cad5fd66db5b116f5f418d07a19b7472a"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/shaders/screen.ts",
+      "sha256": "359da308c4eb5bc89d205881aa0469e033b4a80fd99daa385f8227fa0a95a721"
+    },
+    {
+      "path": "src/components/sites/leoparpeix/webgl/manager.ts",
+      "sha256": "3b2c9ff5071bc81a370916fb3897b39824bbe6316eeb2540aba8df58b9770f19"
+    }
+  ]
+}

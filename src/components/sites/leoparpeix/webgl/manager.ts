@@ -223,9 +223,8 @@ export class WebglManager {
   }
 
   /**
-   * The playground pavilion is fully procedural: nothing to download. It is built on first use and
-   * only joins the scene once its shaders are compiled (in parallel, off the main thread), so the
-   * render loop never stalls on them.
+   * Build the pavilion on first use. Its local granite textures and shader compilation finish
+   * before it joins the scene, so the first environment capture sees the actual stone surfaces.
    */
   ensurePlayground(): Promise<PlaygroundEnvironment> {
     if (!this.playgroundPromise) {
@@ -237,6 +236,10 @@ export class WebglManager {
         this.envScene.add(env);
         this.syncGroupsVisibility();
         return env;
+      }).catch((error: unknown) => {
+        env.dispose();
+        this.playgroundPromise = null;
+        throw error;
       });
     }
     return this.playgroundPromise;

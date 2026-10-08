@@ -1,0 +1,198 @@
+{
+  "checkedOn": "2026-10-07",
+  "note": "Reference photos only; no 3D assets discovered in the inspected product HTML. Facet counts are product totals, not mesh triangle counts.",
+  "products": [
+    {
+      "id": "5666973",
+      "name": "Florere Rose",
+      "url": "https://www.swarovski.com/en-US/p-5666973/Florere-Rose",
+      "facts": {
+        "facets": 150,
+        "stem": "gold-tone metal",
+        "base": "natural unfaceted crystal"
+      },
+      "primaryImage": {
+        "url": "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5666973_PNG/florere-rose-swarovski-5666973.png",
+        "local": "references/5666973-rose.jpg",
+        "sourceContentType": "image/jpeg",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5666973_PNG/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666973_PNG/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666973_PNG/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666973_PNG/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666973_png_var1/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666973_png_var1/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666973_png_var1/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666973_png_var2/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666973_png_var2/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666973_png_var2/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666973_png_var3/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666973_png_var3/florere-rose-swarovski-5666973.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666973_png_var3/florere-rose-swarovski-5666973.png"
+      ]
+    },
+    {
+      "id": "5666971",
+      "name": "Florere Forget-me-not",
+      "url": "https://www.swarovski.com/en-US/p-5666971/Florere-Forget-me-not",
+      "facts": {
+        "facets": 876,
+        "stem": "gold-tone metal",
+        "base": "natural unfaceted crystal"
+      },
+      "primaryImage": {
+        "url": "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5666971_PNG/florere-forget-me-not-swarovski-5666971.png",
+        "local": "references/5666971-forget-me-not.jpg",
+        "sourceContentType": "image/jpeg",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5666971_PNG/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666971_PNG/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666971_PNG/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666971_PNG/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666971_png_var1/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666971_png_var1/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666971_png_var1/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666971_png_var2/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666971_png_var2/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666971_png_var2/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666971_png_var3/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666971_png_var3/florere-forget-me-not-swarovski-5666971.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666971_png_var3/florere-forget-me-not-swarovski-5666971.png"
+      ]
+    },
+    {
+      "id": "5693143",
+      "name": "Florere Rozanne",
+      "url": "https://www.swarovski.com/en-US/p-5693143/Florere-Rozanne",
+      "facts": {
+        "facets": 328,
+        "stem": "gold-tone metal",
+        "base": "natural unfaceted crystal"
+      },
+      "primaryImage": {
+        "url": "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5693143_png/florere-rozanne-swarovski-5693143.png",
+        "local": "references/5693143-rozanne.jpg",
+        "sourceContentType": "image/jpeg",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5693143_png/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5693143_png/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5693143_png/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5693143_png/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5693143_png_var1/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5693143_png_var1/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5693143_png_var1/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5693143_png_var2/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5693143_png_var2/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5693143_png_var2/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5693143_png_var3/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5693143_png_var3/florere-rozanne-swarovski-5693143.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5693143_png_var3/florere-rozanne-swarovski-5693143.png"
+      ]
+    },
+    {
+      "id": "5666972",
+      "name": "Florere Lily",
+      "url": "https://www.swarovski.com/en-US/p-5666972/Florere-Lily",
+      "facts": {
+        "facets": 222,
+        "stem": "gold-tone metal",
+        "base": "natural unfaceted crystal"
+      },
+      "primaryImage": {
+        "url": "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5666972_PNG/florere-lily-swarovski-5666972.png",
+        "local": "references/5666972-lily.jpg",
+        "sourceContentType": "image/jpeg",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5666972_PNG/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666972_PNG/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666972_PNG/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666972_PNG/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666972_png_var1/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666972_png_var1/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666972_png_var1/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666972_png_var2/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666972_png_var2/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666972_png_var2/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5666972_png_var3/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5666972_png_var3/florere-lily-swarovski-5666972.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5666972_png_var3/florere-lily-swarovski-5666972.png"
+      ]
+    },
+    {
+      "id": "5721541",
+      "name": "Florere Lily of the Valley",
+      "url": "https://www.swarovski.com/en-US/p-5721541/Florere-Lily-of-the-Valley",
+      "facts": {
+        "facets": 312,
+        "stem": "green lacquered metal",
+        "base": "cut/crystal base; inspect image"
+      },
+      "primaryImage": {
+        "url": "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5721541_png/florere-lily-of-the-valley-swarovski-5721541.png",
+        "local": "references/5721541-lily-of-the-valley.jpg",
+        "sourceContentType": "image/jpeg",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5721541_png/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5721541_png/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5721541_png/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5721541_png/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5721541_png_var1/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5721541_png_var1/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5721541_png_var1/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5721541_png_var2/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5721541_png_var2/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5721541_png_var2/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5721541_png_var3/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5721541_png_var3/florere-lily-of-the-valley-swarovski-5721541.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5721541_png_var3/florere-lily-of-the-valley-swarovski-5721541.png"
+      ]
+    },
+    {
+      "id": "5719807",
+      "name": "Florere Blue Bellflower",
+      "url": "https://www.swarovski.com/en-US/p-5719807/Florere-Blue-Bellflower",
+      "facts": {
+        "facets": 239,
+        "stem": "gold-tone metal",
+        "base": "cut/crystal base; inspect image"
+      },
+      "primaryImage": {
+        "url": "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5719807_png/florere-blue-bellflower-swarovski-5719807.png",
+        "local": "references/5719807-blue-bellflower.jpg",
+        "sourceContentType": "image/jpeg",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5719807_png/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5719807_png/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5719807_png/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5719807_png/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5719807_png_var1/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5719807_png_var1/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5719807_png_var1/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5719807_png_var2/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5719807_png_var2/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5719807_png_var2/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_900/5719807_png_var3/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_900/5719807_png_var3/florere-blue-bellflower-swarovski-5719807.png",
+        "https://asset.swarovski.com/images/$size_1000/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_900/5719807_png_var3/florere-blue-bellflower-swarovski-5719807.png"
+      ]
+    }
+  ]
+}

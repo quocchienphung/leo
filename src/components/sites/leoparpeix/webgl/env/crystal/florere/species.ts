@@ -14,19 +14,23 @@ import { along, baseWrap, compose, corolla, Figurine, frame, vec, type Kit, type
 const deg = THREE.MathUtils.degToRad;
 const Z = new THREE.Vector3(0, 0, 1);
 
-/** Crystal colours (sRGB) and the world depth over which the body reaches them. */
+/**
+ * Crystal colours (sRGB) and the depth, in product units (the figurine is 1 tall), over which the
+ * body reaches them: thin edges stay pale, long paths through the stone saturate. Calibrated on
+ * the product photos; independent of the scale a figurine is placed at.
+ */
 const TINT = {
-  rose: { tint: 0xf7aac8, depth: 0.16 },
-  leaf: { tint: 0x8fd35c, depth: 0.08 },
-  sapphireLight: { tint: 0x7d9bff, depth: 0.07 },
-  tanzanite: { tint: 0x9d86ff, depth: 0.06 },
-  citrine: { tint: 0xffd21c, depth: 0.05 },
-  violet: { tint: 0xa58cff, depth: 0.1 },
-  purple: { tint: 0x7a3ee6, depth: 0.035 },
-  lilac: { tint: 0xd59cf2, depth: 0.07 },
-  jonquil: { tint: 0xffcf30, depth: 0.1 },
-  amber: { tint: 0xffa21a, depth: 0.05 },
-  sapphire: { tint: 0x3354ff, depth: 0.045 },
+  rose: { tint: 0xf6a9c6, depth: 0.12 },
+  leaf: { tint: 0x9fe07a, depth: 0.09 },
+  sapphireLight: { tint: 0x86a6ff, depth: 0.055 },
+  tanzanite: { tint: 0x9d86ff, depth: 0.045 },
+  citrine: { tint: 0xffd21c, depth: 0.035 },
+  violet: { tint: 0xa58cff, depth: 0.075 },
+  purple: { tint: 0x7a3ee6, depth: 0.025 },
+  lilac: { tint: 0xd59cf2, depth: 0.05 },
+  jonquil: { tint: 0xffd23c, depth: 0.075 },
+  amber: { tint: 0xffa21a, depth: 0.035 },
+  sapphire: { tint: 0x5274ff, depth: 0.11 },
 } as const;
 
 const CLEAR = { ior: 1.56, spread: 0.012, sparkle: 1, bounces: 3 } as const;
@@ -56,15 +60,18 @@ export function rose(kit: Kit): Figurine {
 
   const head = compose(vec([-0.01, 0.87, 0.0]), frame(new THREE.Vector3(-0.3, 0.72, 0.63), new THREE.Vector3(0.2, 0.3, -1)));
   const pink = { ...CLEAR, ...TINT.rose, backDist: 0.25 };
-  // The spiral heart, then three wrapping, four half-open and five open petals.
+  // A full bloom: the spiral heart, then four rings of cupped petals opening outwards (4, 5, 5 and
+  // 5 broad guard petals), each ring turned against the last so the petals overlap like a rose.
   const heart = ringGem([{ y: -0.02, r: 0.04, n: 6 }, { y: 0.02, r: 0.05, n: 6, phase: 0.5 }, { y: 0.052, r: 0.03, n: 5 }], { apexTop: 0.068, wobble: 0.04, seed: 3 });
   f.crystal(heart, pink, [head.clone().multiply(compose(new THREE.Vector3(), frame(new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, -1))))]);
-  const inner = petalChip(ovalOutline(0.095, 0.1, { point: 0.55, belly: 0.55 }), 0.014, 0.012, 0.018);
-  f.crystal(inner, pink, corolla(head, 3, { tilt: deg(66), root: 0.026, offset: deg(20) }));
-  const mid = petalChip(ovalOutline(0.12, 0.135, { point: 0.55, belly: 0.58 }), 0.015, 0.013, 0.024);
-  f.crystal(mid, pink, corolla(head, 5, { tilt: deg(50), root: 0.034, offset: deg(56), jitter: (i) => ({ tilt: deg([2, -6, 4, -2, 6][i]) }) }));
-  const outer = petalChip(ovalOutline(0.145, 0.165, { point: 0.5, belly: 0.6 }), 0.016, 0.014, 0.03);
-  f.crystal(outer, pink, corolla(head, 5, { tilt: deg(28), root: 0.042, offset: deg(8), jitter: (i) => ({ tilt: deg([6, -4, 10, -8, 2][i]), scale: [1, 0.94, 1.04, 0.92, 1][i] }) }));
+  const ring = (length: number, width: number, count: number, tilt: number, root: number, offset: number, cup: number, wobble: number[]) => {
+    const chip = petalChip(ovalOutline(length, width, { point: 0.5, belly: 0.6, segments: 14 }), 0.015, 0.013, cup);
+    f.crystal(chip, pink, corolla(head, count, { tilt: deg(tilt), root, offset: deg(offset), jitter: (i) => ({ tilt: deg(wobble[i % wobble.length]), scale: 1 + wobble[(i + 2) % wobble.length] * 0.01 }) }));
+  };
+  ring(0.095, 0.105, 4, 72, 0.024, 20, 0.02, [2, -3, 4, -1]);
+  ring(0.12, 0.135, 5, 56, 0.032, 58, 0.026, [3, -5, 2, -2, 5]);
+  ring(0.145, 0.16, 5, 38, 0.04, 22, 0.03, [6, -4, 8, -6, 2]);
+  ring(0.16, 0.185, 5, 18, 0.048, 52, 0.034, [-4, 6, -2, 8, -6]);
   // Sepals under the bloom and the two small sprouts beside it.
   const green = { ...CLEAR, ...TINT.leaf, backDist: 0.2 };
   const sepal = cutLeaf(0.045, 0.02, 0.009, { rows: 3 });
@@ -173,10 +180,11 @@ export function lily(kit: Kit): Figurine {
   const axis = new THREE.Vector3(-0.45, 0.65, 0.6);
   const head = compose(vec([-0.02, 0.89, 0.02]), frame(axis, new THREE.Vector3(0.3, 0.2, -1)));
   const yellow = { ...CLEAR, ...TINT.jonquil, backDist: 0.25 };
-  const outerT = petalChip(ovalOutline(0.165, 0.072, { point: 1.25, belly: 0.4, segments: 16 }), 0.016, 0.012, 0.012);
-  const innerT = petalChip(ovalOutline(0.15, 0.08, { point: 1.1, belly: 0.42, segments: 16 }), 0.016, 0.012, 0.014);
-  f.crystal(outerT, yellow, corolla(head, 3, { tilt: deg(22), root: 0.018, offset: deg(10), jitter: (i) => ({ tilt: deg([0, 8, -6][i]) }) }));
-  f.crystal(innerT, yellow, corolla(head, 3, { tilt: deg(36), root: 0.014, offset: deg(70), jitter: (i) => ({ tilt: deg([4, -4, 10][i]) }) }));
+  // Six broad pointed tepals in two rings: the outer three open wide, the inner three form the cup.
+  const outerT = petalChip(ovalOutline(0.185, 0.1, { point: 1.0, belly: 0.42, segments: 16 }), 0.017, 0.013, 0.02);
+  const innerT = petalChip(ovalOutline(0.17, 0.112, { point: 0.9, belly: 0.45, segments: 16 }), 0.017, 0.013, 0.022);
+  f.crystal(outerT, yellow, corolla(head, 3, { tilt: deg(16), root: 0.018, offset: deg(10), jitter: (i) => ({ tilt: deg([0, 8, -6][i]) }) }));
+  f.crystal(innerT, yellow, corolla(head, 3, { tilt: deg(32), root: 0.014, offset: deg(70), jitter: (i) => ({ tilt: deg([4, -4, 10][i]) }) }));
   // Amber throat.
   const throat = ringGem([{ y: 0, r: 0.022, n: 6 }, { y: 0.02, r: 0.03, n: 6, phase: 0.5 }], { apexBottom: -0.02 });
   f.crystal(throat, { ...CLEAR, ...TINT.amber, backDist: 0.1 }, [head.clone().multiply(compose(new THREE.Vector3(0, 0, -0.006), frame(new THREE.Vector3(0, -1, 0), Z)))]);

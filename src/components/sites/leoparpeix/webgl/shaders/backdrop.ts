@@ -163,7 +163,7 @@ float marchTerrain(vec3 ro, vec3 rd, float tmax) {
 
 vec3 aerial(vec3 col, float t, vec3 rd, float height) {
   // Haze thins with altitude; warm in-scatter towards the sun.
-  float density = 0.052 * exp(-max(height - 0.3, 0.0) * 0.55) * smoothstep(1.0, 9.0, t + 1.0);
+  float density = 0.034 * exp(-max(height - 0.3, 0.0) * 0.55) * smoothstep(1.0, 9.0, t + 1.0);
   float fog = 1.0 - exp(-t * density);
   float mu = max(dot(rd, uSunDir), 0.0);
   vec3 fogCol = uHaze + uSunColor * (0.05 + 0.18 * pow(mu, 6.0));
@@ -283,8 +283,8 @@ vec4 marchClouds(vec3 ro, vec3 rd, float tmax, float jitter) {
       float stepT = exp(-d * sigma * dt);
       vec3 integ = (S - S * stepT) / (d * sigma);
       // Haze on the clouds themselves, by distance.
-      float fog = 1.0 - exp(-t * 0.05);
-      integ = mix(integ, uHaze * (1.0 - stepT), fog * 0.85);
+      float fog = 1.0 - exp(-t * 0.035);
+      integ = mix(integ, uHaze * (1.0 - stepT), fog * 0.55);
       scatter += trans * integ;
       trans *= stepT;
     }

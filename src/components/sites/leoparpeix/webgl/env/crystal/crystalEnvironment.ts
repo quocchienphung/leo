@@ -10,9 +10,9 @@ import { FlorereGarden } from "./florere/garden";
 import { COLORS, applyEnvironment, captureEnvironment } from "./materials";
 import { CrystalPost } from "./post";
 import { Props } from "./props";
-import { FLOWER, RIG_CAMERA, STAGE_ORIGIN, SUN_STAGE, stageToWorld } from "./layout";
+import { GranitePalette } from "./stone";
+import { FLOWER, RIG_CAMERA, STAGE_ORIGIN, SUN_STAGE, SUN_WORLD, stageToWorld } from "./layout";
 import { createJewelEnvironment, createLightformers, disposeLightformers } from "./lightformers";
-import { SunShafts } from "./world";
 
 /**
  * Adaptive resolution of the pavilion's HDR pass: refraction re-renders the scene behind the glass,
@@ -28,15 +28,15 @@ function pinnedQuality(): boolean {
 /** Surroundings reflected inside traced crystal: the pavilion capture or the jewel studio. */
 const TRACED_ENV = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("crystalEnv") === "jewel" ? "jewel" : "pavilion";
 
-/** `?debug=backdrop | lighting | composition | sun | glass | probe` (development only). */
+/** `?debug=backdrop | lighting | composition | sun | glass | unpatched | probe | florere` (development only). */
 function debugMode(): string | null {
   if (process.env.NODE_ENV === "production" || typeof window === "undefined") return null;
   return new URLSearchParams(window.location.search).get("debug");
 }
 
 /**
- * Playground 3D header: a frosted crystal daisy in a sunlit glass pavilion over clouds and
- * mountains (docs/design-references/playground-crystal-reference.png).
+ * Playground 3D header: a frosted crystal daisy in a sunlit pavilion over clouds and mountains,
+ * among the six Swarovski Florere figurines (Crystal Flower Pavilion board, 2026-10-07).
  * Component map: docs/research/leoparpeix/implementation/playground-crystal/SCENE_COMPONENT_MAP.md.
  */
 export class PlaygroundEnvironment extends THREE.Group {
@@ -48,7 +48,6 @@ export class PlaygroundEnvironment extends THREE.Group {
   private readonly pavilion: Pavilion;
   private readonly props: Props;
   private readonly garden: FlorereGarden;
-  private readonly shafts: SunShafts;
   private envTarget: THREE.WebGLRenderTarget | null = null;
   private readonly jewelTarget: THREE.WebGLRenderTarget;
   private viewKey = "";
@@ -62,11 +61,13 @@ export class PlaygroundEnvironment extends THREE.Group {
   private lastAdapt = 0;
   private openTl: gsap.core.Timeline | null = null;
   private readonly debug = debugMode();
+  private readonly sunPoint = new THREE.Vector3();
+  private readonly granite = new GranitePalette();
 
   constructor(renderer: THREE.WebGLRenderer) {
     super();
     const lite = isTabletWidth();
-    this.post = new CrystalPost(lite ? 0 : 4);
+    this.post = new CrystalPost(lite ? 0 : 4, lite);
 
     this.backdrop = new Backdrop(RIG_CAMERA.position);
     this.add(this.backdrop);
@@ -75,17 +76,15 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.stage.rotation.y = Math.PI / 2;
     this.add(this.stage);
 
-    this.floor = new MirrorFloor(lite ? 0.4 : 0.6);
+    this.floor = new MirrorFloor(this.granite, this.pinned ? 1 : lite ? 0.5 : 0.75, this.pinned);
     this.stage.add(this.floor);
-    this.pavilion = new Pavilion(lite ? 48 : 96);
+    this.pavilion = new Pavilion(this.granite);
     this.stage.add(this.pavilion);
-    this.props = new Props(lite);
+    this.props = new Props();
     this.stage.add(this.props);
-    this.shafts = new SunShafts(new THREE.Color(COLORS.sun));
-    this.stage.add(this.shafts);
-    this.flower = new CrystalFlower();
+    this.flower = new CrystalFlower(lite);
     this.stage.add(this.flower);
-    this.garden = new FlorereGarden(this.debug === "florere");
+    this.garden = new FlorereGarden(this.granite, this.debug === "florere", lite);
     this.stage.add(this.garden);
     if (this.debug === "florere") this.flower.visible = this.props.visible = false;
 
@@ -110,11 +109,12 @@ export class PlaygroundEnvironment extends THREE.Group {
     sun.shadow.normalBias = 0.025;
     sun.shadow.radius = 3;
     this.add(sun, sun.target);
-    // Sky fill (kept low: the environment map does most of the ambient work).
-    const hemi = new THREE.HemisphereLight(0xd6e3ee, 0xf0dcc0, 0.24);
+    // Sky fill and the bounce off the sunlit marble: the sun is behind the pavilion, so these light
+    // everything that faces the camera.
+    const hemi = new THREE.HemisphereLight(0xdfe8f0, 0xf4e2c6, 0.55);
     this.add(hemi);
     // Warm bounce from the sunlit marble towards the camera side of everything.
-    const bounce = new THREE.DirectionalLight(0xffd9ad, 0.25);
+    const bounce = new THREE.DirectionalLight(0xffdcb4, 0.85);
     bounce.position.copy(stageToWorld(-3, 1, 12));
     bounce.target.position.copy(stageToWorld(0, 2.5, -4));
     this.add(bounce, bounce.target);
@@ -122,7 +122,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     // Cut crystal reflects its own jewel surround (dark, with softboxes; see lightformers.ts). Every
     // other material holds it as a placeholder until the pavilion is captured: same map type and
     // size, so swapping in the capture reuses the compiled programs instead of recompiling them all.
-    this.jewelTarget = createJewelEnvironment(renderer, SUN_STAGE, new THREE.Color(COLORS.sun));
+    this.jewelTarget = createJewelEnvironment(renderer, SUN_STAGE, new THREE.Color(COLORS.sun), lite ? 256 : 512);
     applyEnvironment(this.stage, this.jewelTarget.texture);
 
     if (this.debug === "lighting" || this.debug === "sun") this.applyClay();
@@ -130,6 +130,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     if (this.debug === "backdrop") this.stage.visible = false;
     if (this.debug) Object.assign(window, { __crystal: this });
     if (this.debug === "glass") this.plainGlass();
+    if (this.debug === "unpatched") this.unpatched();
     if (this.debug === "composition") for (const o of [this.flower, this.props, this.garden, this.pavilion]) this.add(new THREE.BoxHelper(o, 0xff0055));
   }
 
@@ -142,13 +143,32 @@ export class PlaygroundEnvironment extends THREE.Group {
     });
   }
 
-  /** Physical glass only: no fire, internal bounce, edge lines or glitter. */
+  /**
+   * No stylisation: glitter, milk, translucency glow and traced sun glints off. The traced crystal
+   * keeps its light paths (they are the optics, not a decoration).
+   */
   private plainGlass(): void {
     this.stage.traverse((o) => {
       const m = (o as THREE.Mesh).material as THREE.Material | undefined;
       const u = m?.userData.uniforms as Record<string, THREE.IUniform> | undefined;
       if (!u) return;
-      for (const k of ["uFire", "uInner", "uGlitter"]) if (u[k]) u[k].value = 0;
+      for (const k of ["uGlitter", "uGlitterRim", "uMilk", "uMilkEdge", "uTransScale", "uTransAmbient", "uSparkle"]) if (u[k]) u[k].value = 0;
+    });
+  }
+
+  /** Every patched glass material replaced by an unpatched MeshPhysicalMaterial (A/B baseline). */
+  private unpatched(): void {
+    const swap = new Map<THREE.Material, THREE.MeshPhysicalMaterial>();
+    this.stage.traverse((o) => {
+      const mesh = o as THREE.Mesh;
+      const m = mesh.material as THREE.MeshPhysicalMaterial;
+      if (!mesh.isMesh || !m?.isMeshPhysicalMaterial || !m.userData.uniforms) return;
+      let plain = swap.get(m);
+      if (!plain) {
+        plain = new THREE.MeshPhysicalMaterial({ color: m.color, transmission: m.transmission, roughness: m.roughness, ior: m.ior, thickness: m.userData.traced ? 0.2 : m.thickness, specularIntensity: 1, envMapIntensity: 1 });
+        swap.set(m, plain);
+      }
+      mesh.material = plain;
     });
   }
 
@@ -202,6 +222,16 @@ export class PlaygroundEnvironment extends THREE.Group {
     }
   }
 
+  /** The sun glare of the post pass sits where the sun really is (clamped near the frame). */
+  private trackSun(camera: THREE.PerspectiveCamera): void {
+    camera.updateMatrixWorld();
+    this.sunPoint.setFromMatrixPosition(camera.matrixWorld).addScaledVector(SUN_WORLD, 100).project(camera);
+    const glare = this.post.finalMat.uniforms.uGlare.value as THREE.Vector3;
+    if (this.sunPoint.z > 1) return;
+    glare.x = THREE.MathUtils.clamp(this.sunPoint.x * 0.5 + 0.5, -0.2, 1.2);
+    glare.y = THREE.MathUtils.clamp(this.sunPoint.y * 0.5 + 0.5, -0.2, 1.2);
+  }
+
   /** Bakes the backdrop for the camera's current frustum when it changed (resize, zoom). */
   private syncView(camera: THREE.PerspectiveCamera): void {
     const { width, height, dpr } = leo.viewport;
@@ -216,13 +246,13 @@ export class PlaygroundEnvironment extends THREE.Group {
    * baked. The glass is hidden during the capture, and so is everything else in the shared scene.
    */
   private captureEnvironment(renderer: THREE.WebGLRenderer, scene: THREE.Scene): void {
-    const hide: THREE.Object3D[] = [...scene.children.filter((c) => c !== this), this.flower, ...this.props.glass, ...this.garden.glass, ...this.pavilion.glass, this.shafts];
+    const hide: THREE.Object3D[] = [...scene.children.filter((c) => c !== this), this.flower, ...this.props.glass, ...this.garden.glass, ...this.pavilion.glass];
     const studio = createLightformers(new THREE.Color(COLORS.sun));
     this.stage.add(studio);
     this.backdrop.sunDisc = 40;
     this.floor.capturing = true;
     const position = stageToWorld(FLOWER.head.x, FLOWER.head.y, FLOWER.head.z + 0.8);
-    this.envTarget = captureEnvironment(renderer, scene, position, hide);
+    this.envTarget = captureEnvironment(renderer, scene, position, hide, this.lite ? 256 : 512);
     this.floor.capturing = false;
     this.backdrop.sunDisc = 0;
     this.stage.remove(studio);
@@ -236,6 +266,7 @@ export class PlaygroundEnvironment extends THREE.Group {
    * (KHR_parallel_shader_compile), so the first frame does not stall for seconds on Direct3D.
    */
   async precompile(renderer: THREE.WebGLRenderer, camera: THREE.Camera): Promise<void> {
+    await this.granite.ready;
     const visible = this.visible;
     this.visible = true;
     try {
@@ -254,15 +285,14 @@ export class PlaygroundEnvironment extends THREE.Group {
       renderer.shadowMap.needsUpdate = true;
       this.shadowsBaked = true;
     }
-    // The refraction buffer behind the glass: the frosted petals blur it anyway.
-    renderer.transmissionResolutionScale = this.lite ? 0.35 : 0.45;
+    // The refraction buffer seen through the glass and the traced crystal (whose first exit samples
+    // it sharply): full resolution for QA, otherwise following the adaptive HDR scale.
+    renderer.transmissionResolutionScale = this.pinned ? 1 : (this.lite ? 0.75 : 1);
     this.syncView(camera);
+    this.trackSun(camera);
     this.backdrop.update(renderer, et);
     if (!this.envTarget && this.backdrop.ready) this.captureEnvironment(renderer, scene);
-    this.pavilion.render(et);
-    this.props.render(et);
-    this.shafts.render(et);
-    this.flower.update(et);
+    this.flower.update(et, camera);
     this.garden.update(et);
     this.floor.update(renderer, scene, camera, et);
   }
@@ -274,10 +304,10 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.pavilion.dispose();
     this.props.dispose();
     this.garden.dispose();
-    this.shafts.dispose();
     this.backdrop.dispose();
     this.post.dispose();
     this.envTarget?.dispose();
     this.jewelTarget.dispose();
+    this.granite.dispose();
   }
 }
