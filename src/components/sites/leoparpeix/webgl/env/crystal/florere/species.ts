@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { bead, bellBody, briolette, cutLeaf, ovalOutline, petalChip, ringGem, rockBase, type CutSolid } from "../cut";
 import { along, baseWrap, compose, corolla, Figurine, frame, vec, type Kit, type Vec } from "./kit";
+import { hydrangea, iris, tulip, wildflower } from "./collection";
 
 /*
  * The six Swarovski Florere figurines (references: docs/research/leoparpeix/implementation/
@@ -28,7 +29,7 @@ const TINT = {
   violet: { tint: 0xa58cff, depth: 0.075 },
   purple: { tint: 0x7a3ee6, depth: 0.025 },
   lilac: { tint: 0xd59cf2, depth: 0.05 },
-  jonquil: { tint: 0xffd23c, depth: 0.075 },
+  jonquil: { tint: 0xffdf92, depth: 0.11 },
   amber: { tint: 0xffa21a, depth: 0.035 },
   sapphire: { tint: 0x5274ff, depth: 0.11 },
 } as const;
@@ -58,7 +59,7 @@ export function rose(kit: Kit): Figurine {
   // From the rock's right shoulder: up left, a bulge right, then under the bloom.
   f.wire([[0.04, 0.12, 0.0], [0.07, 0.24, 0.01], [0.03, 0.36, 0.02], [-0.01, 0.48, 0.015], [0.04, 0.62, 0.0], [0.085, 0.72, -0.005], [0.06, 0.79, -0.01], [0.015, 0.83, -0.005]], 0.0068, 0.006);
 
-  const head = compose(vec([-0.01, 0.87, 0.0]), frame(new THREE.Vector3(-0.3, 0.72, 0.63), new THREE.Vector3(0.2, 0.3, -1)));
+  const head = compose(vec([-0.01, 0.87, 0.0]), frame(new THREE.Vector3(-0.2, 0.55, 0.82), new THREE.Vector3(0.2, 0.3, -1)), 1.25);
   const pink = { ...CLEAR, ...TINT.rose, backDist: 0.25 };
   // A full bloom: the spiral heart, then four rings of cupped petals opening outwards (4, 5, 5 and
   // 5 broad guard petals), each ring turned against the last so the petals overlap like a rose.
@@ -178,7 +179,7 @@ export function lily(kit: Kit): Figurine {
 
   // Trumpet facing up, left and towards the viewer.
   const axis = new THREE.Vector3(-0.45, 0.65, 0.6);
-  const head = compose(vec([-0.02, 0.89, 0.02]), frame(axis, new THREE.Vector3(0.3, 0.2, -1)));
+  const head = compose(vec([-0.02, 0.89, 0.02]), frame(axis, new THREE.Vector3(0.3, 0.2, -1)), 1.35);
   const yellow = { ...CLEAR, ...TINT.jonquil, backDist: 0.25 };
   // Six broad pointed tepals in two rings: the outer three open wide, the inner three form the cup.
   const outerT = petalChip(ovalOutline(0.185, 0.1, { point: 1.0, belly: 0.42, segments: 16 }), 0.017, 0.013, 0.02);
@@ -338,5 +339,5 @@ export function blueBellflower(kit: Kit): Figurine {
   return f.finish();
 }
 
-export const SPECIES = { rose, forgetMeNot, rozanne, lily, lilyOfTheValley, blueBellflower } as const;
+export const SPECIES = { rose, forgetMeNot, rozanne, lily, lilyOfTheValley, blueBellflower, tulip, iris, hydrangea, wildflower } as const;
 export type SpeciesName = keyof typeof SPECIES;

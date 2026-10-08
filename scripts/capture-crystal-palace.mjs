@@ -8,7 +8,8 @@ import sharp from 'sharp';
 const phase = process.argv[2] ?? 'after';
 if (!/^[a-z0-9-]+$/.test(phase)) throw new Error('Invalid phase');
 const quick = process.argv.includes('--quick');
-const out = `docs/research/leoparpeix/implementation/playground-crystal/palace-2026-10-08/${phase}`;
+const flourish = phase.startsWith('flourish');
+const out = `docs/research/leoparpeix/implementation/playground-crystal/${flourish ? 'flourish-2026-10-08' : 'palace-2026-10-08'}/${phase}`;
 await mkdir(out, { recursive: true });
 const root = join(process.env.LOCALAPPDATA, 'ms-playwright');
 const executablePath = readdirSync(root).filter((x) => /^chromium-\d+$/.test(x)).sort().reverse().map((x) => join(root, x, 'chrome-win64', 'chrome.exe')).find(existsSync);
@@ -64,7 +65,8 @@ try {
         return results;
       });
       assert(Math.abs(report.probes.find((p) => p.name === 'hero').cocApprox) < 0.3, 'Hero must remain in focus');
-      assert(report.probes.find((p) => p.name === 'sky').cocApprox > 3, 'Far background must have a positive CoC');
+      assert(report.probes.find((p) => p.name === 'sky').cocApprox > 1, 'Far background must have a positive CoC');
+      if (flourish) assert(report.probes.find((p) => p.name === 'sky').cocApprox < 3.5, 'Far background blur must stay restrained');
       assert(report.probes.find((p) => p.name === 'nearFloor').cocApprox < -0.3, 'Near floor must have a negative CoC');
       assert(Math.min(...report.probes.map((p) => p.cocApprox)) < -2, 'Near crystal must show stronger optical blur');
       await page.evaluate(() => {

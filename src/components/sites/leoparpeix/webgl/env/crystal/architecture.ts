@@ -47,6 +47,13 @@ export class Pavilion extends THREE.Group {
       ring(x, spring - 0.42, z, 0.33, 0.38, 0.12);
       ring(x, spring - 0.26, z, 0.38, 0.54, 0.2);
       box(x, spring - 0.07, z, 1.17, 0.18, 1.17, true);
+      for (const front of [-1, 1]) {
+        for (const side of [-1, 1]) {
+          const scroll = new THREE.TorusGeometry(0.13, 0.033, 8, 28, Math.PI * 1.75);
+          scroll.rotateZ(side < 0 ? Math.PI : 0);
+          place(scroll, x + side * 0.27, spring - 0.26, z + front * 0.43, true);
+        }
+      }
     };
 
     const arch = (cx: number, z: number, half: number, yaw: number, top: number) => {
@@ -75,6 +82,15 @@ export class Pavilion extends THREE.Group {
         g.translate(0, 0, -0.38);
         place(g, cx, 0, z, true, yaw);
       }
+      const key = new THREE.Shape();
+      key.moveTo(-0.12, spring + half - 0.06);
+      key.lineTo(0.12, spring + half - 0.06);
+      key.lineTo(0.2, spring + half + 0.34);
+      key.lineTo(-0.2, spring + half + 0.34);
+      key.closePath();
+      const keystone = new THREE.ExtrudeGeometry(key, { depth: 0.94, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02, bevelSegments: 2 });
+      keystone.translate(0, 0, -0.47);
+      place(keystone, cx, 0, z, true, yaw);
     };
 
     for (const z of PALACE.bays) {
@@ -104,6 +120,16 @@ export class Pavilion extends THREE.Group {
         box(side * PALACE.halfWidth, 0.12, center, 0.72, 0.24, front - back);
         box(side * PALACE.halfWidth, 0.85, center, 0.72, 0.16, front - back, true);
         for (let bz = back + 0.65; bz < front; bz += 1.05) ring(side * PALACE.halfWidth, 0.48, bz, 0.095, 0.095, 0.58);
+      }
+    }
+    // Return galleries continue outwards across both edges of the camera, framing the sky.
+    for (const side of [-1, 1]) {
+      for (const x of [9.5, 14.3, 19.1]) column(side * x, -16);
+      for (const x of [11.9, 16.7]) {
+        arch(side * x, -16, 2.4, 0, PALACE.cornice);
+        box(side * x, PALACE.cornice + 0.22, -16, 5.9, 0.46, 1.1, true);
+        box(side * x, 0.85, -16, 4.8, 0.16, 0.72, true);
+        for (let k = -2; k <= 2; k++) ring(side * x + k * 0.9, 0.48, -16, 0.095, 0.095, 0.58);
       }
     }
     // A broad processional terrace behind the pool, not a small enclosed display room.

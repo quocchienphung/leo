@@ -175,7 +175,7 @@ export function frostedGlass(glitter: GlitterUniforms): THREE.MeshPhysicalMateri
     key: "petal",
     // Negative edge: light piped along the thick rim makes it brighter, as in cast glass.
     milk: { color: COLORS.petalMilk, amount: 0.16, edge: -0.2 },
-    translucency: { color: 0xfff6ea, scale: 0.2, power: 2.5, distortion: 0.3, ambient: 0.03, body: 0.14 },
+    translucency: { color: 0xfff6ea, scale: 0.3, power: 2.5, distortion: 0.3, ambient: 0.07, body: 0.24 },
     glitter,
   });
   return m;

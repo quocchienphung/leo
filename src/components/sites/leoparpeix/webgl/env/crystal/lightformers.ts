@@ -35,6 +35,7 @@ export function createLightformers(sun: THREE.Color): THREE.Group {
   // Soft cool bounce from the left, and a long strip high on the right for crisp top highlights.
   add(new THREE.PlaneGeometry(9, 9), new THREE.Color(0.75, 0.82, 0.92).multiplyScalar(0.6), [-13, 4, 3], [0, 3, 0]);
   add(new THREE.PlaneGeometry(14, 0.6), new THREE.Color(5.5, 5.3, 5), [6, 11, 5], [0, 2.5, 0]);
+  for (const side of [-1, 1]) add(new THREE.PlaneGeometry(0.45, 7), new THREE.Color(4.5, 4.35, 4.1), [side * 5.5, 4, 6.5], [0, 2.5, 0]);
   // Small sunlit things all round (polished stone edges, glass, water): seen in cut facets they
   // become the scattered warm points of light of real crystal in the sun.
   const random = (() => {

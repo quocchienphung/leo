@@ -108,7 +108,7 @@ export const PROPS = {
   ],
 } as const;
 
-export type FlorereSpecies = "rose" | "forgetMeNot" | "rozanne" | "lily" | "lilyOfTheValley" | "blueBellflower";
+export type FlorereSpecies = "rose" | "forgetMeNot" | "rozanne" | "lily" | "lilyOfTheValley" | "blueBellflower" | "tulip" | "iris" | "hydrangea" | "wildflower";
 
 export interface GardenSpot {
   species: FlorereSpecies;
@@ -134,7 +134,12 @@ export const GARDEN: GardenSpot[] = [
   { species: "blueBellflower", at: [-2.75, 0, -4.9], scale: 2.45, yaw: 0.15, plinth: { kind: "marble", size: [0.72, 1.6, 0.72], yaw: 0.05 } },
   { species: "lily", at: [2.25, 0, 0.3], scale: 1.95, yaw: -0.35, plinth: { kind: "glass", size: [0.68, 0.62, 0.68], yaw: 0.3 } },
   { species: "rozanne", at: [3.75, 0, -2.9], scale: 2.25, yaw: -0.2, plinth: { kind: "marble", size: [0.85, 1.15, 0.85], yaw: -0.1 } },
-  { species: "lilyOfTheValley", at: [4.2, 0, -0.5], scale: 1.95, yaw: -0.45, plinth: { kind: "marble", size: [0.8, 0.5, 0.8], yaw: 0.2 } },
+  { species: "lilyOfTheValley", at: [5.3, 0, -3.5], scale: 2.3, yaw: -0.45, plinth: { kind: "marble", size: [0.8, 0.5, 0.8], yaw: 0.2 } },
+  { species: "tulip", at: [3.7, 0, 0.4], scale: 2.5, yaw: -0.12, plinth: { kind: "glass", size: [0.72, 0.42, 0.72], yaw: 0.12 } },
+  { species: "iris", at: [4.4, 0, -4.5], scale: 3.0, yaw: -0.35, plinth: { kind: "marble", size: [0.9, 0.8, 0.85] } },
+  { species: "hydrangea", at: [-4.4, 0, -0.6], scale: 2.45, yaw: 0.12, plinth: { kind: "marble", size: [0.95, 0.68, 0.9], yaw: -0.1 } },
+  { species: "wildflower", at: [-3.0, 0, 2.8], scale: 1.4, yaw: 0.1 },
+  { species: "wildflower", at: [3.3, 0, 2.4], scale: 1.65, yaw: -0.35 },
   // Repeats behind the main six, so the garden reads in layers.
   { species: "rozanne", at: [-3.8, 0, -9.2], scale: 2.0, yaw: 0.6, plinth: { kind: "marble", size: [0.75, 1.05, 0.75], yaw: 0.25 }, repeat: true },
   { species: "rose", at: [3.8, 0, -11.2], scale: 2.1, yaw: -0.7, plinth: { kind: "marble", size: [0.8, 1.25, 0.8], yaw: -0.2 }, repeat: true },

@@ -19,7 +19,7 @@ const deg = THREE.MathUtils.degToRad;
  * Petals in the head frame: `root` = distance of the petal root from the dome centre; widths and
  * thickness are halves. The root is hidden under the dome.
  */
-const PETAL = { count: 12, root: 0.35, length: 1.02, rootHalfWidth: 0.14, halfWidth: 0.27, widest: 0.63, halfThickness: 0.14, cup: 0.08, z: -0.08 } as const;
+const PETAL = { count: 12, root: 0.36, length: 1.08, rootHalfWidth: 0.14, halfWidth: 0.3, widest: 0.63, halfThickness: 0.14, cup: 0.08, z: -0.08 } as const;
 /** Champagne dome: radius, front bulge / radius (it is an ellipsoid centred on its rim plane). */
 const ORB = { radius: 0.49, depth: 0.82 } as const;
 

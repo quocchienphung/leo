@@ -100,11 +100,16 @@ vec3 traceScreen(vec3 posW, vec3 dirW) {
 
 vec3 traceSun(vec3 dirW) {
   #if NUM_DIR_LIGHTS > 0
-    vec3 L = transformDirectionByInverseViewMatrix(directionalLights[0].direction, viewMatrix);
-    float a = max(dot(dirW, L), 0.0);
-    // The sun seen through the stone: a tight glint, and a warm glow for exits heading roughly
-    // towards it (sun size, polish and the haze around it), which lights the back-lit facets gold.
-    return directionalLights[0].color * (pow(a, 900.0) * 3.0 + pow(a, 50.0) * 0.22 + pow(a, 6.0) * 0.025) * uSparkle;
+    vec3 energy = vec3(0.0);
+    for (int i = 0; i < NUM_DIR_LIGHTS; i++) {
+      vec3 L = transformDirectionByInverseViewMatrix(directionalLights[i].direction, viewMatrix);
+      float a = max(dot(dirW, L), 0.0);
+      // Gallery fills participate in traced exits as well as surface specular highlights.
+      float peak = i == 0 ? 900.0 : 260.0;
+      float gain = i == 0 ? 3.0 : 1.4;
+      energy += directionalLights[i].color * (pow(a, peak) * gain + pow(a, 50.0) * 0.18 + pow(a, 6.0) * 0.018);
+    }
+    return energy * uSparkle;
   #else
     return vec3(0.0);
   #endif

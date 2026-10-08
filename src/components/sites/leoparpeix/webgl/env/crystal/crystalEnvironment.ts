@@ -120,6 +120,15 @@ export class PlaygroundEnvironment extends THREE.Group {
     bounce.target.position.copy(stageToWorld(0, 2.5, -4));
     this.add(bounce, bounce.target);
 
+    // Cross-light the botanical galleries so pale petals and polished cuts read at both edges.
+    for (const [x, color, intensity] of [[-7, 0xe6efff, 1.35], [8, 0xffe6c5, 1.1]] as const) {
+      const fill = new THREE.DirectionalLight(color, intensity);
+      fill.name = x < 0 ? "Crystal gallery cool key" : "Crystal gallery warm rim";
+      fill.position.copy(stageToWorld(x, 5, 7));
+      fill.target.position.copy(stageToWorld(x * 0.3, 2.5, -1));
+      this.add(fill, fill.target);
+    }
+
     // Cut crystal reflects its own jewel surround (dark, with softboxes; see lightformers.ts). Every
     // other material holds it as a placeholder until the pavilion is captured: same map type and
     // size, so swapping in the capture reuses the compiled programs instead of recompiling them all.

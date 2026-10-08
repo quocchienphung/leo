@@ -136,14 +136,19 @@ export function petalChip(outline: THREE.Vector2[], front: number, back: number,
     const z = lift(p);
     pts.push(v3(p.x, p.y, z + front * 0.12), v3(p.x, p.y, z - back * 0.12));
     if (i % 2 === 0) {
-      const q = c.clone().lerp(p, 0.6);
-      pts.push(v3(q.x, q.y, lift(q) + front * 0.78), v3(q.x, q.y, lift(q) - back * 0.7));
+      // A narrow bevel and a raised crown remain above the cupped girdle on the convex hull.
+      const bevel = c.clone().lerp(p, 0.9);
+      pts.push(v3(bevel.x, bevel.y, lift(bevel) + cup * 0.2 + front * 0.42), v3(bevel.x, bevel.y, lift(bevel) - back * 0.42));
+      const q = c.clone().lerp(p, 0.58);
+      pts.push(v3(q.x, q.y, cup + front * 0.82), v3(q.x, q.y, lift(q) - back * 0.8));
     }
   });
-  for (let i = 0; i < 4; i++) {
-    const a = (i / 4) * Math.PI * 2 + 0.4;
-    const q = c.clone().add(new THREE.Vector2(Math.cos(a), Math.sin(a)).multiplyScalar(rMax * 0.22));
-    pts.push(v3(q.x, q.y, lift(q) + front), v3(q.x, q.y, lift(q) - back));
+  const rx = (Math.max(...outline.map((p) => p.x)) - Math.min(...outline.map((p) => p.x))) * 0.13;
+  const ry = (Math.max(...outline.map((p) => p.y)) - Math.min(...outline.map((p) => p.y))) * 0.13;
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2 + 0.25;
+    const q = c.clone().add(new THREE.Vector2(Math.cos(a) * rx, Math.sin(a) * ry));
+    pts.push(v3(q.x, q.y, cup + front), v3(q.x, q.y, lift(q) - back));
   }
   return cutSolid(pts);
 }
