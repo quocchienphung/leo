@@ -27,6 +27,8 @@ export class CrystalDepthOfField {
       uAperture: { value: lite ? 5 : 7 },
       uMaxBlur: { value: lite ? 10 : 14 },
       uFarBlurScale: { value: lite ? 0.45 : 0.42 },
+      uNearBlurScale: { value: 0.35 },
+      uFocusBand: { value: 2.0 },
       uPixel: { value: new THREE.Vector2() },
     };
     this.gather = new THREE.ShaderMaterial({ vertexShader: quadVertex, fragmentShader: dofGatherFragment, uniforms, defines: { DOF_TAPS: lite ? 16 : 28 }, depthTest: false, depthWrite: false });

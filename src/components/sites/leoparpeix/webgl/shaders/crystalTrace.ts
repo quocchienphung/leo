@@ -14,6 +14,8 @@
 // the stone's transform reaches the fragment as flat varyings.
 
 export const traceVertexPars = /* glsl */ `
+attribute vec3 cutEdgeDistance;
+varying vec3 vCutEdgeDistance;
 flat varying vec3 vTraceX;
 flat varying vec3 vTraceY;
 flat varying vec3 vTraceZ;
@@ -23,6 +25,7 @@ flat varying vec3 vTraceT;
 /** Injected after worldpos_vertex. */
 export const traceVertexMain = /* glsl */ `
 {
+  vCutEdgeDistance = cutEdgeDistance;
   mat4 traceModel = modelMatrix;
   #ifdef USE_INSTANCING
     traceModel = modelMatrix * instanceMatrix;
@@ -35,6 +38,8 @@ export const traceVertexMain = /* glsl */ `
 `;
 
 export const traceFragmentPars = /* glsl */ `
+varying vec3 vCutEdgeDistance;
+uniform float uFacetWidth;
 flat varying vec3 vTraceX;
 flat varying vec3 vTraceY;
 flat varying vec3 vTraceZ;
@@ -175,6 +180,13 @@ export const traceFragmentMain = /* glsl */ `
     vec3 v = normalize(cameraPosition - pos);
     vec3 n = transformNormalByInverseViewMatrix(normal, viewMatrix);
     vec3 traced = crystalTrace(n, v, pos);
+    // A polished micro-bevel at the actual dihedral borders. Coplanar triangle diagonals
+    // carry a large distance and never draw a wireframe across a single optical facet.
+    float edgeDistance = min(vCutEdgeDistance.x, min(vCutEdgeDistance.y, vCutEdgeDistance.z));
+    float aa = max(fwidth(edgeDistance), 1e-6);
+    float bevel = (1.0 - smoothstep(0.0, uFacetWidth + aa, edgeDistance)) * min(uFacetWidth / aa, 1.0);
+    vec3 reflected = traceEnv(reflect(-v, n));
+    traced = mix(traced, traced * 0.68 + reflected * 0.32, bevel * 0.3);
     vec3 F = EnvironmentBRDF(n, v, material.specularColorBlended, material.specularF90, material.roughness);
     totalDiffuse = mix(totalDiffuse, (1.0 - F) * material.diffuseContribution * traced, material.transmission);
   }

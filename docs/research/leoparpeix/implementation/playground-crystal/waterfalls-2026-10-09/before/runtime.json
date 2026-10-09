@@ -1,0 +1,21 @@
+{
+  "shots": [
+    {
+      "name": "desktop",
+      "hdr": [
+        1672,
+        941
+      ],
+      "overflow": false,
+      "waterSize": null
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "THREE.WebGLProgram: Program Info Log: (210,81-129): warning X4122: sum of 0.996094 and -2.98545e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (58,12-86): warning X3595: gradient instruction used in a loop with varying iteration; partial derivatives may have undefined value\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (593,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (603,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000",
+    "THREE.WebGLProgram: Program Info Log: (543,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec3_int)\n\n\n\u0000"
+  ]
+}

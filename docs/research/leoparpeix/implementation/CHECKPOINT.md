@@ -84,5 +84,10 @@ Read this first when resuming. Update at every milestone.
 - Mobile 390×844 (touch), landscape overlay, 1024/1025, 2880 wide verified.
 - Docs: `route-map.md`, `motion-spec.md`, `state-matrix.md`, `differences.md`, `materials.md`.
 
+- Playground scroll corrected (2026-10-09): measured Work's actual camera; shared linear
+  downward/forward translation with fixed horizontal viewing direction and Work's lens/rig.
+  The previous downward-pitch attempt was superseded. Evidence and checks:
+  `playground-crystal/scroll-2026-10-09/README.md`.
+
 ## Next (optional polish)
 - See `differences.md` (#1 shadow softness, #2 back/forward cover animation, Safari checks).

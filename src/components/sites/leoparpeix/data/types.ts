@@ -10,6 +10,8 @@ export interface Agency {
 }
 
 export interface CameraParams {
+  /** Optional end of a header path, before the camera reaches its scene's floor. */
+  scrollProgressMax?: number;
   scrollRangePosition: Vec3;
   scrollRangeRotation: Vec3;
   scrollOffsetPosition: Vec3;

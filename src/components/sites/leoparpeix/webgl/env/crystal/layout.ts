@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { WORK_HEADER_RIG } from "../../../data/headerCamera";
 
 /*
  * Playground crystal pavilion — every placement solved from the reference sketch
@@ -10,8 +11,8 @@ import * as THREE from "three";
  * - stage: origin on the floor under the daisy, x right, y up, z towards the camera.
  *   world = STAGE_ORIGIN + (s.z, s.y, −s.x)  (stage group rotated π/2 about Y).
  *
- * Inverse projection used for the placements (vertical FOV 36°, f = 1448 px, pitch 4.7°):
- *   d = 8 − s.z, s.x = 0.08 + (u − 836)·d / 1448, s.y = 1.52 + d·tan(atan((470 − v) / 1448) + 4.7°)
+ * The camera now uses Work's measured horizontal rig and lens. Its scroll moves
+ * down and forward without changing orientation; object placements stay in the stage frame.
  */
 export const STAGE_ORIGIN = new THREE.Vector3(2.75, 0, 0);
 
@@ -20,13 +21,13 @@ export function stageToWorld(x: number, y: number, z: number, out = new THREE.Ve
 }
 
 /**
- * Camera rig solved so the base bottom (y 0) lands on v 870, the head centre (2.85) on ≈ v 350
- * and the top petal (4.02) on ≈ v 145, head at u ≈ 822.
+ * Same eye height, distance and lens as Work, measured from its GLB camera.
+ * A level rig is essential: lowering the eye exposes the foreground without pitching down.
  */
 export const RIG = {
-  fov: 36,
-  stage: new THREE.Vector3(0.08, 1.52, 8),
-  target: new THREE.Vector3(0.08, 1.52 + 8 * Math.tan(THREE.MathUtils.degToRad(4.7)), 0),
+  fov: WORK_HEADER_RIG.fov,
+  stage: new THREE.Vector3(-WORK_HEADER_RIG.z, WORK_HEADER_RIG.y, WORK_HEADER_RIG.x - STAGE_ORIGIN.x),
+  target: new THREE.Vector3(-WORK_HEADER_RIG.z, WORK_HEADER_RIG.y, 0),
 } as const;
 
 function createRigCamera(): THREE.PerspectiveCamera {

@@ -3,33 +3,13 @@
 // bundle so layout and animation stay 1:1.
 
 import type { HomeContent } from "./types";
+import { WORK_HEADER_CAMERA_PARAMS } from "./headerCamera";
 
 export const homeContent: HomeContent = {
   "header": {
     "description": "Clean code. Scalable systems. Smarter models.",
     "scrollIndication": "Scroll down",
-    "cameraParams": {
-      "scrollRangePosition": {
-        "x": 0,
-        "y": 2.4,
-        "z": 4
-      },
-      "scrollRangeRotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "scrollOffsetPosition": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "scrollOffsetRotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      }
-    }
+    "cameraParams": WORK_HEADER_CAMERA_PARAMS
   },
   "hero": {
     "titles": [

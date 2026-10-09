@@ -16,7 +16,7 @@ import { createJewelEnvironment, createLightformers, disposeLightformers } from 
 
 /**
  * Adaptive resolution of the pavilion's HDR pass: refraction re-renders the scene behind the glass,
- * so on integrated GPUs the pass follows the frame time between ≈ 0.85× CSS pixels and the full DPR,
+ * so on integrated GPUs the pass follows the frame time while retaining at least native CSS detail,
  * upscaled by the tone-map pass. `?quality=high` pins it to full resolution (visual QA).
  */
 const ADAPT = { slowMs: 24, fastMs: 15, step: 0.08, everyMs: 900 } as const;
@@ -26,7 +26,7 @@ function pinnedQuality(): boolean {
 }
 
 /** Surroundings reflected inside traced crystal: the pavilion capture or the jewel studio. */
-const TRACED_ENV = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("crystalEnv") === "jewel" ? "jewel" : "pavilion";
+const TRACED_ENV = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("crystalEnv") === "pavilion" ? "pavilion" : "jewel";
 
 /** `?debug=backdrop | lighting | composition | sun | glass | unpatched | probe | florere` (development only). */
 function debugMode(): string | null {
@@ -36,7 +36,7 @@ function debugMode(): string | null {
 
 /**
  * Playground 3D header: a frosted crystal daisy in a sunlit pavilion over clouds and mountains,
- * among the six Swarovski Florere figurines (Crystal Flower Pavilion board, 2026-10-07).
+ * among ten crystal botanical types (Crystal Flower Pavilion board, 2026-10-07).
  * Component map: docs/research/leoparpeix/implementation/playground-crystal/SCENE_COMPONENT_MAP.md.
  */
 export class PlaygroundEnvironment extends THREE.Group {
@@ -77,7 +77,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.stage.rotation.y = Math.PI / 2;
     this.add(this.stage);
 
-    this.floor = new MirrorFloor(this.granite, this.pinned ? 1 : lite ? 0.5 : 0.75, this.pinned);
+    this.floor = new MirrorFloor(this.granite, lite && !this.pinned ? 0.75 : 1, this.pinned);
     this.stage.add(this.floor);
     this.pavilion = new Pavilion(this.granite);
     this.stage.add(this.pavilion);
@@ -222,7 +222,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     this.frameMs += (dt - this.frameMs) * 0.08;
     if (et - this.lastAdapt < ADAPT.everyMs) return;
     this.lastAdapt = et;
-    const minScale = Math.min(1, Math.max(0.5, 0.85 / leo.viewport.dpr));
+    const minScale = Math.min(1, Math.max(0.65, 1.15 / leo.viewport.dpr));
     let next = this.renderScale;
     if (this.frameMs > ADAPT.slowMs) next = Math.max(minScale, next - ADAPT.step);
     else if (this.frameMs < ADAPT.fastMs) next = Math.min(1, next + ADAPT.step / 2);
@@ -297,7 +297,7 @@ export class PlaygroundEnvironment extends THREE.Group {
     }
     // The refraction buffer seen through the glass and the traced crystal (whose first exit samples
     // it sharply): full resolution for QA, otherwise following the adaptive HDR scale.
-    renderer.transmissionResolutionScale = this.pinned ? 1 : (this.lite ? 0.75 : 1);
+    renderer.transmissionResolutionScale = 1;
     this.syncView(camera);
     this.trackSun(camera);
     this.backdrop.update(renderer, et);

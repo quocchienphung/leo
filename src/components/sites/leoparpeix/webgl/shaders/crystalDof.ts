@@ -6,6 +6,8 @@ uniform float uFocus;
 uniform float uAperture;
 uniform float uMaxBlur;
 uniform float uFarBlurScale;
+uniform float uNearBlurScale;
+uniform float uFocusBand;
 uniform vec2 uPixel;
 varying vec2 vUv;
 float viewDepth(vec2 uv) {
@@ -14,9 +16,9 @@ float viewDepth(vec2 uv) {
 }
 float cocAt(float z) {
   // A generous sharp band retains the whole flower, from its leaves to its front dome.
-  float delta = max(abs(z - uFocus) - 1.1, 0.0);
+  float delta = max(abs(z - uFocus) - uFocusBand, 0.0);
   float coc = clamp(sign(z - uFocus) * uAperture * delta / max(z, 0.01), -uMaxBlur, uMaxBlur);
-  return coc > 0.0 ? coc * uFarBlurScale : coc;
+  return coc > 0.0 ? coc * uFarBlurScale : coc * uNearBlurScale;
 }
 `;
 

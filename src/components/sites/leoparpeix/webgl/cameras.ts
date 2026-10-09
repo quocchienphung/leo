@@ -124,7 +124,7 @@ export class MainCamera extends THREE.PerspectiveCamera {
 
   setScrollHeaderPositions(scroll: number, rectHeight: number, p: CameraParams): void {
     const { scrollRangePosition: r, scrollRangeRotation: rr, scrollOffsetPosition: o, scrollOffsetRotation: or } = p;
-    const k = scroll / rectHeight;
+    const k = clamp(scroll / rectHeight, 0, p.scrollProgressMax ?? 1);
     if (!leo.isOnHeader) return;
     this.position.set(-clamp(k * r.x, 0, r.x) - o.x, -clamp(k * r.y, 0, r.y) - o.y, -clamp(k * r.z, 0, r.z) - o.z);
     this.rotation.set(-clamp(k * rr.x, 0, rr.x) - or.x, -clamp(k * rr.y, 0, rr.y) - or.y, -clamp(k * rr.z, 0, rr.z) - or.z);

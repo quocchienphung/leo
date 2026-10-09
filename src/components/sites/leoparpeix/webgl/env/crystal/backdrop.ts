@@ -114,12 +114,15 @@ function rigBasis(): { right: THREE.Vector3; up: THREE.Vector3; forward: THREE.V
 
 export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMaterial> {
   readonly target: THREE.WebGLRenderTarget;
+  readonly waterTarget: THREE.WebGLRenderTarget;
   private readonly bakeMaterial: THREE.ShaderMaterial;
   private readonly bakeScene = new THREE.Scene();
   private readonly bakeCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   private readonly tanHalf: THREE.Vector2;
   private strip = 0;
   private dirty = true;
+  private waterStrip = 0;
+  private waterFrame = 0;
 
   constructor(center: THREE.Vector3) {
     const { right, up, forward } = rigBasis();
@@ -142,6 +145,7 @@ export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMater
       magFilter: THREE.LinearFilter,
     });
     const tanHalf = new THREE.Vector2(1, 1);
+    const waterTarget = target.clone();
     const material = new THREE.ShaderMaterial({
       vertexShader: domeVertex,
       fragmentShader: domeFragment,
@@ -149,6 +153,8 @@ export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMater
         ...shared,
         uCenter: { value: center.clone() },
         tBake: { value: target.texture },
+        tWater: { value: waterTarget.texture },
+        uWaterTime: { value: 0 },
         uBakeReady: { value: 0 },
         uTanHalf: { value: tanHalf },
       },
@@ -161,6 +167,7 @@ export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMater
     this.frustumCulled = false;
     this.renderOrder = -10;
     this.target = target;
+    this.waterTarget = waterTarget;
     this.tanHalf = tanHalf;
 
     this.bakeMaterial = new THREE.ShaderMaterial({
@@ -172,6 +179,8 @@ export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMater
         uTanHalf: { value: tanHalf },
         uTime: { value: 0 },
         uBlend: { value: 1 },
+        uWaterData: { value: 0 },
+        uFalls: { value: [new THREE.Vector4(-3.5, -9.8, 0.11, 0.68), new THREE.Vector4(6.4, -14, 0.1, 0.65)] },
         uZero: { value: 0 },
         uHaze: { value: SKY_COLORS.haze },
         uForest: { value: new THREE.Color(0.03, 0.065, 0.025) },
@@ -210,38 +219,58 @@ export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMater
       h = Math.round((h * MAX_BAKE_WIDTH) / w);
       w = MAX_BAKE_WIDTH;
     }
-    if (w !== this.target.width || h !== this.target.height) this.target.setSize(Math.max(1, w), Math.max(1, h));
+    if (w !== this.target.width || h !== this.target.height) {
+      this.target.setSize(Math.max(1, w), Math.max(1, h));
+      this.waterTarget.setSize(Math.max(1, w), Math.max(1, h));
+    }
     this.dirty = true;
   }
 
-  private renderStrip(renderer: THREE.WebGLRenderer, index: number, count: number): void {
-    const h = this.target.height;
+  private renderStrip(renderer: THREE.WebGLRenderer, index: number, count: number, target = this.target): void {
+    const h = target.height;
     const y0 = Math.floor((index / count) * h);
     const y1 = Math.floor(((index + 1) / count) * h);
     if (y1 <= y0) return;
-    this.target.scissor.set(0, y0, this.target.width, y1 - y0);
-    this.target.scissorTest = true;
-    renderer.setRenderTarget(this.target);
+    target.scissor.set(0, y0, target.width, y1 - y0);
+    target.scissorTest = true;
+    renderer.setRenderTarget(target);
     renderer.render(this.bakeScene, this.bakeCamera);
   }
 
   /** Per frame: the whole bake when the view changed, otherwise the next strip. */
   update(renderer: THREE.WebGLRenderer, et: number): void {
     this.bakeMaterial.uniforms.uTime.value = et / 1000;
+    this.material.uniforms.uWaterTime.value = et / 1000;
     const previous = renderer.getRenderTarget();
     if (this.dirty) {
       // Several draws so no single one stalls the GPU long enough to trip a driver reset.
       this.bakeMaterial.uniforms.uBlend.value = 1;
       for (let i = 0; i < INITIAL_STRIPS; i++) this.renderStrip(renderer, i, INITIAL_STRIPS);
+      this.bakeMaterial.uniforms.uWaterData.value = 1;
+      this.bakeMaterial.blending = THREE.NoBlending;
+      for (let i = 0; i < INITIAL_STRIPS; i++) this.renderStrip(renderer, i, INITIAL_STRIPS, this.waterTarget);
+      this.bakeMaterial.uniforms.uWaterData.value = 0;
+      this.bakeMaterial.blending = THREE.NormalBlending;
       this.bakeMaterial.uniforms.uBlend.value = 0.3;
       this.dirty = false;
       this.strip = 0;
+      this.waterStrip = 0;
       this.material.uniforms.uBakeReady.value = 1;
     } else {
       this.renderStrip(renderer, this.strip, STRIPS);
       this.strip = (this.strip + 1) % STRIPS;
+      // Occlusion follows the slowly drifting clouds. Water radiance itself animates every frame.
+      if (this.waterFrame++ % 8 === 0) {
+        this.bakeMaterial.uniforms.uWaterData.value = 1;
+        this.bakeMaterial.blending = THREE.NoBlending;
+        this.renderStrip(renderer, this.waterStrip, STRIPS, this.waterTarget);
+        this.waterStrip = (this.waterStrip + 1) % STRIPS;
+        this.bakeMaterial.uniforms.uWaterData.value = 0;
+        this.bakeMaterial.blending = THREE.NormalBlending;
+      }
     }
     this.target.scissorTest = false;
+    this.waterTarget.scissorTest = false;
     renderer.setRenderTarget(previous);
   }
 
@@ -256,6 +285,7 @@ export class Backdrop extends THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMater
 
   dispose(): void {
     this.target.dispose();
+    this.waterTarget.dispose();
     this.geometry.dispose();
     this.material.dispose();
     this.bakeMaterial.dispose();

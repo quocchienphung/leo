@@ -35,7 +35,7 @@ export function PlaygroundView() {
 
   return (
     <div className="page">
-      <HeaderBlock {...playgroundContent.header} raised />
+      <HeaderBlock {...playgroundContent.header} raised foregroundReveal />
       <PlaygroundHeroBlock {...playgroundContent.hero} />
       <PlaygroundContentBlock rows={playgroundContent.content} />
       <FooterBlock theme="yellow" {...globalContent.footer} />

@@ -159,23 +159,23 @@ export function frostedGlass(glitter: GlitterUniforms): THREE.MeshPhysicalMateri
   const m = new THREE.MeshPhysicalMaterial({
     color: COLORS.petal,
     transmission: 1,
-    // Frosted body (the scene behind is softly blurred), sharp clear coat on top.
-    roughness: 0.22,
+    // Light frost within a polished body; transmission must retain the scene's fine detail.
+    roughness: 0.095,
     metalness: 0,
     ior: 1.5,
     thickness: 0.22,
     attenuationColor: new THREE.Color(COLORS.petalAttenuation),
     attenuationDistance: 3,
     clearcoat: 1,
-    clearcoatRoughness: 0.03,
+    clearcoatRoughness: 0.015,
     specularIntensity: 1,
     envMapIntensity: 1,
   });
   patchPhysical(m, {
     key: "petal",
     // Negative edge: light piped along the thick rim makes it brighter, as in cast glass.
-    milk: { color: COLORS.petalMilk, amount: 0.16, edge: -0.2 },
-    translucency: { color: 0xfff6ea, scale: 0.3, power: 2.5, distortion: 0.3, ambient: 0.07, body: 0.24 },
+    milk: { color: COLORS.petalMilk, amount: 0.075, edge: -0.2 },
+    translucency: { color: 0xfff6ea, scale: 0.3, power: 2.5, distortion: 0.3, ambient: 0.04, body: 0.16 },
     glitter,
   });
   return m;
@@ -186,7 +186,7 @@ export function champagneGlass(): THREE.MeshPhysicalMaterial {
   const m = new THREE.MeshPhysicalMaterial({
     color: 0xf7deaa,
     transmission: 1,
-    roughness: 0.18,
+    roughness: 0.08,
     ior: 1.45,
     thickness: 0.9,
     attenuationColor: new THREE.Color(0xf1ca8d),
@@ -198,7 +198,7 @@ export function champagneGlass(): THREE.MeshPhysicalMaterial {
   });
   patchPhysical(m, {
     key: "champagne",
-    milk: { color: 0xf7deaa, amount: 0.22, edge: 0.08 },
+    milk: { color: 0xf7deaa, amount: 0.16, edge: 0.08 },
     translucency: { color: 0xffdbad, scale: 0.18, power: 2, distortion: 0.4, ambient: 0.09, body: 0.7 },
   });
   return m;
@@ -256,7 +256,7 @@ export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}):
   const m = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
     transmission: 1,
-    roughness: 0.015,
+    roughness: 0.008,
     metalness: 0,
     ior,
     thickness: 0,
@@ -274,6 +274,7 @@ export function tracedCrystal(planes: THREE.Vector4[], opts: TraceOptions = {}):
     uBackDist: { value: opts.backDist ?? 0.6 },
     uSparkle: { value: opts.sparkle ?? 1 },
     uEnvGain: { value: opts.envGain ?? 1 },
+    uFacetWidth: { value: Math.max(...planes.map((p) => Math.abs(p.w)), 0.001) * 0.0015 },
   };
   m.userData.uniforms = uniforms;
   m.userData.traced = true;
@@ -297,7 +298,7 @@ export function disposeMaterial(m: THREE.Material): void {
 
 /** Champagne gold-tone metal (Florere stems, calyces, filaments). */
 export function goldMetal(): THREE.MeshPhysicalMaterial {
-  return new THREE.MeshPhysicalMaterial({ color: 0xe6cf98, metalness: 1, roughness: 0.2, envMapIntensity: 1.25, clearcoat: 0.4, clearcoatRoughness: 0.08 });
+  return new THREE.MeshPhysicalMaterial({ color: 0xe6cf98, metalness: 1, roughness: 0.12, envMapIntensity: 1.25, clearcoat: 0.4, clearcoatRoughness: 0.04 });
 }
 
 /** Green lacquered metal (Lily of the Valley stems and leaves): opaque glossy paint. */

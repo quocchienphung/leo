@@ -1,6 +1,7 @@
 // Playground backdrop: sky, volumetric cumulus, a sea of clouds and atmospheric mountain ranges,
 // raymarched in the stage frame (x right, y up, z towards the camera) with lengths in km.
 // Rendered progressively into an HDR texture (env/crystal/backdrop.ts); outputs LINEAR radiance.
+import { backgroundWater } from "./backgroundWater";
 
 /** Shared by the bake and the visible dome: analytic sky radiance for a stage direction. */
 export const skyChunk = /* glsl */ `
@@ -47,6 +48,8 @@ uniform vec4 uMassifs[MASSIFS];
 uniform vec4 uTowers[TOWERS];
 uniform vec4 uPuffs[TOWERS * PUFFS];
 uniform float uBlend;
+uniform float uWaterData;
+uniform vec4 uFalls[2]; // x, z of lip, half width, gorge depth (km)
 // Always 0. Added to every loop bound so the Direct3D compiler (ANGLE on Windows) keeps real loops
 // instead of unrolling them, which took ≈ 15 s for this shader.
 uniform int uZero;
@@ -125,7 +128,59 @@ float terrain(vec2 p, int octaves) {
   float e = erosion(p * 0.55 + vec2(3.1, 7.7), octaves);
   // Rolling forested hills everywhere, real relief only inside the massifs.
   float hills = 0.16 + 0.11 * erosion(p * 1.3 + vec2(11.0, 2.0), max(octaves - 2, 2));
-  return 0.22 + hills + m * (0.62 + 0.38 * e);
+  float height = 0.22 + hills + m * (0.62 + 0.38 * e);
+  // A narrow ledge and eroded gorge give the water an actual drop in the same heightfield.
+  for (int i = 0; i < 2; i++) {
+    vec4 fall = uFalls[i];
+    float down = p.y - fall.y;
+    if (down < -0.04 || down > 2.6 || abs(p.x - fall.x) > 1.2) continue;
+    float channelX = fall.x + sin(max(down, 0.0) * 2.0) * 0.18 + max(down, 0.0) * 0.12;
+    float gorge = exp(-pow((p.x - channelX) / 0.36, 4.0));
+    float ledge = smoothstep(-0.035, 0.055, down) * (1.0 - smoothstep(0.65, 2.6, down));
+    height -= fall.w * gorge * ledge;
+  }
+  return height;
+}
+
+// Signed type, cross-flow position, along-flow position, coverage. Empty sky stays empty;
+// waterfalls are ray/curtain intersections clipped against the raymarched terrain.
+vec4 flowMap(vec3 ro, vec3 rd, float terrainHit, out float waterDepth) {
+  vec4 flow = vec4(0.0);
+  waterDepth = terrainHit;
+  if (terrainHit > 0.0) {
+    vec3 p = ro + rd * terrainHit;
+    for (int i = 0; i < 2; i++) {
+      vec4 fall = uFalls[i];
+      float down = p.z - fall.y;
+      if (down < -2.0 || down > 2.5) continue;
+      float center = down < 0.0 ? fall.x + sin(down * 2.8) * 0.38 + down * 0.16 : fall.x + sin(down * 2.0) * 0.18 + down * 0.12;
+      // Catchment stream above the lip, runoff below it; the airborne drop joins the two.
+      float width = fall.z * (down < 0.0 ? 0.48 : 0.9 + down * 0.38);
+      float across = (p.x - center) / width;
+      float mask = (1.0 - smoothstep(0.7, 1.15, abs(across))) * smoothstep(-2.0, -1.6, down) * (1.0 - smoothstep(1.9, 2.5, down));
+      if (down > -0.06 && down < 0.16) mask = 0.0;
+      if (mask > flow.a) flow = vec4(-1.0, across, down, mask * 0.85);
+    }
+  }
+  for (int i = 0; i < 2; i++) {
+    vec4 fall = uFalls[i];
+    if (rd.z >= -0.01) continue;
+    float t = (fall.y + 0.09 - ro.z) / rd.z;
+    if (t <= 0.0 || (terrainHit > 0.0 && t > terrainHit + 0.025)) continue;
+    vec3 p = ro + rd * t;
+    float across = (p.x - fall.x) / fall.z;
+    if (abs(across) > 4.0) continue;
+    float top = terrain(vec2(p.x, fall.y - 0.09), 7);
+    float bottom = terrain(vec2(fall.x, fall.y + 0.22), 7) + 0.015;
+    float along = (top - p.y) / max(top - bottom, 0.08);
+    across += sin(along * 5.2) * 0.12 + sin(along * 15.0) * 0.04;
+    float edge = 0.82 + along * 0.18 + sin(along * 23.0) * 0.065;
+    float core = (1.0 - smoothstep(edge * 0.75, edge * 1.15, abs(across))) * smoothstep(0.0, 0.035, along) * (1.0 - smoothstep(0.94, 1.05, along));
+    float mist = exp(-pow(across / 2.2, 2.0) - pow((along - 0.94) / 0.16, 2.0)) * 0.3;
+    float mask = max(core, mist);
+    if (mask > flow.a) { flow = vec4(1.0, across, along, mask); waterDepth = t; }
+  }
+  return flow;
 }
 
 vec3 terrainNormal(vec3 p, float t) {
@@ -183,6 +238,12 @@ vec3 shadeTerrain(vec3 ro, vec3 rd, float t) {
   // Bare rock on the steep high crests.
   float rock = smoothstep(2.2, 3.0, p.y + 0.4 * fine) * (1.0 - smoothstep(0.55, 0.85, slope));
   albedo = mix(albedo, uRock * (0.8 + 0.4 * fine), rock);
+  for (int i = 0; i < 2; i++) {
+    vec4 fall = uFalls[i];
+    float down = p.z - fall.y;
+    float bank = exp(-pow((p.x - fall.x) / 0.4, 4.0)) * smoothstep(-0.15, 0.03, down) * (1.0 - smoothstep(0.9, 1.8, down));
+    albedo = mix(albedo, uRock * vec3(0.62, 0.72, 0.76) * (0.8 + fine * 0.4), bank * 0.8);
+  }
   float dif = clamp(dot(n, uSunDir), 0.0, 1.0);
   float sky = 0.55 + 0.45 * n.y;
   float back = clamp(dot(n, normalize(vec3(-uSunDir.x, 0.0, -uSunDir.z))), 0.0, 1.0);
@@ -225,6 +286,13 @@ float seaOfClouds(vec3 p, float detail) {
   float az = atan(p.x, -p.z);
   float side = max(smoothstep(0.06, 0.16, az), 1.0 - smoothstep(-0.46, -0.36, az));
   float band = smoothstep(5.5, 8.0, dist) * (1.0 - smoothstep(18.0, 30.0, dist)) * side;
+  if (band <= 0.0) return 0.0;
+  // Valley breeze keeps a narrow, irregular opening through the sea of clouds near each fall.
+  for (int i = 0; i < 2; i++) {
+    float fallAz = atan(uFalls[i].x, -uFalls[i].y);
+    float opening = exp(-pow((az - fallAz) / 0.045, 2.0) - pow((dist - 9.0) / 5.0, 2.0));
+    band *= 1.0 - opening * 0.97;
+  }
   if (band <= 0.0) return 0.0;
   float cov = 0.5 + 0.5 * erosion(p.xz * 0.28 + vec2(5.0, 1.0), 3);
   float top = 0.95 + 0.55 * cov;
@@ -301,6 +369,16 @@ void main() {
   float jitter = hash12(gl_FragCoord.xy * 1.37 + vec2(fract(uTime * 0.731) * 517.0, fract(uTime * 0.379) * 291.0));
   float tmax = 60.0;
   float tHit = marchTerrain(ro, rd, tmax);
+  if (uWaterData > 0.5) {
+    float waterDepth;
+    vec4 flow = flowMap(ro, rd, tHit, waterDepth);
+    if (flow.a > 0.003) {
+      vec4 clouds = marchClouds(ro, rd, waterDepth, 0.5);
+      flow.a *= clouds.a * exp(-waterDepth * 0.025);
+    }
+    gl_FragColor = flow;
+    return;
+  }
   vec3 bg = tHit > 0.0 ? shadeTerrain(ro, rd, tHit) : skyRadiance(rd);
   vec4 cl = marchClouds(ro, rd, tHit > 0.0 ? tHit : tmax, jitter);
   vec3 col = cl.rgb + bg * cl.a;
@@ -320,6 +398,7 @@ void main() {
 
 export const domeFragment = /* glsl */ `
 ${skyChunk}
+${backgroundWater}
 uniform sampler2D tBake;
 uniform float uBakeReady;
 uniform vec3 uCamRight;
@@ -336,7 +415,8 @@ void main() {
   if (uBakeReady > 0.5 && f > 0.0) {
     vec2 ndc = vec2(dot(rd, uCamRight), dot(rd, uCamUp)) / f / uTanHalf;
     if (abs(ndc.x) <= 1.0 && abs(ndc.y) <= 1.0) {
-      vec3 baked = texture2D(tBake, ndc * 0.5 + 0.5).rgb;
+      vec2 uv = ndc * 0.5 + 0.5;
+      vec3 baked = flowingBackground(texture2D(tBake, uv).rgb, uv);
       float edge = 1.0 - smoothstep(0.97, 1.0, max(abs(ndc.x), abs(ndc.y)));
       col = mix(col, baked, edge);
     }

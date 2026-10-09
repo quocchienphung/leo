@@ -50,6 +50,7 @@ export function facePlanes(geometry: THREE.BufferGeometry): THREE.Vector4[] {
 export function cutSolid(points: THREE.Vector3[]): CutSolid {
   const geometry = new ConvexGeometry(points);
   const planes = facePlanes(geometry);
+  facetEdges(geometry);
   if (process.env.NODE_ENV !== "production") {
     // Every vertex must lie inside every plane: the tracer relies on it.
     const pos = geometry.getAttribute("position");
@@ -63,6 +64,39 @@ export function cutSolid(points: THREE.Vector3[]): CutSolid {
     }
   }
   return { geometry, planes };
+}
+
+/** Distance to real facet borders, excluding coplanar triangulation diagonals. */
+function facetEdges(geometry: THREE.BufferGeometry): void {
+  const pos = geometry.getAttribute("position");
+  const normal = geometry.getAttribute("normal");
+  const edges = new Map<string, { face: number; opposite: number; normal: THREE.Vector3 }[]>();
+  const key = (p: THREE.Vector3) => `${Math.round(p.x * 1e6)},${Math.round(p.y * 1e6)},${Math.round(p.z * 1e6)}`;
+  const data = new Float32Array(pos.count * 3);
+  const altitudes: number[][] = [];
+  for (let i = 0; i < pos.count; i += 3) {
+    const vertices = [0, 1, 2].map((j) => new THREE.Vector3().fromBufferAttribute(pos, i + j));
+    const area2 = new THREE.Vector3().subVectors(vertices[1], vertices[0]).cross(new THREE.Vector3().subVectors(vertices[2], vertices[0])).length();
+    const n = new THREE.Vector3().fromBufferAttribute(normal, i);
+    altitudes.push([0, 1, 2].map((j) => area2 / Math.max(vertices[(j + 1) % 3].distanceTo(vertices[(j + 2) % 3]), 1e-8)));
+    for (let j = 0; j < 3; j++) {
+      const edge = [key(vertices[(j + 1) % 3]), key(vertices[(j + 2) % 3])].sort().join("|");
+      const adjacent = edges.get(edge) ?? [];
+      adjacent.push({ face: i / 3, opposite: j, normal: n });
+      edges.set(edge, adjacent);
+    }
+  }
+  let borderCount = 0;
+  let diagonalCount = 0;
+  for (const adjacent of edges.values()) {
+    const border = adjacent.length === 1 || adjacent.some((a) => a.normal.dot(adjacent[0].normal) < 0.99995);
+    if (border) borderCount++; else diagonalCount++;
+    for (const { face, opposite } of adjacent) {
+      for (let j = 0; j < 3; j++) data[(face * 3 + j) * 3 + opposite] = border ? (j === opposite ? altitudes[face][opposite] : 0) : 1e3;
+    }
+  }
+  geometry.setAttribute("cutEdgeDistance", new THREE.Float32BufferAttribute(data, 3));
+  geometry.userData.facetEdges = { borders: borderCount, hiddenDiagonals: diagonalCount };
 }
 
 export interface Ring {
@@ -126,6 +160,9 @@ export function cutLeaf(length: number, width: number, thickness: number, opts: 
  * `back` (−z). `cup` lifts the outline edges forward (cupped petal; the back fills in convex).
  */
 export function petalChip(outline: THREE.Vector2[], front: number, back: number, cup = 0): CutSolid {
+  // Deeper crown/pavilion makes neighbouring facet normals differ visibly in pale crystal.
+  front *= 1.22;
+  back *= 1.12;
   const c = new THREE.Vector2();
   for (const p of outline) c.add(p);
   c.divideScalar(outline.length);
@@ -139,8 +176,8 @@ export function petalChip(outline: THREE.Vector2[], front: number, back: number,
       // A narrow bevel and a raised crown remain above the cupped girdle on the convex hull.
       const bevel = c.clone().lerp(p, 0.9);
       pts.push(v3(bevel.x, bevel.y, lift(bevel) + cup * 0.2 + front * 0.42), v3(bevel.x, bevel.y, lift(bevel) - back * 0.42));
-      const q = c.clone().lerp(p, 0.58);
-      pts.push(v3(q.x, q.y, cup + front * 0.82), v3(q.x, q.y, lift(q) - back * 0.8));
+      const q = c.clone().lerp(p, 0.62);
+      pts.push(v3(q.x, q.y, cup + front * 0.76), v3(q.x, q.y, lift(q) - back * 0.8));
     }
   });
   const rx = (Math.max(...outline.map((p) => p.x)) - Math.min(...outline.map((p) => p.x))) * 0.13;

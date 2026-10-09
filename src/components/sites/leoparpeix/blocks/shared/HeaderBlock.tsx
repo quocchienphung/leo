@@ -24,6 +24,8 @@ interface HeaderBlockProps {
   mobileScrollRangeScale?: number;
   /** Copy set higher above the fold (playground: clear of the pool in front of the daisy). */
   raised?: boolean;
+  /** Reserve a second viewport for the floor reveal on handheld layouts too. */
+  foregroundReveal?: boolean;
 }
 
 // Source defaults (line ~45254).
@@ -38,7 +40,7 @@ const TEXT_STAGGER = 0.25;
  * Source `HeaderBlock` (line ~45254): a 200dvh transparent block over the 3D scene. Scroll
  * drives the camera dolly (`setScrollHeaderPositions`) and pushes/fades the intro copy.
  */
-export function HeaderBlock({ cameraParams, description, scrollIndication, mobileScrollRangeScale = 1, raised = false }: HeaderBlockProps) {
+export function HeaderBlock({ cameraParams, description, scrollIndication, mobileScrollRangeScale = 1, raised = false, foregroundReveal = false }: HeaderBlockProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const descRef = useRef<TextHandle>(null);
@@ -98,6 +100,7 @@ export function HeaderBlock({ cameraParams, description, scrollIndication, mobil
     const onRender = () => {
       const k = isTabletWidth() ? mobileScrollRangeScale : 1;
       webgl.camera.setScrollHeaderPositions(leo.scroll, rect.height, {
+        scrollProgressMax: cameraParams.scrollProgressMax,
         scrollRangePosition: scaleVec(cameraParams.scrollRangePosition, k),
         scrollRangeRotation: scaleVec(cameraParams.scrollRangeRotation, k),
         scrollOffsetPosition: cameraParams.scrollOffsetPosition,
@@ -136,7 +139,7 @@ export function HeaderBlock({ cameraParams, description, scrollIndication, mobil
   }, [cameraParams, mobileScrollRangeScale]);
 
   return (
-    <GridWrapper ref={rootRef} className={cx("headerBlock", raised && "headerBlock--raised")}>
+    <GridWrapper ref={rootRef} className={cx("headerBlock", raised && "headerBlock--raised", foregroundReveal && "headerBlock--foregroundReveal")}>
       <div ref={contentRef} className={cx("headerBlock__content")}>
         <TextComponent ref={descRef} className={cx("content__description")} content={description} revealOnScroll={false} isFromToReveal />
         <TextComponent

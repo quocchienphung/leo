@@ -71,6 +71,15 @@
     margin-left: 1.4285714286rem;
     bottom: 0;
   }
+
+  /* Give the pavilion's floor reveal its own screen before the bee hero enters. */
+  .headerBlock--foregroundReveal {
+    height: 200dvh;
+  }
+
+  .headerBlock--foregroundReveal .headerBlock__content {
+    bottom: 100dvh;
+  }
 }
 
 /* Playground: description top at ≈ 73 % of the height, "Scroll down" at ≈ 88 % (reference). */

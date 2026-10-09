@@ -9,7 +9,8 @@ const phase = process.argv[2] ?? 'after';
 if (!/^[a-z0-9-]+$/.test(phase)) throw new Error('Invalid phase');
 const quick = process.argv.includes('--quick');
 const flourish = phase.startsWith('flourish');
-const out = `docs/research/leoparpeix/implementation/playground-crystal/${flourish ? 'flourish-2026-10-08' : 'palace-2026-10-08'}/${phase}`;
+const sharpness = phase.startsWith('sharpness');
+const out = `docs/research/leoparpeix/implementation/playground-crystal/${sharpness ? 'sharpness-2026-10-08' : flourish ? 'flourish-2026-10-08' : 'palace-2026-10-08'}/${phase}`;
 await mkdir(out, { recursive: true });
 const root = join(process.env.LOCALAPPDATA, 'ms-playwright');
 const executablePath = readdirSync(root).filter((x) => /^chromium-\d+$/.test(x)).sort().reverse().map((x) => join(root, x, 'chrome-win64', 'chrome.exe')).find(existsSync);
@@ -79,8 +80,11 @@ try {
       assert(Math.abs(report.probes.find((p) => p.name === 'hero').cocApprox) < 0.3, 'Hero must remain in focus');
       assert(report.probes.find((p) => p.name === 'sky').cocApprox > 1, 'Far background must have a positive CoC');
       if (flourish) assert(report.probes.find((p) => p.name === 'sky').cocApprox < 3.5, 'Far background blur must stay restrained');
-      assert(report.probes.find((p) => p.name === 'nearFloor').cocApprox < -0.3, 'Near floor must have a negative CoC');
-      assert(Math.min(...report.probes.map((p) => p.cocApprox)) < -2, 'Near crystal must show stronger optical blur');
+      // The wider sharp band keeps the near floor in focus; the closest quartz still has
+      // a restrained negative CoC while the rear columns retain optical depth separation.
+      assert(report.probes.find((p) => p.name === 'nearFloor').cocApprox <= 0.1, 'Near floor must not be behind focus');
+      const nearCoc = report.probes.find((p) => p.name === 'nearQuartz').cocApprox;
+      assert(nearCoc < -0.5 && nearCoc > -2, 'Near crystal blur must stay subtle');
       await page.evaluate(() => {
         const e = window.__crystal;
         window.__palaceRestore = [e.flower.update, e.garden.update, e.backdrop.update, e.floor.update];

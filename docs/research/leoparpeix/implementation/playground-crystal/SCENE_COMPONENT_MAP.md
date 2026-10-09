@@ -22,7 +22,7 @@ Composition and light follow the Crystal Flower Pavilion board (2026-10-07); the
 | File | Contents | Reference element |
 |---|---|---|
 | `layout.ts` | camera rig, sun direction (behind the pavilion, top right), every placement (daisy, pool, garden spots and their back-layer repeats, spheres, quartz clusters), solved through the rig's projection | composition |
-| `backdrop.ts` | `Backdrop`: sky dome sampling an HDR bake of the camera frustum (+10 %); massifs and cumulus towers placed by azimuth/distance; progressive strip refresh | sky, clouds, mountains |
+| `backdrop.ts` | `Backdrop`: sky dome sampling an HDR bake of the camera frustum (+10 %); massifs, cumulus towers, terrain-clipped waterfall/stream flow map; progressive strip refresh, per-frame water animation | sky, clouds, mountains, waterfalls |
 | `materials.ts` | material families: frosted petal, champagne, glass rod, **traced cut crystal** (clear or tinted), coloured crystal, gold-tone metal, green lacquer, clear glass, limestone, marble; scene environment capture | materials |
 | `cut.ts` | designed convex cuts (ring gems, marquise leaves, petal chips, briolettes, beads, bell bodies, natural rock bases, faceted rock for the daisy base, quartz points) and their face planes for the tracer | crystal geometry |
 | `florere/kit.ts` | `Figurine` builder: merged metal wires, instanced crystal parts, frames, base wrap wire | Florere |
@@ -36,7 +36,8 @@ Composition and light follow the Crystal Flower Pavilion board (2026-10-07); the
 | `post.ts` | `CrystalPost`: HDR target → half-res bright pass (glints and the sun only) → three-level bloom → corner sun glare at the projected sun → ACES → contrast-adaptive sharpen → grade → sRGB. No drawn light beams or star streaks | post-processing |
 | `crystalEnvironment.ts` | `PlaygroundEnvironment`: assembly, lights, shadows, environment capture, adaptive resolution, precompile, `?debug=` modes | scene root |
 
-Shaders: `webgl/shaders/backdrop.ts` (sky, terrain, clouds), `webgl/shaders/crystal.ts` (petal/orb
+Shaders: `webgl/shaders/backdrop.ts` (sky, terrain, clouds, waterfall ledges and flow map),
+`webgl/shaders/backgroundWater.ts` (falling water, stream ripples and impact mist), `webgl/shaders/crystal.ts` (petal/orb
 patches, floor, pool, post) and `webgl/shaders/crystalTrace.ts` (the convex-solid tracer:
 entry refraction → internal bounces against the solid's planes with Fresnel/TIR → per-channel exit
 refraction into the refraction buffer or the environment; planes read from a float texture;
@@ -47,12 +48,13 @@ absorption per object-space unit; instancing-aware).
 | Where | What |
 |---|---|
 | `webgl/cameras.ts` | `modelCameraNode("playground")` returns the solved rig from `layout.ts` |
+| `data/headerCamera.ts`, `data/playground.ts` | shared Work translation preset: local Y=-2.4p, Z=-4p, fixed horizontal viewing direction; Playground stops above its flat floor at p=0.92; measured Work rig/lens in `layout.ts`; current evidence in `scroll-2026-10-09/translation/` |
 | `webgl/eyes/faceDriver.ts` | bloub eye montage, expressions and pointer follow, shared by the home/about `FlowerFace` and the playground `OrbFace` |
 | `webgl/manager.ts` | `ensurePlayground()` builds and precompiles the pavilion before it joins the scene; render through `CrystalPost`; lighter grain on this route; `checkShaderErrors` off in production |
 | `shell/LeoShell.tsx` | intro timeline, sibling prefetch (the pavilion is precompiled in idle time from other routes) |
 | `shell/CursorIndication.tsx` | no "Click — to enable sound" pill on `/playground` |
-| `views/PlaygroundView.tsx` | `HeaderBlock raised` (3D header) → hero (bee) → media rows → footer |
-| `blocks/shared/HeaderBlock.tsx` | `raised`: the copy sits at the reference height |
+| `views/PlaygroundView.tsx` | `HeaderBlock raised foregroundReveal` (3D header) → hero (bee) → media rows → footer |
+| `blocks/shared/HeaderBlock.tsx` | `raised`: copy at the reference height; `foregroundReveal`: second mobile viewport for the floor camera reveal |
 
 ## Development switches
 

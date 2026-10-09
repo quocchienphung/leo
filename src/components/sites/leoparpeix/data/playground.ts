@@ -3,34 +3,18 @@
 // bundle so layout and animation stay 1:1.
 
 import type { PlaygroundContent, BeeTexts } from "./types";
+import { WORK_HEADER_CAMERA_PARAMS } from "./headerCamera";
 
 export const playgroundContent: PlaygroundContent = {
   // 3D header: the crystal daisy pavilion (reference copy, docs/design-references/playground-crystal-reference.png).
   "header": {
     "description": "Clean code. Scalable systems. Smarter models.",
     "scrollIndication": "Scroll down",
-    // Glide towards the daisy and down to the pool.
+    // Same translation and fixed viewing direction as Work. Stop the last, mostly
+    // covered portion of the path above the pavilion floor (Work has a lower front level).
     "cameraParams": {
-      "scrollRangePosition": {
-        "x": 0,
-        "y": 0.6,
-        "z": 3.5
-      },
-      "scrollRangeRotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "scrollOffsetPosition": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "scrollOffsetRotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      }
+      ...WORK_HEADER_CAMERA_PARAMS,
+      "scrollProgressMax": 0.92
     }
   },
   "hero": {

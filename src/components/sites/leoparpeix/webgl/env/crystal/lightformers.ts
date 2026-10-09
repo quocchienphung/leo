@@ -66,7 +66,7 @@ export function disposeLightformers(group: THREE.Group): void {
 
 /**
  * Jewel environment for the cut crystal only (leaves, base, cube): the way jewellery is shot, a
- * dark warm surround with a pale sky above, a few bright softboxes, a gold bounce from the sunlit
+ * shaded slate surround with a pale sky above, a few bright softboxes, a gold bounce from the sunlit
  * floor and the sun itself. The pavilion is almost uniformly cream, so crystal reflecting it reads
  * as white plaster; against this surround its facets alternate dark and brilliant. Stage frame.
  */
@@ -80,7 +80,7 @@ export function createJewelEnvironment(renderer: THREE.WebGLRenderer, sunDirecti
     new THREE.SphereGeometry(40, 48, 24),
     new THREE.ShaderMaterial({
       side: THREE.BackSide,
-      uniforms: { uSky: { value: new THREE.Color(0.62, 0.74, 0.95) }, uHorizon: { value: new THREE.Color(0.2, 0.18, 0.16) }, uGround: { value: new THREE.Color(0.05, 0.045, 0.04) } },
+      uniforms: { uSky: { value: new THREE.Color(0.62, 0.74, 0.95) }, uHorizon: { value: new THREE.Color(0.34, 0.32, 0.29) }, uGround: { value: new THREE.Color(0.16, 0.17, 0.2) } },
       vertexShader: /* glsl */ `varying vec3 vDir; void main() { vDir = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
       fragmentShader: /* glsl */ `
         uniform vec3 uSky; uniform vec3 uHorizon; uniform vec3 uGround; varying vec3 vDir;
