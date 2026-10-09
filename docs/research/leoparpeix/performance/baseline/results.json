@@ -1,0 +1,88 @@
+{
+  "phase": "baseline",
+  "baseUrl": "http://localhost:3100",
+  "durationMs": 30000,
+  "samples": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "label": "playground-header",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "dpr": 1,
+      "maxFragmentUniformVectors": 1024,
+      "fps": 43.61080108610551,
+      "durationMs": 30002.999999991058,
+      "frames": 1309,
+      "medianMs": 16.700000000000728,
+      "p95Ms": 33.400000000001455,
+      "p99Ms": 33.400000000001455,
+      "over25ms": 486,
+      "over50ms": 2,
+      "maxMs": 116.70000000000073,
+      "videosPlaying": 0
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "label": "playground-content",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "dpr": 1,
+      "maxFragmentUniformVectors": 1024,
+      "fps": 60.00220008066964,
+      "durationMs": 30002.299999991053,
+      "frames": 1800,
+      "medianMs": 16.69999999999709,
+      "p95Ms": 16.70000000001164,
+      "p99Ms": 16.80000000000291,
+      "over25ms": 0,
+      "over50ms": 0,
+      "maxMs": 16.80000000000291,
+      "videosPlaying": 2
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "label": "work-header",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "dpr": 1,
+      "maxFragmentUniformVectors": 1024,
+      "fps": 60.00260011267156,
+      "durationMs": 30004.800000000003,
+      "frames": 1800,
+      "medianMs": 16.69999999999709,
+      "p95Ms": 16.79999999998836,
+      "p99Ms": 16.80000000000291,
+      "over25ms": 0,
+      "over50ms": 0,
+      "maxMs": 16.80000000000291,
+      "videosPlaying": 0
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "label": "playground-header",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "dpr": 2,
+      "maxFragmentUniformVectors": 1024,
+      "fps": 31.566224140170018,
+      "durationMs": 30014.999999997017,
+      "frames": 948,
+      "medianMs": 33.29999999999927,
+      "p95Ms": 49.899999999999636,
+      "p99Ms": 50,
+      "over25ms": 803,
+      "over50ms": 5,
+      "maxMs": 50.10000000000582,
+      "videosPlaying": 0
+    }
+  ],
+  "errors": []
+}

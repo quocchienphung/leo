@@ -1,0 +1,302 @@
+{
+  "method": {
+    "url": "http://localhost:3000",
+    "browser": "Chrome headless via Playwright",
+    "viewport": [
+      1440,
+      900
+    ],
+    "deviceScaleFactor": 1,
+    "sampleDurationMs": 4000,
+    "scroll": "requestAnimationFrame native scroll oscillation between y=20 and y=340",
+    "content": "stationary sample at y=4500",
+    "note": "Existing local server; no production build benchmark. CPU render time is JS submission time, not GPU time. Draw/triangle counts sum renderer.info per render invocation and are diagnostic approximations. Material substitution changes appearance and is not a proposed final design."
+  },
+  "initial": {
+    "samples": [
+      {
+        "name": "playground-header",
+        "fps": 34.47591646413581,
+        "medianMs": 33.29999999999927,
+        "p95Ms": 33.400000000001455,
+        "framesOver33ms": 11,
+        "frames": 139,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 42.02877697841727,
+        "submittedDrawCallsPerFrame": 273.72661870503595,
+        "submittedTrianglesPerFrame": 1648104.3021582733,
+        "renderCpuPerFrameMs": 2.4323741006765434,
+        "scale": 1,
+        "frameEma": 29.83426865232278,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-header-scroll",
+        "fps": 33.86201229990312,
+        "medianMs": 33.29999999999927,
+        "p95Ms": 33.400000000001455,
+        "framesOver33ms": 16,
+        "frames": 136,
+        "longTasks": 1,
+        "renderInvocationsPerFrame": 42.01470588235294,
+        "submittedDrawCallsPerFrame": 272.1985294117647,
+        "submittedTrianglesPerFrame": 1658445.5882352942,
+        "renderCpuPerFrameMs": 3.1617647066493246,
+        "scale": 1,
+        "frameEma": 28.62945609379873,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-without-mirror",
+        "fps": 39.32625955337103,
+        "medianMs": 33.20000000000073,
+        "p95Ms": 33.400000000001455,
+        "framesOver33ms": 18,
+        "frames": 159,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 39.44025157232704,
+        "submittedDrawCallsPerFrame": 226.11320754716982,
+        "submittedTrianglesPerFrame": 1265770.8301886793,
+        "renderCpuPerFrameMs": 2.2100628922757863,
+        "scale": 1,
+        "frameEma": 26.177975353975683,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-without-mirror-and-dof",
+        "fps": 40.37785698253757,
+        "medianMs": 16.80000000000291,
+        "p95Ms": 33.400000000001455,
+        "framesOver33ms": 15,
+        "frames": 162,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 37.06172839506173,
+        "submittedDrawCallsPerFrame": 223.82716049382717,
+        "submittedTrianglesPerFrame": 1265772.1975308643,
+        "renderCpuPerFrameMs": 2.0135802481277487,
+        "scale": 1,
+        "frameEma": 25.008577488560384,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-without-mirror-dof-bloom",
+        "fps": 40.28547981998857,
+        "medianMs": 16.80000000000291,
+        "p95Ms": 33.400000000001455,
+        "framesOver33ms": 13,
+        "frames": 162,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 23.030864197530864,
+        "submittedDrawCallsPerFrame": 209.8827160493827,
+        "submittedTrianglesPerFrame": 1265757.8395061728,
+        "renderCpuPerFrameMs": 2.2456790121433174,
+        "scale": 1,
+        "frameEma": 24.740055273503785,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-content",
+        "fps": 60.06230529595015,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.799999999995634,
+        "framesOver33ms": 0,
+        "frames": 241,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 16,
+        "submittedDrawCallsPerFrame": 14,
+        "submittedTrianglesPerFrame": 28,
+        "renderCpuPerFrameMs": 0.38796680485559204,
+        "scale": 1,
+        "frameEma": 24.740055273503785,
+        "crystalVisible": false,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 3
+      },
+      {
+        "name": "work-header",
+        "fps": 60.090759487447805,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.799999999995634,
+        "framesOver33ms": 0,
+        "frames": 241,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 16,
+        "submittedDrawCallsPerFrame": 28,
+        "submittedTrianglesPerFrame": 22932,
+        "renderCpuPerFrameMs": 0.6149377588538213,
+        "scale": 1,
+        "frameEma": 24.740055273503785,
+        "crystalVisible": false,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "work-header-scroll",
+        "fps": 60.0518289645958,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.799999999995634,
+        "framesOver33ms": 0,
+        "frames": 241,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 16,
+        "submittedDrawCallsPerFrame": 28.195020746887966,
+        "submittedTrianglesPerFrame": 22932.390041493774,
+        "renderCpuPerFrameMs": 0.5203319513451509,
+        "scale": 1,
+        "frameEma": 24.740055273503785,
+        "crystalVisible": false,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      }
+    ],
+    "errors": [],
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)"
+  },
+  "materialFollowup": {
+    "samples": [
+      {
+        "name": "playground-header-repeat",
+        "fps": 33.3881496984604,
+        "medianMs": 33.29999999999927,
+        "p95Ms": 33.400000000001455,
+        "framesOver33ms": 13,
+        "frames": 134,
+        "longTasks": 1,
+        "renderInvocationsPerFrame": 42.12686567164179,
+        "submittedDrawCallsPerFrame": 272.2313432835821,
+        "submittedTrianglesPerFrame": 1658606.8507462686,
+        "renderCpuPerFrameMs": 2.988805969704443,
+        "scale": 1,
+        "frameEma": 29.508479895687586,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-unpatched-materials",
+        "fps": 51.35748298479373,
+        "medianMs": 16.700000000000728,
+        "p95Ms": 33.39999999999782,
+        "framesOver33ms": 6,
+        "frames": 206,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 36.3252427184466,
+        "submittedDrawCallsPerFrame": 266.378640776699,
+        "submittedTrianglesPerFrame": 1658743.1650485436,
+        "renderCpuPerFrameMs": 1.6742718438934354,
+        "scale": 1,
+        "frameEma": 19.15082422424894,
+        "crystalVisible": true,
+        "hdr": [
+          1440,
+          900
+        ],
+        "mirror": [
+          1440,
+          900
+        ],
+        "videosPlaying": 0
+      },
+      {
+        "name": "playground-unpatched-scale065",
+        "fps": 60.152252589541995,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.700000000000728,
+        "framesOver33ms": 0,
+        "frames": 241,
+        "longTasks": 0,
+        "renderInvocationsPerFrame": 34.62240663900415,
+        "submittedDrawCallsPerFrame": 264.32365145228215,
+        "submittedTrianglesPerFrame": 1657199.244813278,
+        "renderCpuPerFrameMs": 1.8365145236006417,
+        "scale": 0.65,
+        "frameEma": 19.15082422424894,
+        "crystalVisible": true,
+        "hdr": [
+          936,
+          585
+        ],
+        "mirror": [
+          936,
+          585
+        ],
+        "videosPlaying": 0
+      }
+    ],
+    "errors": [],
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)"
+  }
+}
