@@ -89,5 +89,11 @@ Read this first when resuming. Update at every milestone.
   The previous downward-pitch attempt was superseded. Evidence and checks:
   `playground-crystal/scroll-2026-10-09/README.md`.
 
+- Playground subject proportions matched to Work/About (2026-10-09): crown width 2.880 →
+  2.334, twelve equal 0.8×0.43 petals, core diameter 0.980 → 0.8854, original staggered leaf
+  pose and taller base; Work/Playground share mobile zoom 0.67. Measured crown screen widths
+  differ by <0.2% at desktop, wide and touch mobile. Browser navigation, proportional bounds
+  and `npm run check` pass. Evidence: `playground-crystal/proportions-2026-10-09/README.md`.
+
 ## Next (optional polish)
 - See `differences.md` (#1 shadow softness, #2 back/forward cover animation, Safari checks).

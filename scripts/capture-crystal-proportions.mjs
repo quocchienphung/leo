@@ -13,8 +13,9 @@ const executablePath = readdirSync(cache).filter((x) => /^chromium-\d+$/.test(x)
 const browser = await chromium.launch({ executablePath, args: ['--enable-gpu', '--ignore-gpu-blocklist', '--use-angle=d3d11'] });
 const report = { shots: [], errors: [] };
 try {
-  for (const [name, width, height] of [['desktop', 1672, 941], ...(phase === 'after' ? [['mobile', 390, 844]] : [])]) {
-    const page = await browser.newPage({ viewport: { width, height } });
+  for (const [name, width, height] of [['desktop', 1672, 941], ...(phase === 'after' ? [['wide', 2559, 1276], ['mobile', 390, 844]] : [])]) {
+    const mobile = name === 'mobile';
+    const page = await browser.newPage({ viewport: { width, height }, isMobile: mobile, hasTouch: mobile });
     page.on('pageerror', (e) => report.errors.push(e.message));
     page.on('console', (m) => { if (m.type() === 'error') report.errors.push(m.text()); });
     await page.goto('http://localhost:3000/playground?skipLoader&debug=probe');
@@ -25,7 +26,13 @@ try {
     await page.waitForTimeout(5000);
     for (const route of ['playground', 'home', 'about']) {
       if (route !== 'playground') {
-        await page.getByRole('link', { name: route === 'home' ? 'Work' : 'About', exact: true }).click();
+        const destination = route === 'home' ? 'Work' : 'About';
+        if (mobile) {
+          await page.getByRole('button', { name: 'Menu', exact: true }).click();
+          await page.getByRole('button', { name: destination, exact: true }).click();
+        } else {
+          await page.getByRole('link', { name: destination, exact: true }).click();
+        }
         await page.waitForURL((url) => url.pathname === (route === 'home' ? '/' : '/about'));
         await page.mouse.move(width / 2, height / 2);
         await page.waitForTimeout(4500);
@@ -81,6 +88,33 @@ try {
       await page.screenshot({ path: `${out}/${name}-${route}.png` });
     }
     await page.close();
+  }
+  const envelope = (parts, minKey, maxKey) => {
+    const min = parts[0][minKey].map((_, i) => Math.min(...parts.map((p) => p[minKey][i])));
+    const max = parts[0][maxKey].map((_, i) => Math.max(...parts.map((p) => p[maxKey][i])));
+    return max.map((v, i) => v - min[i]);
+  };
+  report.measurements = report.shots.map((s) => {
+    // Work has separate front/back petal shells; About uses the same front sculpt.
+    const petals = s.parts.filter((p) => s.route === 'playground' ? p.name.startsWith('petal-') : p.vertices === 156 || p.vertices === 106);
+    const orb = s.parts.find((p) => s.route === 'playground' ? p.name === 'SphereGeometry' : p.vertices === 161);
+    return { viewport: s.name, route: s.route, petals: petals.length, crownWorld: envelope(petals, 'min', 'max'), crownPixels: envelope(petals, 'screenMin', 'screenMax'), coreDiameter: orb.size[1], corePixels: orb.screenSize, height: s.flower.size[1] };
+  });
+  if (phase === 'after') {
+    for (const name of ['desktop', 'wide', 'mobile']) {
+      const pg = report.measurements.find((m) => m.viewport === name && m.route === 'playground');
+      const work = report.measurements.find((m) => m.viewport === name && m.route === 'home');
+      const about = report.measurements.find((m) => m.viewport === name && m.route === 'about');
+      const close = (actual, target, label, tolerance = .025) => assert(Math.abs(actual / target - 1) < tolerance, `${name} ${label}: ${actual} vs ${target}`);
+      assert.equal(pg.petals, 12);
+      close(pg.crownWorld[2], work.crownWorld[2], 'crown width');
+      close(pg.crownWorld[1], work.crownWorld[1], 'crown height');
+      close(pg.coreDiameter, work.coreDiameter, 'core diameter');
+      close(pg.height, work.height, 'whole plant height');
+      close(pg.crownPixels[0], work.crownPixels[0], 'screen crown width');
+      close(pg.crownPixels[1], work.crownPixels[1], 'screen crown height');
+      close(pg.coreDiameter / pg.crownWorld[2], about.coreDiameter / about.crownWorld[2], 'About core/crown proportion');
+    }
   }
   assert.equal(report.errors.length, 0);
 } finally {

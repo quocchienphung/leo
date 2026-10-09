@@ -110,9 +110,8 @@ export class MainCamera extends THREE.PerspectiveCamera {
   }
 
   setZoom(route: RouteName): void {
-    if (route === "home") this.zoom = isTabletWidth() ? 0.67 : 1;
-    // Playground: below 1025px the head must still fit portrait screens.
-    else if (route === "playground") this.zoom = isTabletWidth() ? 0.62 : 1;
+    // Work and Playground share the same subject framing, including portrait screens.
+    if (route === "home" || route === "playground") this.zoom = isTabletWidth() ? 0.67 : 1;
     else if (route === "about") this.zoom = isTabletWidth() ? 0.89 : 1;
     this.updateProjectionMatrix();
   }

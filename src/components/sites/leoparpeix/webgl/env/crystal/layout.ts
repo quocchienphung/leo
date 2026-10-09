@@ -58,33 +58,33 @@ const deg = THREE.MathUtils.degToRad;
 /**
  * The daisy (stage frame): based on the proportions and pose of the home/about daisy, measured on its mesh
  * (`TexFleur` in scene_v9.glb, decoded; the about one is the same sculpt). Home frame → stage:
- * x = −z, y = y, z = x − 2.84 (the rock's centre on the origin).
- * - pavilion adaptation: fuller 12-petal crown, dome Ø 0.98, centre y 2.74, lower petals slightly
- *   shorter, a deeper champagne dome and a wider right leaf, matching the supplied image;
+ * x = −z, y = y, z = x − STAGE_ORIGIN.x.
+ * - crown: Ø 2.334, twelve equal 0.8 × 0.43 petals, dome Ø 0.8854, centre y 2.851;
+ *   the champagne dome's front bulge is 0.2435, matching the original sculpt;
  * - stem: straight seen from the front, Ø 0.058, from the rock (y 0.45) to behind the head,
  *   bowing back a little in depth;
  * - leaves: 0.85 × 0.45 pointed ovals, ≈ 37° above horizontal, the right one lower;
- * - rock: ≈ 1.46 wide, 1.5 deep, 0.72 high.
+ * - rock: measured hull ≈ 1.46 wide, 1.58 deep, 0.84 high (desktop cut).
  */
 export const FLOWER = {
-  head: new THREE.Vector3(0, 2.74, -0.143),
+  head: new THREE.Vector3(0, 2.851, -0.053),
   stem: [
-    [0, 0.45, -0.308],
-    [0, 0.86, -0.319],
-    [0, 1.28, -0.366],
-    [0, 1.7, -0.435],
-    [0, 2.12, -0.458],
-    [0, 2.33, -0.362],
-    [0, 2.54, -0.329],
+    [0, 0.45, -0.218],
+    [0, 0.86, -0.229],
+    [0, 1.28, -0.276],
+    [0, 1.7, -0.345],
+    [0, 2.12, -0.368],
+    [0, 2.33, -0.272],
+    [0, 2.54, -0.239],
   ] as [number, number, number][],
   stemRadius: 0.029,
   leaves: [
-    { base: [0, 0.88, -0.31] as [number, number, number], length: 1.12, width: 0.5, thickness: 0.14, rotation: [0, 0, deg(-53.1)] as [number, number, number] },
-    { base: [0, 1.0, -0.33] as [number, number, number], length: 0.82, width: 0.446, thickness: 0.12, rotation: [0, 0, deg(52.3)] as [number, number, number] },
+    { base: [0, 0.88, -0.19] as [number, number, number], length: 0.85, width: 0.45, thickness: 0.1, rotation: [0, 0, deg(-53.1)] as [number, number, number] },
+    { base: [0, 1.115, -0.21] as [number, number, number], length: 0.85, width: 0.45, thickness: 0.1, rotation: [0, 0, deg(52.3)] as [number, number, number] },
   ],
-  rock: { width: 1.46, height: 0.72, depth: 1.5 },
+  rock: { width: 1.44, height: 0.83, depth: 1.485 },
   base: [0, 0, 0] as [number, number, number],
-  discRadius: 0.98,
+  discRadius: 0.82,
 } as const;
 
 /** Shallow pool round the daisy's base; the plinths of the garden stand on the marble around it. */

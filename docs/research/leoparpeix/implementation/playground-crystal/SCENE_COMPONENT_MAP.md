@@ -29,7 +29,7 @@ Composition and light follow the Crystal Flower Pavilion board (2026-10-07); the
 | `florere/species.ts` | Rose, Forget-me-not, Rozanne, Lily, Lily of the Valley, Blue Bellflower (product units, 1 tall) | Florere |
 | `florere/garden.ts` | `FlorereGarden`: plinths, placement, idle sway; product line-up for `?debug=florere` | garden |
 | `lightformers.ts` | capture-only lightformers (warm wall, two tall bright strips for petal streaks, sunlit opening, top strip, scattered warm points for crystal sparkle) and the jewel environment | reflections |
-| `flower.ts` | `CrystalFlower`: the home/about daisy's proportions and pose (measured on `TexFleur`): 12 even paddle petals, flattened champagne dome wearing the bloub eyes (`eyes/orbFace.ts`), straight thin glass stem, two traced marquise leaves, a faceted block rock, glass disc; opening intro and idle | central flower |
+| `flower.ts` | `CrystalFlower`: Work/About sculpt proportions measured on `TexFleur`: crown Ø2.334, 12 equal 0.8×0.43 paddle petals, champagne dome Ø0.8854 wearing the bloub eyes (`eyes/orbFace.ts`), thin glass stem, two 0.85×0.45 traced leaves, taller faceted rock, glass disc; opening intro and idle. Evidence: `proportions-2026-10-09/` | central flower |
 | `architecture.ts` | `Pavilion`: arched wall, parapet, steps, the glass panel on the right pier | architecture |
 | `floor.ts` | `MirrorFloor`: planar reflection shared by the marble floor and the pool | floor, water |
 | `props.ts` | glass spheres and traced quartz-point clusters. No natural plants anywhere in the scene (removed 2026-10-08) | props |
@@ -47,7 +47,7 @@ absorption per object-space unit; instancing-aware).
 
 | Where | What |
 |---|---|
-| `webgl/cameras.ts` | `modelCameraNode("playground")` returns the solved rig from `layout.ts` |
+| `webgl/cameras.ts` | `modelCameraNode("playground")` returns the solved rig from `layout.ts`; Work/Playground share desktop zoom 1 and portrait/tablet zoom 0.67 |
 | `data/headerCamera.ts`, `data/playground.ts` | shared Work translation preset: local Y=-2.4p, Z=-4p, fixed horizontal viewing direction; Playground stops above its flat floor at p=0.92; measured Work rig/lens in `layout.ts`; current evidence in `scroll-2026-10-09/translation/` |
 | `webgl/eyes/faceDriver.ts` | bloub eye montage, expressions and pointer follow, shared by the home/about `FlowerFace` and the playground `OrbFace` |
 | `webgl/manager.ts` | `ensurePlayground()` builds and precompiles the pavilion before it joins the scene; render through `CrystalPost`; lighter grain on this route; `checkShaderErrors` off in production |

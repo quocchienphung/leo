@@ -7,8 +7,8 @@ import { FLOWER, SUN_WORLD } from "./layout";
 
 /*
  * The crystal daisy, built procedurally in the stage frame (origin on the floor under it, x right,
- * y up, z towards the camera), using the home/about daisy's rig with the fuller crown and glass
- * dome of the supplied pavilion reference (see `FLOWER` in layout.ts): 12 paddle petals around a champagne dome
+ * y up, z towards the camera), using the measured home/about sculpt proportions
+ * (see `FLOWER` in layout.ts): 12 paddle petals around a champagne dome
  * that wears the same bloub eyes, a straight glass stem, two cut crystal leaves, a cut crystal
  * rock on a thin glass disc.
  */
@@ -19,9 +19,10 @@ const deg = THREE.MathUtils.degToRad;
  * Petals in the head frame: `root` = distance of the petal root from the dome centre; widths and
  * thickness are halves. The root is hidden under the dome.
  */
-const PETAL = { count: 12, root: 0.36, length: 1.08, rootHalfWidth: 0.14, halfWidth: 0.3, widest: 0.63, halfThickness: 0.14, cup: 0.08, z: -0.08 } as const;
+// TexFleur's crown is 2.334 wide; each upright petal is 0.800 long and 0.430 wide.
+const PETAL = { count: 12, root: 0.367, length: 0.8, rootHalfWidth: 0.115, halfWidth: 0.215, widest: 0.63, halfThickness: 0.14, cup: 0.08, z: -0.03 } as const;
 /** Champagne dome: radius, front bulge / radius (it is an ellipsoid centred on its rim plane). */
-const ORB = { radius: 0.49, depth: 0.82 } as const;
+const ORB = { radius: 0.4427, depth: 0.55 } as const;
 
 // ------------------------------------------------------------------------------------ geometry
 
@@ -129,7 +130,7 @@ export class CrystalFlower extends THREE.Group {
     const petalGeo = petalGeometry();
     this.materials.push(petalMat);
     this.geometries.push(petalGeo);
-    // Twelve identical petals, one every 30° from straight up; neighbours just touch at their widest.
+    // The same twelve equal-length petals as Work/About, one every 30° from straight up.
     for (let i = 0; i < PETAL.count; i++) {
       const angle = (i / PETAL.count) * Math.PI * 2;
       const pivot = new THREE.Object3D();
@@ -139,8 +140,6 @@ export class CrystalFlower extends THREE.Group {
       hinge.position.y = PETAL.root;
       pivot.add(hinge);
       const mesh = new THREE.Mesh(petalGeo, petalMat);
-      // The reference crown is taller above the face, with a little room for the stem below.
-      mesh.scale.y = 1 + Math.min(0, Math.cos(angle)) * 0.14;
       hinge.add(mesh);
       this.head.add(pivot);
       this.petals.push({ pivot, hinge, mesh, phase: random() * Math.PI * 2, delay: (i / PETAL.count) * 0.35 });
